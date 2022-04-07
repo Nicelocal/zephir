@@ -1898,7 +1898,12 @@ class ClassMethod
                     case 'callable':
                         if (isset($parametersToSeparate[$parameter['name']])) {
                             $symbolTable->mustGrownStack(true);
-                            $initCode .= "\t".'ZEPHIR_SEPARATE_PARAM('.$parameter['name'].');'.PHP_EOL;
+                            if (isset($parameter['reference'])) {
+                                $initCode .= "\t".'ZVAL_DEREF('.$parameter['name'].');'.PHP_EOL;
+                                $initCode .= "\t".'SEPARATE_ZVAL_NOREF('.$parameter['name'].');'.PHP_EOL;
+                            } else {
+                                $initCode .= "\t".'ZEPHIR_SEPARATE_PARAM('.$parameter['name'].');'.PHP_EOL;
+                            }
                         }
                         break;
                 }
@@ -1943,7 +1948,12 @@ class ClassMethod
                     $initCode .= "\t".'} else {'.PHP_EOL;
 
                     if (isset($parametersToSeparate[$name])) {
-                        $initCode .= "\t\t".'ZEPHIR_SEPARATE_PARAM('.$name.');'.PHP_EOL;
+                        if (isset($parameter['reference'])) {
+                            $initCode .= "\t\t".'ZVAL_DEREF('.$parameter['name'].');'.PHP_EOL;
+                            $initCode .= "\t\t".'SEPARATE_ZVAL_NOREF('.$parameter['name'].');'.PHP_EOL;
+                        } else {
+                            $initCode .= "\t\t".'ZEPHIR_SEPARATE_PARAM('.$name.');'.PHP_EOL;
+                        }
                     } else {
                         if ($mandatory) {
                             $initCode .= $this->checkStrictType($parameter, $compilationContext, $mandatory);

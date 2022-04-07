@@ -83,6 +83,9 @@ and this project adheres to [Semantic Versioning](https://semver.org).
 - Added support syntax assign-bitwise operators [#1103](https://github.com/zephir-lang/zephir/issues/1103)
 
 
+### Added
+- Add support for `passing variables by reference` [#203](https://github.com/zephir-lang/zephir/issues/203)
+
 ## [0.13.2] - 2021-04-10
 ### Fixed
 - Fixed default value of nullable string parameter [#2180](https://github.com/zephir-lang/zephir/issues/2180)
