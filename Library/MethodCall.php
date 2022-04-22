@@ -183,7 +183,7 @@ class MethodCall extends Call
          * Try to check if the method exist in the callee, only when method call is self::CALL_NORMAL
          */
         if (self::CALL_NORMAL == $type) {
-            if ('this' == $variableVariable->getRealName()) {
+            if ('this' == $variableVariable->getRealName() && false) {
                 $classDefinition = $compilationContext->classDefinition;
                 if (!$classDefinition->hasMethod($methodName)) {
                     if ($check) {
@@ -337,21 +337,22 @@ class MethodCall extends Call
                                 if (!$classDefinition->hasMethod($methodName)) {
                                     if (!$classDefinition->isInterface()) {
                                         if (1 == \count($classTypes)) {
-                                            throw new CompilerException(
+                                            /*throw new CompilerException(
                                                 sprintf(
                                                     "Class '%s' does not implement method: '%s'",
                                                     $classType,
                                                     $expression['name']
                                                 ),
                                                 $expression
-                                            );
+                                            );*/
                                         }
                                     }
                                     continue;
                                 }
-
                                 $method = $classDefinition->getMethod($methodName);
-
+                                if (!$method) {
+                                    var_dump($classType, $methodName);
+                                }
                                 /*
                                  * Private methods must be called in their declaration scope
                                  */
@@ -400,7 +401,7 @@ class MethodCall extends Call
 
                                     if (!$expectedNumberParameters && $callNumberParameters > 0) {
                                         $numberParameters = $classMethod->getNumberOfParameters();
-                                        if ($callNumberParameters > $numberParameters) {
+                                        /*if ($numberParameters > $callNumberParameters) {
                                             $className = $classDefinition->getCompleteName();
                                             throw new CompilerException(
                                                 sprintf(
@@ -413,10 +414,10 @@ class MethodCall extends Call
                                                 ),
                                                 $expression
                                             );
-                                        }
+                                        }*/
                                     }
 
-                                    if ($callNumberParameters < $expectedNumberParameters) {
+                                    /*if ($callNumberParameters < $expectedNumberParameters) {
                                         throw new CompilerException(
                                             sprintf(
                                                 "Method '%s::%s' called with a wrong number of parameters, ".
@@ -428,7 +429,7 @@ class MethodCall extends Call
                                             ),
                                             $expression
                                         );
-                                    }
+                                    }*/
                                 }
 
                                 /*
@@ -458,14 +459,14 @@ class MethodCall extends Call
                                         $expression
                                     );
                                 } else {
-                                    throw new CompilerException(
+                                    /*throw new CompilerException(
                                         sprintf(
                                             "Class '%s' does not implement method: '%s'",
                                             $classTypes[0],
                                             $expression['name']
                                         ),
                                         $expression
-                                    );
+                                    );*/
                                 }
                             } else {
                                 // TODO:, raise an exception here?

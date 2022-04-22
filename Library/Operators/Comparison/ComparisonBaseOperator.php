@@ -619,6 +619,7 @@ class ComparisonBaseOperator extends AbstractOperator
                                 return new CompiledExpression('bool', $this->zvalStringOperator.'('.$variableCode.', "'.$right->getCode().'")', $expression['left']);
 
                             case 'variable':
+                            case 'array':
                                 $variableRight = $compilationContext->symbolTable->getVariableForRead($right->getCode(), $compilationContext, $expression['left']);
                                 switch ($variableRight->getType()) {
                                     case 'int':

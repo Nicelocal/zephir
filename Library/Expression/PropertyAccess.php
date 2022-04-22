@@ -109,7 +109,7 @@ class PropertyAccess
         /*
          * If the property is accessed on 'this', we check if the method does exist
          */
-        if ('this' == $variableVariable->getRealName()) {
+        if ('this' == $variableVariable->getRealName() && false) {
             $classDefinition = $currentClassDefinition;
             if (!$classDefinition->hasProperty($property)) {
                 throw new CompilerException("Class '".$classDefinition->getCompleteName()."' does not have a property called: '".$property."'", $expression);
@@ -132,7 +132,7 @@ class PropertyAccess
                     }
 
                     if (!$classDefinition->hasProperty($property)) {
-                        throw new CompilerException("Class '".$classType."' does not have a property called: '".$property."'", $expression);
+                        //throw new CompilerException("Class '".$classType."' does not have a property called: '".$property."'", $expression);
                     }
 
                     $propertyDefinition = $classDefinition->getProperty($property);

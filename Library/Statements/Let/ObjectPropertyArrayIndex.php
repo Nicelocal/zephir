@@ -143,7 +143,7 @@ class ObjectPropertyArrayIndex extends ArrayIndex
         /*
          * Check if the variable to update is defined
          */
-        if ('this' == $symbolVariable->getRealName()) {
+        if ('this' == $symbolVariable->getRealName() && false) {
             $classDefinition = $compilationContext->classDefinition;
             if (!$classDefinition->hasProperty($property)) {
                 throw new CompilerException("Class '".$classDefinition->getCompleteName()."' does not have a property called: '".$property."'", $statement);

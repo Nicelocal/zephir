@@ -116,14 +116,17 @@ class StaticConstantAccess
          * so we need to check that they effectively do exist
          */
         if (!$classDefinition->hasConstant($constant)) {
-            throw new CompilerException(
-                sprintf(
-                    "Class '%s' does not have a constant called: '%s'",
-                    $classDefinition->getCompleteName(),
-                    $constant
-                ),
-                $expression
-            );
+            $constant = strtoupper($constant);
+            if (!$classDefinition->hasConstant($constant)) {
+                throw new CompilerException(
+                    sprintf(
+                        "Class '%s' does not have a constant called: '%s'",
+                        $classDefinition->getCompleteName(),
+                        $constant
+                    ),
+                    $expression
+                );
+            }
         }
 
         /*

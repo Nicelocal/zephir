@@ -100,7 +100,10 @@ class StaticPropertyAccess
         }
 
         if (!$classDefinition->hasProperty($property)) {
-            throw new CompilerException("Class '".$classDefinition->getCompleteName()."' does not have a property called: '".$property."'", $expression);
+            $property = strtoupper($property);
+            if (!$classDefinition->hasProperty($property)) {
+                throw new CompilerException("Class '".$classDefinition->getCompleteName()."' does not have a property called: '".$property."'", $expression);
+            }
         }
 
         /** @var ClassProperty $propertyDefinition */
