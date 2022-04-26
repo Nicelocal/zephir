@@ -19,6 +19,7 @@ use Zephir\CompilationContext;
 use Zephir\CompiledExpression;
 use Zephir\Compiler;
 use Zephir\Exception\CompilerException;
+use Zephir\Expression\Builder\BuilderFactory;
 use Zephir\Fcall\FcallManagerInterface;
 use Zephir\FunctionDefinition;
 use Zephir\GlobalConstant;

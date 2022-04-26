@@ -591,7 +591,7 @@ class Backend extends BaseBackend
 
         $compilationContext->codePrinter->output(
             sprintf(
-                'zephir_update_property_array_multi(%s, SL("%s"), %s, SL("%s"), %d, %s);',
+                'zephir_update_property_array_multi(&%s, SL("%s"), %s, SL("%s"), %d, %s);',
                 $variable->getName(),
                 $propertyName,
                 $valueVariable,

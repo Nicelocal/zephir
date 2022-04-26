@@ -475,7 +475,7 @@ class FunctionCall extends Call
             if ($this->isExpectingReturn()) {
                 if ('return_value' == $symbolVariable->getName()) {
                     $codePrinter->output(
-                        'ZEPHIR_RETURN_CALL_FUNCTION("'.$funcName.'", '.$cachePointer.');'
+                        'ZEPHIR_RETURN_CALL_FUNCTION("'.addslashes($funcName).'", '.$cachePointer.');'
                     );
                 } else {
                     if ($this->mustInitSymbolVariable()) {
@@ -483,11 +483,11 @@ class FunctionCall extends Call
                         $symbolVariable->trackVariant($compilationContext);
                     }
                     $codePrinter->output(
-                        'ZEPHIR_CALL_FUNCTION('.$symbol.', "'.$funcName.'", '.$cachePointer.');'
+                        'ZEPHIR_CALL_FUNCTION('.$symbol.', "'.addslashes($funcName).'", '.$cachePointer.');'
                     );
                 }
             } else {
-                $codePrinter->output('ZEPHIR_CALL_FUNCTION(NULL, "'.$funcName.'", '.$cachePointer.');');
+                $codePrinter->output('ZEPHIR_CALL_FUNCTION(NULL, "'.addslashes($funcName).'", '.$cachePointer.');');
             }
         } else {
             if ($this->isExpectingReturn()) {
@@ -508,7 +508,7 @@ class FunctionCall extends Call
                     $codePrinter->output(
                         strtr('ZEPHIR_CALL_FUNCTION(:symbol, ":func", :pointer, :params);', [
                             ':symbol' => $symbol,
-                            ':func' => $funcName,
+                            ':func' => addslashes($funcName),
                             ':pointer' => $cachePointer,
                             ':params' => implode(', ', $params),
                         ])
@@ -517,7 +517,7 @@ class FunctionCall extends Call
             } else {
                 $codePrinter->output(
                     strtr('ZEPHIR_CALL_FUNCTION(NULL, ":func", :pointer, :params);', [
-                        ':func' => $funcName,
+                        ':func' => addslashes($funcName),
                         ':pointer' => $cachePointer,
                         ':params' => implode(', ', $params),
                     ])
