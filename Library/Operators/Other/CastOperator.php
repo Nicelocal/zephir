@@ -314,6 +314,7 @@ class CastOperator extends AbstractOperator
 
                             case Types::T_ARRAY:
                             case Types::T_VARIABLE:
+                            case Types::T_STRING:
                             case Types::T_MIXED:
                                 $symbol = $compilationContext->backend->getVariableCode($symbolVariable);
 
@@ -531,11 +532,36 @@ class CastOperator extends AbstractOperator
                         }
 
                         break;
-                    default:
-                        throw new CompilerException(
-                            sprintf('Cannot cast: %s to %s', $resolved->getType(), $expression['left']),
-                            $expression
-                        );
+                        default:
+                            $compilationContext->headersManager->add('kernel/operators');
+                            $compilationContext->symbolTable->mustGrownStack(true);
+
+                            // TODO: I'm not a pretty sure this branch works
+                            // This is old code I just moved to "default"
+                            // See: https://github.com/zephir-lang/zephir/issues/1988
+                            $symbolVariable = $compilationContext->symbolTable->getTempVariable(
+                                'string',
+                                $compilationContext
+                            );
+            
+                            $symbolVariable->setMustInitNull(true);
+                            $symbolVariable->setIsInitialized(true, $compilationContext);
+                            $symbolVariable->increaseUses();
+                            $symbol = $compilationContext->backend->getVariableCode($symbolVariable);
+        
+                            $compilationContext->codePrinter->output(
+                                sprintf('zephir_cast_to_string(%s, %s);', $symbol, $resolved->getCode())
+                            );
+            
+                            if ($symbolVariable->isTemporal()) {
+                                $symbolVariable->setIdle(true);
+                            }
+            
+                            return new CompiledExpression(
+                                'variable',
+                                $symbolVariable->getName(),
+                                $expression
+                            );
                 }
                 break;
 

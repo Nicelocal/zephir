@@ -1791,6 +1791,8 @@ class ClassMethod
                     if (isset($parameter['data-type'])) {
                         if ('variable' === $parameter['data-type']) {
                             $symbol->setDynamicTypes('undefined');
+                        } else {
+                            $symbol->setDynamicTypes($parameter['data-type']);
                         }
                     } else {
                         $symbol->setDynamicTypes('undefined');

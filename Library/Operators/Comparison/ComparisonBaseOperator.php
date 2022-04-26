@@ -372,6 +372,7 @@ class ComparisonBaseOperator extends AbstractOperator
                         $variableRight = $compilationContext->symbolTable->getVariableForRead($right->getCode(), $compilationContext, $expression['left']);
                         switch ($variableRight->getType()) {
                             case 'string':
+                            case 'uchar':
                             case 'variable':
                             case 'mixed':
                                 $compilationContext->headersManager->add('kernel/operators');
@@ -436,11 +437,25 @@ class ComparisonBaseOperator extends AbstractOperator
                                         return new CompiledExpression('bool', $this->zvalLongNegOperator.'('.$variableRightCode.', '.$variableCode.')', $expression);
                                         break;
 
+                                    case 'string':
+                                        $compilationContext->headersManager->add('kernel/operators');
+                                        $variableRightCode = $compilationContext->backend->getVariableCode($variableRight);
+                                        $variableCode = $compilationContext->backend->getVariableCode($variable);
+
+                                        return new CompiledExpression('bool', $this->zvalOperator.'('.$variableRightCode.', '.$variableCode.')', $expression);
+                                        break;
+
                                     default:
                                         throw new CompilerException('Unknown type: '.$variableRight->getType(), $expression['right']);
                                 }
                                 break;
 
+                            case 'string':
+                                $compilationContext->headersManager->add('kernel/operators');
+                                $variableCode = $compilationContext->backend->getVariableCode($variable);
+
+                                return new CompiledExpression('bool', $this->zvalOperator.'('.$right->getCode().', '.$variableCode.')', $expression);
+                                break;
                             default:
                                 throw new CompilerException('Cannot compare variable: '.$variable->getType().' with: '.$right->getType(), $expression);
                         }
@@ -554,7 +569,9 @@ class ComparisonBaseOperator extends AbstractOperator
                                 break;
 
                             default:
-                                throw new CompilerException('Unknown type: '.$right->getType(), $expression['left']);
+                                $compilationContext->headersManager->add('kernel/operators');
+
+                                return new CompiledExpression('bool', $this->zvalOperator.'('.$variableCode.', '.$right->getCode().')', $expression);
                         }
                         break;
 
@@ -635,6 +652,7 @@ class ComparisonBaseOperator extends AbstractOperator
                                         return new CompiledExpression('bool', $this->zvalBoolOperator.'('.$variableCode.', '.$variableRight->getName().')', $expression);
 
                                     case 'string':
+                                    case 'uchar':
                                     case 'variable':
                                     case 'mixed':
                                     case 'array':

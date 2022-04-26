@@ -209,6 +209,7 @@ class EvalExpression
                         return '!('.$compilationContext->backend->ifVariableValueUndefined($variableRight, $compilationContext, true, false).')';
 
                     case 'variable':
+                    case 'array':
                         $compilationContext->headersManager->add('kernel/operators');
                         $variableRightCode = $compilationContext->backend->getVariableCode($variableRight);
 

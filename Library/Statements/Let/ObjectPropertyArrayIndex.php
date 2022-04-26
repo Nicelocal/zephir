@@ -164,7 +164,7 @@ class ObjectPropertyArrayIndex extends ArrayIndex
                     }
 
                     if (!$classDefinition->hasProperty($property)) {
-                        throw new CompilerException("Class '".$classType."' does not have a property called: '".$property."'", $statement);
+                        //throw new CompilerException("Class '".$classType."' does not have a property called: '".$property."'", $statement);
                     }
                 }
             }
@@ -234,6 +234,7 @@ class ObjectPropertyArrayIndex extends ArrayIndex
 
                             case 'int':
                             case 'long':
+                            case 'double':
                                 $tempVariable = $compilationContext->symbolTable->getTempVariableForWrite('variable', $compilationContext);
                                 $compilationContext->backend->assignLong($tempVariable, $variableExpr, $compilationContext);
                                 $compilationContext->backend->assignArrayProperty($symbolVariable, $property, $indexVariable, $tempVariable, $compilationContext);

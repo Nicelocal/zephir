@@ -384,6 +384,7 @@ class NativeArray
                                         $codePrinter->output('add_assoc_null_ex('.$symbolVariable->getName().', Z_STRVAL_P('.$resolvedExprKey->getCode().'), Z_STRLEN_P('.$item['key']['value'].') + 1);');
                                         break;
 
+                                    case 'array':
                                     case 'variable':
                                         $valueVariable = $this->getArrayValue($resolvedExpr, $compilationContext);
                                         $compilationContext->backend->updateArray($symbolVariable, $resolvedExprKey, $resolvedExpr, $compilationContext);
@@ -411,6 +412,7 @@ class NativeArray
                                         }
                                         break;
 
+                                    case 'array':
                                     case 'variable':
                                         $valueVariable = $this->getArrayValue($resolvedExpr, $compilationContext);
                                         $compilationContext->backend->updateArray($symbolVariable, $variableVariable, $valueVariable, $compilationContext);

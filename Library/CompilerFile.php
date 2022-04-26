@@ -616,7 +616,7 @@ final class CompilerFile implements FileInterface
                     sprintf(
                         "Unexpected class name '%s' in file: '%s', expected: '%s'",
                         $className,
-                        $this->filePath,
+                        strtolower($this->filePath),
                         $expectedPath
                     )
                 );

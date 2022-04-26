@@ -60,6 +60,8 @@ class NotOperator extends AbstractOperator
                         return new CompiledExpression('bool', '!'.$variable->getName(), $expression);
 
                     case 'variable':
+                    case 'array':
+                    case 'string':
                     case 'mixed':
                         $compilationContext->headersManager->add('kernel/operators');
                         $symbol = $compilationContext->backend->getVariableCode($variable);

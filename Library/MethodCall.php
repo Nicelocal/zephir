@@ -350,9 +350,6 @@ class MethodCall extends Call
                                     continue;
                                 }
                                 $method = $classDefinition->getMethod($methodName);
-                                if (!$method) {
-                                    var_dump($classType, $methodName);
-                                }
                                 /*
                                  * Private methods must be called in their declaration scope
                                  */
@@ -450,14 +447,14 @@ class MethodCall extends Call
                         if (0 == $numberImplemented) {
                             if (!$classDefinition->isInterface()) {
                                 if (\count($classTypes) > 1) {
-                                    throw new CompilerException(
+                                    /*throw new CompilerException(
                                         sprintf(
                                             "None of classes: '%s' implement method: '%s'",
                                             implode(' or ', $classTypes),
                                             $expression['name']
                                         ),
                                         $expression
-                                    );
+                                    );*/
                                 } else {
                                     /*throw new CompilerException(
                                         sprintf(

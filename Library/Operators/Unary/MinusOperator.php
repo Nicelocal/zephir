@@ -62,14 +62,11 @@ class MinusOperator extends AbstractOperator
                     case 'double':
                         return new CompiledExpression($variable->getType(), '-'.$variable->getName(), $expression);
 
-                    case 'variable':
+                    default:
                         $compilationContext->headersManager->add('kernel/operators');
                         $compilationContext->codePrinter->output('zephir_negate('.$compilationContext->backend->getVariableCode($variable).');');
 
                         return new CompiledExpression('variable', $variable->getName(), $expression);
-
-                    default:
-                        throw new CompilerException("Cannot operate minus with variable of '".$left->getType()."' type");
                 }
                 break;
 
