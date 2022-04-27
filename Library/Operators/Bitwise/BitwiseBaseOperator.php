@@ -166,7 +166,7 @@ class BitwiseBaseOperator extends AbstractOperator
                                 $compilationContext->headersManager->add('kernel/operators');
                                 $symbol = $compilationContext->backend->getVariableCode($variableRight);
 
-                                return new CompiledExpression('int', '('.$left->getCode().' '.$this->operator.' zephir_get_numberval('.$symbol.'))', $expression);
+                                return new CompiledExpression('int', '('.$left->getCode().' '.$this->operator.' zephir_get_intval('.$symbol.'))', $expression);
                                 break;
 
                             default:
@@ -209,7 +209,7 @@ class BitwiseBaseOperator extends AbstractOperator
                                 $compilationContext->headersManager->add('kernel/operators');
                                 $symbol = $compilationContext->backend->getVariableCode($variableRight);
 
-                                return new CompiledExpression('int', '((int) ('.$left->getBooleanCode().') '.$this->operator.' zephir_get_numberval('.$symbol.'))', $expression);
+                                return new CompiledExpression('int', '((int) ('.$left->getBooleanCode().') '.$this->operator.' zephir_get_intval('.$symbol.'))', $expression);
                                 break;
 
                             default:
@@ -255,7 +255,7 @@ class BitwiseBaseOperator extends AbstractOperator
                                 $compilationContext->headersManager->add('kernel/operators');
                                 $symbol = $compilationContext->backend->getVariableCode($variableRight);
 
-                                return new CompiledExpression('int', '((int) ('.$left->getCode().') '.$this->operator.' zephir_get_numberval('.$symbol.'))', $expression);
+                                return new CompiledExpression('int', '((int) ('.$left->getCode().') '.$this->operator.' zephir_get_intval('.$symbol.'))', $expression);
                                 break;
 
                             default:
@@ -315,7 +315,7 @@ class BitwiseBaseOperator extends AbstractOperator
                                         $compilationContext->headersManager->add('kernel/operators');
                                         $symbol = $compilationContext->backend->getVariableCode($variableRight);
 
-                                        return new CompiledExpression('int', '('.$variableLeft->getName().' '.$this->operator.' (int) (zephir_get_numberval('.$symbol.')))', $expression);
+                                        return new CompiledExpression('int', '('.$variableLeft->getName().' '.$this->operator.' (int) (zephir_get_intval('.$symbol.')))', $expression);
                                         break;
 
                                     default:
@@ -358,7 +358,7 @@ class BitwiseBaseOperator extends AbstractOperator
                                         $compilationContext->headersManager->add('kernel/operators');
                                         $symbol = $compilationContext->backend->getVariableCode($variableRight);
 
-                                        return new CompiledExpression('int', '('.$variableLeft->getName().' '.$this->operator.' zephir_get_numberval('.$symbol.'))', $expression);
+                                        return new CompiledExpression('int', '('.$variableLeft->getName().' '.$this->operator.' zephir_get_intval('.$symbol.'))', $expression);
                                         break;
 
                                     default:
@@ -403,7 +403,7 @@ class BitwiseBaseOperator extends AbstractOperator
                                         $compilationContext->headersManager->add('kernel/operators');
                                         $symbol = $compilationContext->backend->getVariableCode($variableRight);
 
-                                        return new CompiledExpression('int', '((int) ('.$variableLeft->getName().') '.$this->operator.' (int) (zephir_get_numberval('.$symbol.')))', $expression);
+                                        return new CompiledExpression('int', '((int) ('.$variableLeft->getName().') '.$this->operator.' (int) (zephir_get_intval('.$symbol.')))', $expression);
 
                                         break;
 
@@ -432,9 +432,9 @@ class BitwiseBaseOperator extends AbstractOperator
                                 $op1 = $compilationContext->backend->getVariableCode($variableLeft);
                                 $op2 = $right->getCode();
                                 if ('double' == $right->getType()) {
-                                    return new CompiledExpression('int', '((int) (zephir_get_numberval('.$op1.')) '.$op.' (int) ('.$op2.'))', $expression);
+                                    return new CompiledExpression('int', '((int) (zephir_get_intval('.$op1.')) '.$op.' (int) ('.$op2.'))', $expression);
                                 } else {
-                                    return new CompiledExpression('int', '((int) (zephir_get_numberval('.$op1.')) '.$op.' '.$op2.')', $expression);
+                                    return new CompiledExpression('int', '((int) (zephir_get_intval('.$op1.')) '.$op.' '.$op2.')', $expression);
                                 }
                                 break;
 
@@ -450,14 +450,14 @@ class BitwiseBaseOperator extends AbstractOperator
                                     case 'ulong':
                                         $compilationContext->headersManager->add('kernel/operators');
 
-                                        return new CompiledExpression('int', '((int) (zephir_get_numberval('.$symbol.')) '.$this->operator.' '.$variableRight->getName().')', $expression);
+                                        return new CompiledExpression('int', '((int) (zephir_get_intval('.$symbol.')) '.$this->operator.' '.$variableRight->getName().')', $expression);
                                         break;
 
                                     /* a(var) + a(bool) */
                                     case 'bool':
                                         $compilationContext->headersManager->add('kernel/operators');
 
-                                        return new CompiledExpression('int', '((int) (zephir_get_numberval('.$symbol.')) '.$this->operator.' '.$variableRight->getName().')', $expression);
+                                        return new CompiledExpression('int', '((int) (zephir_get_intval('.$symbol.')) '.$this->operator.' '.$variableRight->getName().')', $expression);
                                         break;
 
                                     /* a(var) + a(var) */
