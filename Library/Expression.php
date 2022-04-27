@@ -254,7 +254,13 @@ class Expression
             case 'long':
             case 'double':
             case 'bool':
-                return new LiteralCompiledExpression($type, $expression['value'], $expression);
+                $v = $expression['value'];
+                if ($v === 'INF') {
+                    $v = 'INFINITY';
+                } else if ($v === '-INF') {
+                    $v = '-INFINITY';
+                }
+                return new LiteralCompiledExpression($type, $v, $expression);
 
             case 'string':
                 return new LiteralCompiledExpression('string', str_replace(PHP_EOL, '\\n', $expression['value']), $expression);

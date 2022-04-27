@@ -125,7 +125,7 @@ HEAD;
             /* Create new zval's for parameters */
             for ($i = 0; $i < $paramCount; ++$i) {
                 $zv = '_'.$params[$i];
-                $zvals[] = $zv;
+                $zvals[] = '*'.$zv;
                 $initStatements[] = 'ZVAL_COPY(&'.$zv.', '.$params[$i].'); \\';
                 $postStatements[] = 'Z_TRY_DELREF_P('.$params[$i].'); \\';
             }
