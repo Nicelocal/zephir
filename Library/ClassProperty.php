@@ -443,6 +443,9 @@ class ClassProperty
         $parentClassDefinition = $classDefinition->getExtendsClassDefinition();
 
         if (!$this->isStatic()) {
+            if ($parentClassDefinition instanceof ClassDefinitionRuntime) {
+                throw new CompilerException('Cannot fetch parent class @ compile time: '.$parentClassDefinition->getName(), $this->original);
+            }
             $constructParentMethod = $parentClassDefinition ? $parentClassDefinition->getInitMethod() : null;
             $constructMethod = $classDefinition->getInitMethod();
         } else {
