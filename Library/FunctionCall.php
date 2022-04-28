@@ -494,7 +494,7 @@ class FunctionCall extends Call
                 if ('return_value' == $symbolVariable->getName()) {
                     $codePrinter->output(
                         strtr('ZEPHIR_RETURN_CALL_FUNCTION(":func", :pointer, :params);', [
-                            ':func' => $funcName,
+                            ':func' => addslashes($funcName),
                             ':pointer' => $cachePointer,
                             ':params' => implode(', ', $params),
                         ])
