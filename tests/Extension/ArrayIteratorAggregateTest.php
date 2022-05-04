@@ -15,7 +15,7 @@ namespace Extension;
 
 use PHPUnit\Framework\TestCase;
 
-final class ArrayIteratorTest extends TestCase
+final class ArrayIteratorAggregateTest extends TestCase
 {
     public function testTest(): void
     {
