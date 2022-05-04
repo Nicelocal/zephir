@@ -618,7 +618,8 @@ PHP_METHOD(Stub_Flow, testWhile10)
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &a);
-	ZEPHIR_SEPARATE_PARAM(a);
+	ZVAL_DEREF(a);
+	SEPARATE_ZVAL_NOREF(a);
 
 
 	b = 0;
@@ -661,7 +662,8 @@ PHP_METHOD(Stub_Flow, testWhile11)
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 2, 0, &a, &d);
-	ZEPHIR_SEPARATE_PARAM(a);
+	ZVAL_DEREF(a);
+	SEPARATE_ZVAL_NOREF(a);
 
 
 	b = 0;
@@ -775,13 +777,13 @@ PHP_METHOD(Stub_Flow, testWhileNextTest)
 	array_init(&returnValue);
 	while (1) {
 		ZEPHIR_MAKE_REF(variable);
-		ZEPHIR_CALL_FUNCTION(&_0, "next", &_1, 40, variable);
+		ZEPHIR_CALL_FUNCTION(&_0, "next", &_1, 42, variable);
 		ZEPHIR_UNREF(variable);
 		zephir_check_call_status();
 		if (!(zephir_is_true(&_0))) {
 			break;
 		}
-		ZEPHIR_CALL_FUNCTION(&_2$$3, "current", &_3, 41, variable);
+		ZEPHIR_CALL_FUNCTION(&_2$$3, "current", &_3, 43, variable);
 		zephir_check_call_status();
 		zephir_array_append(&returnValue, &_2$$3, PH_SEPARATE, "stub/flow.zep", 420);
 	}
@@ -815,11 +817,11 @@ PHP_METHOD(Stub_Flow, testWhileDoNextTest)
 	ZEPHIR_INIT_VAR(&returnValue);
 	array_init(&returnValue);
 	do {
-		ZEPHIR_CALL_FUNCTION(&_0$$3, "current", &_1, 41, variable);
+		ZEPHIR_CALL_FUNCTION(&_0$$3, "current", &_1, 43, variable);
 		zephir_check_call_status();
 		zephir_array_append(&returnValue, &_0$$3, PH_SEPARATE, "stub/flow.zep", 430);
 		ZEPHIR_MAKE_REF(variable);
-		ZEPHIR_CALL_FUNCTION(&_2, "next", &_3, 40, variable);
+		ZEPHIR_CALL_FUNCTION(&_2, "next", &_3, 42, variable);
 		ZEPHIR_UNREF(variable);
 		zephir_check_call_status();
 	} while (zephir_is_true(&_2));
@@ -865,18 +867,23 @@ PHP_METHOD(Stub_Flow, testFor1)
 			c += zephir_get_numberval(&v);
 		} ZEND_HASH_FOREACH_END();
 	} else {
-		ZEPHIR_CALL_METHOD(NULL, &b, "rewind", NULL, 0);
+		if (UNLIKELY(zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iteratoraggregate))) {
+			ZEPHIR_CALL_METHOD(_1, &b, "getIterator", NULL, 0);
+			} else {
+			ZVAL_COPY(_1, &b);
+		}
+		ZEPHIR_CALL_METHOD(NULL, _1, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_2, &b, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_2, _1, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_2)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&v, &b, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&v, _1, "current", NULL, 0);
 			zephir_check_call_status();
 				c += zephir_get_numberval(&v);
-			ZEPHIR_CALL_METHOD(NULL, &b, "next", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, _1, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}
@@ -933,20 +940,25 @@ PHP_METHOD(Stub_Flow, testFor2)
 			c += zephir_get_numberval(&k);
 		} ZEND_HASH_FOREACH_END();
 	} else {
-		ZEPHIR_CALL_METHOD(NULL, &b, "rewind", NULL, 0);
+		if (UNLIKELY(zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iteratoraggregate))) {
+			ZEPHIR_CALL_METHOD(_1, &b, "getIterator", NULL, 0);
+			} else {
+			ZVAL_COPY(_1, &b);
+		}
+		ZEPHIR_CALL_METHOD(NULL, _1, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_2, &b, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_2, _1, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_2)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&k, &b, "key", NULL, 0);
+			ZEPHIR_CALL_METHOD(&k, _1, "key", NULL, 0);
 			zephir_check_call_status();
-			ZEPHIR_CALL_METHOD(&v, &b, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&v, _1, "current", NULL, 0);
 			zephir_check_call_status();
 				c += zephir_get_numberval(&k);
-			ZEPHIR_CALL_METHOD(NULL, &b, "next", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, _1, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}
@@ -996,18 +1008,23 @@ PHP_METHOD(Stub_Flow, testFor3)
 			zephir_array_append(&c, &v, PH_SEPARATE, "stub/flow.zep", 462);
 		} ZEND_HASH_FOREACH_END();
 	} else {
-		ZEPHIR_CALL_METHOD(NULL, &b, "rewind", NULL, 0);
+		if (UNLIKELY(zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iteratoraggregate))) {
+			ZEPHIR_CALL_METHOD(_1, &b, "getIterator", NULL, 0);
+			} else {
+			ZVAL_COPY(_1, &b);
+		}
+		ZEPHIR_CALL_METHOD(NULL, _1, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_2, &b, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_2, _1, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_2)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&v, &b, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&v, _1, "current", NULL, 0);
 			zephir_check_call_status();
 				zephir_array_append(&c, &v, PH_SEPARATE, "stub/flow.zep", 462);
-			ZEPHIR_CALL_METHOD(NULL, &b, "next", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, _1, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}
@@ -1786,18 +1803,23 @@ PHP_METHOD(Stub_Flow, testFor24)
 			zephir_concat_self(&b, &a);
 		} ZEND_HASH_FOREACH_END();
 	} else {
-		ZEPHIR_CALL_METHOD(NULL, &_0, "rewind", NULL, 0);
+		if (UNLIKELY(zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iteratoraggregate))) {
+			ZEPHIR_CALL_METHOD(_2, &_0, "getIterator", NULL, 0);
+			} else {
+			ZVAL_COPY(_2, &_0);
+		}
+		ZEPHIR_CALL_METHOD(NULL, _2, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_3, &_0, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_3, _2, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_3)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&a, &_0, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&a, _2, "current", NULL, 0);
 			zephir_check_call_status();
 				zephir_concat_self(&b, &a);
-			ZEPHIR_CALL_METHOD(NULL, &_0, "next", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, _2, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}
@@ -1897,18 +1919,23 @@ PHP_METHOD(Stub_Flow, testFor32)
 			sum += zephir_get_numberval(&v);
 		} ZEND_HASH_FOREACH_END();
 	} else {
-		ZEPHIR_CALL_METHOD(NULL, e, "rewind", NULL, 0);
+		if (UNLIKELY(zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iteratoraggregate))) {
+			ZEPHIR_CALL_METHOD(_0, e, "getIterator", NULL, 0);
+			} else {
+			ZVAL_COPY(_0, e);
+		}
+		ZEPHIR_CALL_METHOD(NULL, _0, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_1, e, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_1, _0, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_1)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&v, e, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&v, _0, "current", NULL, 0);
 			zephir_check_call_status();
 				sum += zephir_get_numberval(&v);
-			ZEPHIR_CALL_METHOD(NULL, e, "next", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, _0, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}

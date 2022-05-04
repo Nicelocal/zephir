@@ -108,20 +108,25 @@ PHP_METHOD(Stub_FunctionExists, testBuiltInFunctions)
 			zephir_array_update_zval(&result, &func, &_3$$3, PH_COPY | PH_SEPARATE);
 		} ZEND_HASH_FOREACH_END();
 	} else {
-		ZEPHIR_CALL_METHOD(NULL, &functions, "rewind", NULL, 0);
+		if (UNLIKELY(zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iteratoraggregate))) {
+			ZEPHIR_CALL_METHOD(_1, &functions, "getIterator", NULL, 0);
+			} else {
+			ZVAL_COPY(_1, &functions);
+		}
+		ZEPHIR_CALL_METHOD(NULL, _1, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_2, &functions, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_2, _1, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_2)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&func, &functions, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&func, _1, "current", NULL, 0);
 			zephir_check_call_status();
 				ZEPHIR_INIT_NVAR(&_4$$4);
 				ZVAL_BOOL(&_4$$4, (zephir_function_exists(&func) == SUCCESS));
 				zephir_array_update_zval(&result, &func, &_4$$4, PH_COPY | PH_SEPARATE);
-			ZEPHIR_CALL_METHOD(NULL, &functions, "next", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, _1, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}

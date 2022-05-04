@@ -1100,7 +1100,8 @@ PHP_METHOD(Stub_Arithmetic, addSum24)
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &a);
-	ZEPHIR_SEPARATE_PARAM(a);
+	ZVAL_DEREF(a);
+	SEPARATE_ZVAL_NOREF(a);
 
 
 	ZEPHIR_INIT_VAR(&_0);
@@ -2145,7 +2146,8 @@ PHP_METHOD(Stub_Arithmetic, sub24)
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &a);
-	ZEPHIR_SEPARATE_PARAM(a);
+	ZVAL_DEREF(a);
+	SEPARATE_ZVAL_NOREF(a);
 
 
 	ZEPHIR_INIT_VAR(&_0);
@@ -2186,7 +2188,8 @@ PHP_METHOD(Stub_Arithmetic, mul2)
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &a);
-	ZEPHIR_SEPARATE_PARAM(a);
+	ZVAL_DEREF(a);
+	SEPARATE_ZVAL_NOREF(a);
 
 
 	ZEPHIR_INIT_VAR(&_0);

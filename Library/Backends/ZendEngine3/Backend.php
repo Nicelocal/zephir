@@ -1101,6 +1101,7 @@ class Backend extends BackendZendEngine2
         $codePrinter->increaseLevel();
         $codePrinter->output('ZEPHIR_CALL_METHOD('.$tempVariable->getName().', '.$this->getVariableCode($exprVariable).', "getIterator", NULL, 0);');
         $codePrinter->decreaseLevel();
+        $codePrinter->increaseLevel();
         $codePrinter->output('} else {');
         $codePrinter->output('ZVAL_COPY('.$tempVariable->getName().', '.$this->getVariableCode($exprVariable).');');
         $codePrinter->decreaseLevel();

@@ -1320,22 +1320,22 @@ PHP_METHOD(Stub_Assign, testPropertyArray6)
 	zephir_update_property_zval(this_ptr, ZEND_STRL("myArray"), &_0);
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_LONG(&_1, 1);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("ll"), 2, 0, 1);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("ll"), 2, 0, 1);
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_DOUBLE(&_1, 1.5);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("ll"), 2, 0, 1);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$null, SL("ll"), 2, 0, 1);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$false, SL("ll"), 2, 0, 1);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$true, SL("ll"), 2, 0, 1);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("ll"), 2, 0, 1);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$null, SL("ll"), 2, 0, 1);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$false, SL("ll"), 2, 0, 1);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$true, SL("ll"), 2, 0, 1);
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_LONG(&_1, 'A');
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("ll"), 2, 0, 1);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("ll"), 2, 0, 1);
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "hello");
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("ll"), 2, 0, 1);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("ll"), 2, 0, 1);
 	ZEPHIR_INIT_NVAR(&_1);
 	array_init(&_1);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("ll"), 2, 0, 1);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("ll"), 2, 0, 1);
 	RETURN_MM_MEMBER(getThis(), "myArray");
 }
 
@@ -1359,22 +1359,22 @@ PHP_METHOD(Stub_Assign, testPropertyArray7)
 	zephir_update_property_zval(this_ptr, ZEND_STRL("myArray"), &_0);
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_LONG(&_1, 1);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("ss"), 4, SL("hello"), SL("hello"));
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("ss"), 4, SL("hello"), SL("hello"));
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_DOUBLE(&_1, 1.5);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("ss"), 4, SL("hello"), SL("hello"));
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$null, SL("ss"), 4, SL("hello"), SL("hello"));
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$false, SL("ss"), 4, SL("hello"), SL("hello"));
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$true, SL("ss"), 4, SL("hello"), SL("hello"));
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("ss"), 4, SL("hello"), SL("hello"));
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$null, SL("ss"), 4, SL("hello"), SL("hello"));
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$false, SL("ss"), 4, SL("hello"), SL("hello"));
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$true, SL("ss"), 4, SL("hello"), SL("hello"));
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_LONG(&_1, 'A');
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("ss"), 4, SL("hello"), SL("hello"));
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("ss"), 4, SL("hello"), SL("hello"));
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "hello");
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("ss"), 4, SL("hello"), SL("hello"));
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("ss"), 4, SL("hello"), SL("hello"));
 	ZEPHIR_INIT_NVAR(&_1);
 	array_init(&_1);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("ss"), 4, SL("hello"), SL("hello"));
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("ss"), 4, SL("hello"), SL("hello"));
 	RETURN_MM_MEMBER(getThis(), "myArray");
 }
 
@@ -1407,22 +1407,22 @@ PHP_METHOD(Stub_Assign, testPropertyArray8)
 	zephir_update_property_zval(this_ptr, ZEND_STRL("myArray"), &_0);
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_LONG(&_1, 1);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("zz"), 2, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("zz"), 2, index, index);
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_DOUBLE(&_1, 1.5);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("zz"), 2, index, index);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$null, SL("zz"), 2, index, index);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$false, SL("zz"), 2, index, index);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$true, SL("zz"), 2, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("zz"), 2, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$null, SL("zz"), 2, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$false, SL("zz"), 2, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$true, SL("zz"), 2, index, index);
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_LONG(&_1, 'A');
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("zz"), 2, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("zz"), 2, index, index);
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "hello");
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("zz"), 2, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("zz"), 2, index, index);
 	ZEPHIR_INIT_NVAR(&_1);
 	array_init(&_1);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("zz"), 2, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("zz"), 2, index, index);
 	RETURN_MM_MEMBER(getThis(), "myArray");
 }
 
@@ -1456,22 +1456,22 @@ PHP_METHOD(Stub_Assign, testPropertyArray9)
 	zephir_update_property_zval(this_ptr, ZEND_STRL("myArray"), &_0);
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_LONG(&_1, 1);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("ll"), 2, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("ll"), 2, index, index);
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_DOUBLE(&_1, 1.5);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("ll"), 2, index, index);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$null, SL("ll"), 2, index, index);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$false, SL("ll"), 2, index, index);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$true, SL("ll"), 2, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("ll"), 2, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$null, SL("ll"), 2, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$false, SL("ll"), 2, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$true, SL("ll"), 2, index, index);
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_LONG(&_1, 'A');
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("ll"), 2, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("ll"), 2, index, index);
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "hello");
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("ll"), 2, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("ll"), 2, index, index);
 	ZEPHIR_INIT_NVAR(&_1);
 	array_init(&_1);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("ll"), 2, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("ll"), 2, index, index);
 	RETURN_MM_MEMBER(getThis(), "myArray");
 }
 
@@ -1506,22 +1506,22 @@ PHP_METHOD(Stub_Assign, testPropertyArray10)
 	zephir_update_property_zval(this_ptr, ZEND_STRL("myArray"), &_0);
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_LONG(&_1, 1);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("zz"), 2, &index, &index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("zz"), 2, &index, &index);
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_DOUBLE(&_1, 1.5);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("zz"), 2, &index, &index);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$null, SL("zz"), 2, &index, &index);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$false, SL("zz"), 2, &index, &index);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$true, SL("zz"), 2, &index, &index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("zz"), 2, &index, &index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$null, SL("zz"), 2, &index, &index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$false, SL("zz"), 2, &index, &index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$true, SL("zz"), 2, &index, &index);
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_LONG(&_1, 'A');
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("zz"), 2, &index, &index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("zz"), 2, &index, &index);
 	ZEPHIR_INIT_NVAR(&_1);
 	ZVAL_STRING(&_1, "hello");
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("zz"), 2, &index, &index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("zz"), 2, &index, &index);
 	ZEPHIR_INIT_NVAR(&_1);
 	array_init(&_1);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("zz"), 2, &index, &index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("zz"), 2, &index, &index);
 	RETURN_MM_MEMBER(getThis(), "myArray");
 }
 
@@ -1554,22 +1554,22 @@ PHP_METHOD(Stub_Assign, testPropertyArray11)
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_LONG(&_0, 1);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_0, SL("zza"), 3, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_0, SL("zza"), 3, index, index);
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_DOUBLE(&_1, 1.5);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("zza"), 3, index, index);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$null, SL("zza"), 3, index, index);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$false, SL("zza"), 3, index, index);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$true, SL("zza"), 3, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("zza"), 3, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$null, SL("zza"), 3, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$false, SL("zza"), 3, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$true, SL("zza"), 3, index, index);
 	ZEPHIR_INIT_VAR(&_2);
 	ZVAL_LONG(&_2, 'A');
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_2, SL("zza"), 3, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_2, SL("zza"), 3, index, index);
 	ZEPHIR_INIT_VAR(&_3);
 	ZVAL_STRING(&_3, "hello");
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_3, SL("zza"), 3, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_3, SL("zza"), 3, index, index);
 	ZEPHIR_INIT_VAR(&_4);
 	array_init(&_4);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_4, SL("zza"), 3, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_4, SL("zza"), 3, index, index);
 	RETURN_MM_MEMBER(getThis(), "myArray");
 }
 
@@ -1607,27 +1607,27 @@ PHP_METHOD(Stub_Assign, testPropertyArray12)
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_LONG(&_0, 1);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_0, SL("zza"), 3, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_0, SL("zza"), 3, index, index);
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_DOUBLE(&_1, 1.5);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("zza"), 3, index, index);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$null, SL("zza"), 3, index, index);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$false, SL("zza"), 3, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("zza"), 3, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$null, SL("zza"), 3, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$false, SL("zza"), 3, index, index);
 	zephir_read_property(&_2, this_ptr, ZEND_STRL("myArray"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_OBS_VAR(&temp1);
 	zephir_array_fetch(&temp1, &_2, index, PH_NOISY, "stub/assign.zep", 657);
 	ZEPHIR_OBS_VAR(&temp2);
 	zephir_read_property(&temp2, this_ptr, ZEND_STRL("myArray"), PH_NOISY_CC);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$true, SL("zza"), 3, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$true, SL("zza"), 3, index, index);
 	ZEPHIR_INIT_VAR(&_3);
 	ZVAL_LONG(&_3, 'A');
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_3, SL("zza"), 3, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_3, SL("zza"), 3, index, index);
 	ZEPHIR_INIT_VAR(&_4);
 	ZVAL_STRING(&_4, "hello");
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_4, SL("zza"), 3, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_4, SL("zza"), 3, index, index);
 	ZEPHIR_INIT_VAR(&_5);
 	array_init(&_5);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_5, SL("zza"), 3, index, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_5, SL("zza"), 3, index, index);
 	zephir_read_property(&_6, this_ptr, ZEND_STRL("myArray"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_INIT_VAR(&temp3);
 	ZVAL_LONG(&temp3, zephir_fast_count_int(&_6));
@@ -1668,27 +1668,27 @@ PHP_METHOD(Stub_Assign, testPropertyArray13)
 
 	ZEPHIR_INIT_VAR(&_0);
 	ZVAL_LONG(&_0, 1);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_0, SL("za"), 2, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_0, SL("za"), 2, index);
 	ZEPHIR_INIT_VAR(&_1);
 	ZVAL_DOUBLE(&_1, 1.5);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_1, SL("za"), 2, index);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$null, SL("za"), 2, index);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$false, SL("za"), 2, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_1, SL("za"), 2, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$null, SL("za"), 2, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$false, SL("za"), 2, index);
 	zephir_read_property(&_2, this_ptr, ZEND_STRL("myArray"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_OBS_VAR(&temp1);
 	zephir_array_fetch(&temp1, &_2, index, PH_NOISY, "stub/assign.zep", 674);
 	ZEPHIR_OBS_VAR(&temp2);
 	zephir_read_property(&temp2, this_ptr, ZEND_STRL("myArray"), PH_NOISY_CC);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &__$true, SL("za"), 2, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &__$true, SL("za"), 2, index);
 	ZEPHIR_INIT_VAR(&_3);
 	ZVAL_LONG(&_3, 'A');
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_3, SL("za"), 2, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_3, SL("za"), 2, index);
 	ZEPHIR_INIT_VAR(&_4);
 	ZVAL_STRING(&_4, "hello");
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_4, SL("za"), 2, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_4, SL("za"), 2, index);
 	ZEPHIR_INIT_VAR(&_5);
 	array_init(&_5);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_5, SL("za"), 2, index);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_5, SL("za"), 2, index);
 	zephir_read_property(&_6, this_ptr, ZEND_STRL("myArray"), PH_NOISY_CC | PH_READONLY);
 	ZEPHIR_INIT_VAR(&temp3);
 	ZVAL_LONG(&temp3, zephir_fast_count_int(&_6));
@@ -1725,7 +1725,7 @@ PHP_METHOD(Stub_Assign, testPropertyArray14)
 	zephir_update_property_zval(this_ptr, ZEND_STRL("myArray"), &_0);
 	ZEPHIR_INIT_VAR(&_2);
 	ZVAL_STRING(&_2, "d_val");
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_2, SL("sss"), 6, SL("a"), SL("b"), SL("d_key"));
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_2, SL("sss"), 6, SL("a"), SL("b"), SL("d_key"));
 	ZEPHIR_INIT_NVAR(&_1);
 	zephir_create_array(&_1, 1, 0);
 	ZEPHIR_INIT_VAR(&_3);
@@ -1742,11 +1742,11 @@ PHP_METHOD(Stub_Assign, testPropertyArray14)
 	zephir_update_property_array(this_ptr, SL("myArray"), &_4, &_5);
 	ZEPHIR_INIT_VAR(&_6);
 	ZVAL_STRING(&_6, "f");
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_6, SL("sssss"), 10, SL("a"), SL("b"), SL("c"), SL("d"), SL("e"));
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_6, SL("sssss"), 10, SL("a"), SL("b"), SL("c"), SL("d"), SL("e"));
 	ZEPHIR_INIT_NVAR(&_6);
 	ZVAL_LONG(&_6, 6);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &_6, SL("lll"), 3, 1, 2, 5);
-	zephir_update_property_array_multi(this_ptr, SL("myArray"), &v, SL("llz"), 3, 1, 2, &v);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &_6, SL("lll"), 3, 1, 2, 5);
+	zephir_update_property_array_multi(&this_ptr, SL("myArray"), &v, SL("llz"), 3, 1, 2, &v);
 	RETURN_MM_MEMBER(getThis(), "myArray");
 }
 
@@ -2465,31 +2465,31 @@ PHP_METHOD(Stub_Assign, testAssignBitwiseX)
 			ZVAL_LONG(&i, a);
 			do {
 				if (ZEPHIR_IS_STRING(&op, "or")) {
-					_4$$4 = ((int) (zephir_get_numberval(&i)) | b);
+					_4$$4 = ((int) (zephir_get_intval(&i)) | b);
 					ZEPHIR_INIT_NVAR(&i);
 					ZVAL_LONG(&i, _4$$4);
 					break;
 				}
 				if (ZEPHIR_IS_STRING(&op, "and")) {
-					_5$$5 = ((int) (zephir_get_numberval(&i)) & b);
+					_5$$5 = ((int) (zephir_get_intval(&i)) & b);
 					ZEPHIR_INIT_NVAR(&i);
 					ZVAL_LONG(&i, _5$$5);
 					break;
 				}
 				if (ZEPHIR_IS_STRING(&op, "xor")) {
-					_6$$6 = ((int) (zephir_get_numberval(&i)) ^ b);
+					_6$$6 = ((int) (zephir_get_intval(&i)) ^ b);
 					ZEPHIR_INIT_NVAR(&i);
 					ZVAL_LONG(&i, _6$$6);
 					break;
 				}
 				if (ZEPHIR_IS_STRING(&op, "shiftleft")) {
-					_7$$7 = ((int) (zephir_get_numberval(&i)) << b);
+					_7$$7 = ((int) (zephir_get_intval(&i)) << b);
 					ZEPHIR_INIT_NVAR(&i);
 					ZVAL_LONG(&i, _7$$7);
 					break;
 				}
 				if (ZEPHIR_IS_STRING(&op, "shiftright")) {
-					_8$$8 = ((int) (zephir_get_numberval(&i)) >> b);
+					_8$$8 = ((int) (zephir_get_intval(&i)) >> b);
 					ZEPHIR_INIT_NVAR(&i);
 					ZVAL_LONG(&i, _8$$8);
 					break;
@@ -2499,45 +2499,50 @@ PHP_METHOD(Stub_Assign, testAssignBitwiseX)
 			zephir_array_update_zval(&result, &op, &i, PH_COPY | PH_SEPARATE);
 		} ZEND_HASH_FOREACH_END();
 	} else {
-		ZEPHIR_CALL_METHOD(NULL, &_0, "rewind", NULL, 0);
+		if (UNLIKELY(zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iteratoraggregate))) {
+			ZEPHIR_CALL_METHOD(_2, &_0, "getIterator", NULL, 0);
+			} else {
+			ZVAL_COPY(_2, &_0);
+		}
+		ZEPHIR_CALL_METHOD(NULL, _2, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_3, &_0, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_3, _2, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_3)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&op, &_0, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&op, _2, "current", NULL, 0);
 			zephir_check_call_status();
 				ZEPHIR_INIT_NVAR(&i);
 				ZVAL_LONG(&i, a);
 				do {
 					if (ZEPHIR_IS_STRING(&op, "or")) {
-						_9$$10 = ((int) (zephir_get_numberval(&i)) | b);
+						_9$$10 = ((int) (zephir_get_intval(&i)) | b);
 						ZEPHIR_INIT_NVAR(&i);
 						ZVAL_LONG(&i, _9$$10);
 						break;
 					}
 					if (ZEPHIR_IS_STRING(&op, "and")) {
-						_10$$11 = ((int) (zephir_get_numberval(&i)) & b);
+						_10$$11 = ((int) (zephir_get_intval(&i)) & b);
 						ZEPHIR_INIT_NVAR(&i);
 						ZVAL_LONG(&i, _10$$11);
 						break;
 					}
 					if (ZEPHIR_IS_STRING(&op, "xor")) {
-						_11$$12 = ((int) (zephir_get_numberval(&i)) ^ b);
+						_11$$12 = ((int) (zephir_get_intval(&i)) ^ b);
 						ZEPHIR_INIT_NVAR(&i);
 						ZVAL_LONG(&i, _11$$12);
 						break;
 					}
 					if (ZEPHIR_IS_STRING(&op, "shiftleft")) {
-						_12$$13 = ((int) (zephir_get_numberval(&i)) << b);
+						_12$$13 = ((int) (zephir_get_intval(&i)) << b);
 						ZEPHIR_INIT_NVAR(&i);
 						ZVAL_LONG(&i, _12$$13);
 						break;
 					}
 					if (ZEPHIR_IS_STRING(&op, "shiftright")) {
-						_13$$14 = ((int) (zephir_get_numberval(&i)) >> b);
+						_13$$14 = ((int) (zephir_get_intval(&i)) >> b);
 						ZEPHIR_INIT_NVAR(&i);
 						ZVAL_LONG(&i, _13$$14);
 						break;
@@ -2545,7 +2550,7 @@ PHP_METHOD(Stub_Assign, testAssignBitwiseX)
 				} while(0);
 
 				zephir_array_update_zval(&result, &op, &i, PH_COPY | PH_SEPARATE);
-			ZEPHIR_CALL_METHOD(NULL, &_0, "next", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, _2, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}

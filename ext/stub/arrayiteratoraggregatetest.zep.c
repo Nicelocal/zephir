@@ -18,14 +18,14 @@
 #include "kernel/object.h"
 
 
-ZEPHIR_INIT_CLASS(Stub_ArrayIteratorTest)
+ZEPHIR_INIT_CLASS(Stub_ArrayIteratorAggregateTest)
 {
-	ZEPHIR_REGISTER_CLASS(Stub, ArrayIteratorTest, stub, arrayiteratortest, stub_arrayiteratortest_method_entry, 0);
+	ZEPHIR_REGISTER_CLASS(Stub, ArrayIteratorAggregateTest, stub, arrayiteratoraggregatetest, stub_arrayiteratoraggregatetest_method_entry, 0);
 
 	return SUCCESS;
 }
 
-PHP_METHOD(Stub_ArrayIteratorTest, test)
+PHP_METHOD(Stub_ArrayIteratorAggregateTest, test)
 {
 	zend_string *_3;
 	zend_ulong _2;
@@ -46,7 +46,7 @@ PHP_METHOD(Stub_ArrayIteratorTest, test)
 	object_init_ex(&arr, stub_arrayiterator_ce);
 	ZEPHIR_CALL_METHOD(NULL, &arr, "__construct", NULL, 4);
 	zephir_check_call_status();
-	zephir_is_iterable(&arr, 0, "stub/arrayiteratortest.zep", 12);
+	zephir_is_iterable(&arr, 0, "stub/arrayiteratoraggregatetest.zep", 12);
 	if (Z_TYPE_P(&arr) == IS_ARRAY) {
 		ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&arr), _2, _3, _0)
 		{

@@ -173,20 +173,25 @@ PHP_METHOD(Stub_Globals_Session_Base, removeSessionData)
 			zephir_array_unset(&_SESSION, &key, PH_SEPARATE);
 		} ZEND_HASH_FOREACH_END();
 	} else {
-		ZEPHIR_CALL_METHOD(NULL, &_SESSION, "rewind", NULL, 0);
+		if (UNLIKELY(zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iteratoraggregate))) {
+			ZEPHIR_CALL_METHOD(_1, &_SESSION, "getIterator", NULL, 0);
+			} else {
+			ZVAL_COPY(_1, &_SESSION);
+		}
+		ZEPHIR_CALL_METHOD(NULL, _1, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_2, &_SESSION, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_2, _1, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_2)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&key, &_SESSION, "key", NULL, 0);
+			ZEPHIR_CALL_METHOD(&key, _1, "key", NULL, 0);
 			zephir_check_call_status();
-			ZEPHIR_CALL_METHOD(&_0, &_SESSION, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_0, _1, "current", NULL, 0);
 			zephir_check_call_status();
 				zephir_array_unset(&_SESSION, &key, PH_SEPARATE);
-			ZEPHIR_CALL_METHOD(NULL, &_SESSION, "next", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, _1, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}

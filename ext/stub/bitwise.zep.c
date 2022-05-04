@@ -318,7 +318,7 @@ PHP_METHOD(Stub_Bitwise, intVarImplicitCast2And)
 	ZEPHIR_INIT_VAR(&a);
 	ZVAL_STRING(&a, "1");
 	b = 2;
-	c = (b & (int) (zephir_get_numberval(&a)));
+	c = (b & (int) (zephir_get_intval(&a)));
 	RETURN_MM_LONG(c);
 }
 
@@ -970,7 +970,7 @@ PHP_METHOD(Stub_Bitwise, intVarImplicitCast2Or)
 	ZEPHIR_INIT_VAR(&a);
 	ZVAL_STRING(&a, "1");
 	b = 2;
-	c = (b | (int) (zephir_get_numberval(&a)));
+	c = (b | (int) (zephir_get_intval(&a)));
 	RETURN_MM_LONG(c);
 }
 

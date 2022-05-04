@@ -263,15 +263,20 @@ PHP_METHOD(Stub_FortyTwo, proof)
 			}
 		} ZEND_HASH_FOREACH_END();
 	} else {
-		ZEPHIR_CALL_METHOD(NULL, &box, "rewind", NULL, 0);
+		if (UNLIKELY(zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iteratoraggregate))) {
+			ZEPHIR_CALL_METHOD(_2, &box, "getIterator", NULL, 0);
+			} else {
+			ZVAL_COPY(_2, &box);
+		}
+		ZEPHIR_CALL_METHOD(NULL, _2, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_3, &box, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_3, _2, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_3)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&side, &box, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&side, _2, "current", NULL, 0);
 			zephir_check_call_status();
 				j = 0;
 				_10$$6 = 2;
@@ -296,7 +301,7 @@ PHP_METHOD(Stub_FortyTwo, proof)
 					ZEPHIR_THROW_EXCEPTION_DEBUG_STR(stub_exception_ce, "not true", "stub/fortytwo.zep", 29);
 					return;
 				}
-			ZEPHIR_CALL_METHOD(NULL, &box, "next", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, _2, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}

@@ -101,7 +101,8 @@ PHP_METHOD(Stub_FetchTest, testFetchArray2)
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 2, 0, &a, &b);
-	ZEPHIR_SEPARATE_PARAM(a);
+	ZVAL_DEREF(a);
+	SEPARATE_ZVAL_NOREF(a);
 
 
 	ZEPHIR_OBS_NVAR(a);
@@ -151,7 +152,8 @@ PHP_METHOD(Stub_FetchTest, testFetchArray4)
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 2, 0, &a, &b_param);
-	ZEPHIR_SEPARATE_PARAM(a);
+	ZVAL_DEREF(a);
+	SEPARATE_ZVAL_NOREF(a);
 	b = zephir_get_intval(b_param);
 
 
@@ -206,7 +208,8 @@ PHP_METHOD(Stub_FetchTest, testFetchArray6)
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 2, 0, &a, &b_param);
-	ZEPHIR_SEPARATE_PARAM(a);
+	ZVAL_DEREF(a);
+	SEPARATE_ZVAL_NOREF(a);
 	zephir_get_strval(&b, b_param);
 
 
@@ -259,7 +262,8 @@ PHP_METHOD(Stub_FetchTest, testFetchObject2)
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 2, 0, &a, &b);
-	ZEPHIR_SEPARATE_PARAM(a);
+	ZVAL_DEREF(a);
+	SEPARATE_ZVAL_NOREF(a);
 
 
 	ZEPHIR_OBS_NVAR(a);
