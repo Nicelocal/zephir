@@ -33,7 +33,7 @@ zend_string* i_self   = NULL;
 
 int zephir_is_iterable_ex(zval *arr, int duplicate)
 {
-	if (UNEXPECTED(Z_TYPE_P(arr) == IS_OBJECT && zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iterator))) {
+	if (UNEXPECTED(Z_TYPE_P(arr) == IS_OBJECT && zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_traversable))) {
 		return 1;
 	} else if (UNEXPECTED(Z_TYPE_P(arr) != IS_ARRAY)) {
 		return 0;
