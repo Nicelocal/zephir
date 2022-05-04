@@ -1097,13 +1097,13 @@ class Backend extends BackendZendEngine2
         $codePrinter->output('} else {');
         $codePrinter->increaseLevel();
 
-        $codePrinter->output("if (UNLIKELY(zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iteratoraggregate))) {");
+        $codePrinter->output("if (zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iterator)) {");
+        $codePrinter->increaseLevel();
+        $codePrinter->output('ZVAL_COPY('.$tempVariable->getName().', '.$this->getVariableCode($exprVariable).');');
+        $codePrinter->decreaseLevel();
+        $codePrinter->output('} else {');
         $codePrinter->increaseLevel();
         $codePrinter->output('ZEPHIR_CALL_METHOD('.$tempVariable->getName().', '.$this->getVariableCode($exprVariable).', "getIterator", NULL, 0);');
-        $codePrinter->decreaseLevel();
-        $codePrinter->increaseLevel();
-        $codePrinter->output('} else {');
-        $codePrinter->output('ZVAL_COPY('.$tempVariable->getName().', '.$this->getVariableCode($exprVariable).');');
         $codePrinter->decreaseLevel();
         $codePrinter->output('}');
 

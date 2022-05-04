@@ -173,10 +173,10 @@ PHP_METHOD(Stub_Globals_Session_Base, removeSessionData)
 			zephir_array_unset(&_SESSION, &key, PH_SEPARATE);
 		} ZEND_HASH_FOREACH_END();
 	} else {
-		if (UNLIKELY(zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iteratoraggregate))) {
-			ZEPHIR_CALL_METHOD(_1, &_SESSION, "getIterator", NULL, 0);
-			} else {
+		if (zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iterator)) {
 			ZVAL_COPY(_1, &_SESSION);
+		} else {
+			ZEPHIR_CALL_METHOD(_1, &_SESSION, "getIterator", NULL, 0);
 		}
 		ZEPHIR_CALL_METHOD(NULL, _1, "rewind", NULL, 0);
 		zephir_check_call_status();

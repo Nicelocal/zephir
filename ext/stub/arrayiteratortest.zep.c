@@ -62,10 +62,10 @@ PHP_METHOD(Stub_ArrayIteratorTest, test)
 			RETURN_MM();
 		} ZEND_HASH_FOREACH_END();
 	} else {
-		if (UNLIKELY(zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iteratoraggregate))) {
-			ZEPHIR_CALL_METHOD(_0, &arr, "getIterator", NULL, 0);
-			} else {
+		if (zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iterator)) {
 			ZVAL_COPY(_0, &arr);
+		} else {
+			ZEPHIR_CALL_METHOD(_0, &arr, "getIterator", NULL, 0);
 		}
 		ZEPHIR_CALL_METHOD(NULL, _0, "rewind", NULL, 0);
 		zephir_check_call_status();

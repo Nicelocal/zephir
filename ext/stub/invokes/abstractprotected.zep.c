@@ -206,10 +206,10 @@ PHP_METHOD(Stub_Invokes_AbstractProtected, renderArrayElementsComplex)
 			zephir_concat_self(&result, &_5$$3);
 		} ZEND_HASH_FOREACH_END();
 	} else {
-		if (UNLIKELY(zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iteratoraggregate))) {
-			ZEPHIR_CALL_METHOD(_3, &elements, "getIterator", NULL, 0);
-			} else {
+		if (zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iterator)) {
 			ZVAL_COPY(_3, &elements);
+		} else {
+			ZEPHIR_CALL_METHOD(_3, &elements, "getIterator", NULL, 0);
 		}
 		ZEPHIR_CALL_METHOD(NULL, _3, "rewind", NULL, 0);
 		zephir_check_call_status();
