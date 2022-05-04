@@ -263,7 +263,7 @@ PHP_METHOD(Stub_FortyTwo, proof)
 			}
 		} ZEND_HASH_FOREACH_END();
 	} else {
-		if (zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iterator)) {
+		if (zephir_instance_of_ev(&box, (const zend_class_entry *)zend_ce_iterator)) {
 			ZVAL_COPY(_2, &box);
 		} else {
 			ZEPHIR_CALL_METHOD(_2, &box, "getIterator", NULL, 0);

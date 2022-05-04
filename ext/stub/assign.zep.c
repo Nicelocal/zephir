@@ -2499,7 +2499,7 @@ PHP_METHOD(Stub_Assign, testAssignBitwiseX)
 			zephir_array_update_zval(&result, &op, &i, PH_COPY | PH_SEPARATE);
 		} ZEND_HASH_FOREACH_END();
 	} else {
-		if (zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iterator)) {
+		if (zephir_instance_of_ev(&_0, (const zend_class_entry *)zend_ce_iterator)) {
 			ZVAL_COPY(_2, &_0);
 		} else {
 			ZEPHIR_CALL_METHOD(_2, &_0, "getIterator", NULL, 0);

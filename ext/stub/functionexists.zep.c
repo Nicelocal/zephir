@@ -108,7 +108,7 @@ PHP_METHOD(Stub_FunctionExists, testBuiltInFunctions)
 			zephir_array_update_zval(&result, &func, &_3$$3, PH_COPY | PH_SEPARATE);
 		} ZEND_HASH_FOREACH_END();
 	} else {
-		if (zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iterator)) {
+		if (zephir_instance_of_ev(&functions, (const zend_class_entry *)zend_ce_iterator)) {
 			ZVAL_COPY(_1, &functions);
 		} else {
 			ZEPHIR_CALL_METHOD(_1, &functions, "getIterator", NULL, 0);

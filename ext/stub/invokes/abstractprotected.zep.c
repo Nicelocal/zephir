@@ -206,7 +206,7 @@ PHP_METHOD(Stub_Invokes_AbstractProtected, renderArrayElementsComplex)
 			zephir_concat_self(&result, &_5$$3);
 		} ZEND_HASH_FOREACH_END();
 	} else {
-		if (zephir_instance_of_ev(arr, (const zend_class_entry *)zend_ce_iterator)) {
+		if (zephir_instance_of_ev(&elements, (const zend_class_entry *)zend_ce_iterator)) {
 			ZVAL_COPY(_3, &elements);
 		} else {
 			ZEPHIR_CALL_METHOD(_3, &elements, "getIterator", NULL, 0);
