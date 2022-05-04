@@ -32,19 +32,20 @@ ZEPHIR_INIT_CLASS(Stub_FortyTwo)
 
 PHP_METHOD(Stub_FortyTwo, proof)
 {
-	zend_bool _4$$3, _8$$6;
+	zend_bool _5$$3, _9$$6;
 	zval _0;
-	zval box, side, _1, *_2, _3, _7$$4, _11$$7;
+	zval box, side, _1, *_2, _3, _4, _8$$4, _12$$7;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
-	zend_long ZEPHIR_LAST_CALL_STATUS, i = 0, j = 0, _5$$3, _6$$3, _9$$6, _10$$6;
+	zend_long ZEPHIR_LAST_CALL_STATUS, i = 0, j = 0, _6$$3, _7$$3, _10$$6, _11$$6;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&box);
 	ZVAL_UNDEF(&side);
 	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&_3);
-	ZVAL_UNDEF(&_7$$4);
-	ZVAL_UNDEF(&_11$$7);
+	ZVAL_UNDEF(&_4);
+	ZVAL_UNDEF(&_8$$4);
+	ZVAL_UNDEF(&_12$$7);
 	ZVAL_UNDEF(&_0);
 
 
@@ -239,22 +240,22 @@ PHP_METHOD(Stub_FortyTwo, proof)
 			ZEPHIR_INIT_NVAR(&side);
 			ZVAL_COPY(&side, _2);
 			j = 0;
-			_6$$3 = 2;
+			_7$$3 = 2;
+			_6$$3 = 0;
 			_5$$3 = 0;
-			_4$$3 = 0;
-			if (_5$$3 <= _6$$3) {
+			if (_6$$3 <= _7$$3) {
 				while (1) {
-					if (_4$$3) {
-						_5$$3++;
-						if (!(_5$$3 <= _6$$3)) {
+					if (_5$$3) {
+						_6$$3++;
+						if (!(_6$$3 <= _7$$3)) {
 							break;
 						}
 					} else {
-						_4$$3 = 1;
+						_5$$3 = 1;
 					}
-					i = _5$$3;
-					zephir_array_fetch_long(&_7$$4, &side, i, PH_NOISY | PH_READONLY, "stub/fortytwo.zep", 26);
-					j += zephir_get_numberval(&_7$$4);
+					i = _6$$3;
+					zephir_array_fetch_long(&_8$$4, &side, i, PH_NOISY | PH_READONLY, "stub/fortytwo.zep", 26);
+					j += zephir_get_numberval(&_8$$4);
 				}
 			}
 			if (j != 42) {
@@ -264,44 +265,44 @@ PHP_METHOD(Stub_FortyTwo, proof)
 		} ZEND_HASH_FOREACH_END();
 	} else {
 		if (zephir_instance_of_ev(&box, (const zend_class_entry *)zend_ce_iterator)) {
-			ZVAL_COPY(_2, &box);
+			ZVAL_COPY(&_4, &box);
 		} else {
-			ZEPHIR_CALL_METHOD(_2, &box, "getIterator", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_4, &box, "getIterator", NULL, 0);
 		}
-		ZEPHIR_CALL_METHOD(NULL, _2, "rewind", NULL, 0);
+		ZEPHIR_CALL_METHOD(NULL, &_4, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_3, _2, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_3, &_4, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_3)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&side, _2, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&side, &_4, "current", NULL, 0);
 			zephir_check_call_status();
 				j = 0;
-				_10$$6 = 2;
+				_11$$6 = 2;
+				_10$$6 = 0;
 				_9$$6 = 0;
-				_8$$6 = 0;
-				if (_9$$6 <= _10$$6) {
+				if (_10$$6 <= _11$$6) {
 					while (1) {
-						if (_8$$6) {
-							_9$$6++;
-							if (!(_9$$6 <= _10$$6)) {
+						if (_9$$6) {
+							_10$$6++;
+							if (!(_10$$6 <= _11$$6)) {
 								break;
 							}
 						} else {
-							_8$$6 = 1;
+							_9$$6 = 1;
 						}
-						i = _9$$6;
-						zephir_array_fetch_long(&_11$$7, &side, i, PH_NOISY | PH_READONLY, "stub/fortytwo.zep", 26);
-						j += zephir_get_numberval(&_11$$7);
+						i = _10$$6;
+						zephir_array_fetch_long(&_12$$7, &side, i, PH_NOISY | PH_READONLY, "stub/fortytwo.zep", 26);
+						j += zephir_get_numberval(&_12$$7);
 					}
 				}
 				if (j != 42) {
 					ZEPHIR_THROW_EXCEPTION_DEBUG_STR(stub_exception_ce, "not true", "stub/fortytwo.zep", 29);
 					return;
 				}
-			ZEPHIR_CALL_METHOD(NULL, _2, "next", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, &_4, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}

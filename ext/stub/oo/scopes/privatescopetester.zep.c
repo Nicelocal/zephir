@@ -67,7 +67,8 @@ PHP_METHOD(Stub_Oo_Scopes_PrivateScopeTester, setPropertyObj)
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 3, 0, &obj, &property_param, &value);
-	ZEPHIR_SEPARATE_PARAM(obj);
+	ZVAL_DEREF(obj);
+	SEPARATE_ZVAL_NOREF(obj);
 	zephir_get_strval(&property, property_param);
 
 
@@ -138,7 +139,7 @@ PHP_METHOD(Stub_Oo_Scopes_PrivateScopeTester, getObjVars)
 	zephir_fetch_params(1, 1, 0, &obj);
 
 
-	ZEPHIR_RETURN_CALL_FUNCTION("get_object_vars", NULL, 71, obj);
+	ZEPHIR_RETURN_CALL_FUNCTION("get_object_vars", NULL, 81, obj);
 	zephir_check_call_status();
 	RETURN_MM();
 }

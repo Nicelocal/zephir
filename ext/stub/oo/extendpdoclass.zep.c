@@ -72,7 +72,8 @@ PHP_METHOD(Stub_Oo_ExtendPdoClass, __construct)
 		ZEPHIR_INIT_VAR(attrs);
 		array_init(attrs);
 	} else {
-		ZEPHIR_SEPARATE_PARAM(attrs);
+		ZVAL_DEREF(attrs);
+		SEPARATE_ZVAL_NOREF(attrs);
 	}
 
 

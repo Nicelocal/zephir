@@ -95,7 +95,8 @@ PHP_METHOD(Stub_SPropertyAccess, testArgumentWithUnderscore)
 		delimiter = &delimiter_sub;
 		ZEPHIR_CPY_WRT(delimiter, &__$null);
 	} else {
-		ZEPHIR_SEPARATE_PARAM(delimiter);
+		ZVAL_DEREF(delimiter);
+		SEPARATE_ZVAL_NOREF(delimiter);
 	}
 
 
@@ -131,7 +132,8 @@ PHP_METHOD(Stub_SPropertyAccess, testArgument)
 		delimiter = &delimiter_sub;
 		ZEPHIR_CPY_WRT(delimiter, &__$null);
 	} else {
-		ZEPHIR_SEPARATE_PARAM(delimiter);
+		ZVAL_DEREF(delimiter);
+		SEPARATE_ZVAL_NOREF(delimiter);
 	}
 
 

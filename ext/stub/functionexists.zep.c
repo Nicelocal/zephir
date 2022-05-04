@@ -53,7 +53,7 @@ PHP_METHOD(Stub_FunctionExists, testWithPassedName)
 PHP_METHOD(Stub_FunctionExists, testBuiltInFunctions)
 {
 	zval result, functions;
-	zval func, _0, *_1, _2, _3$$3, _4$$4;
+	zval func, _0, *_1, _2, _3, _4$$3, _5$$4;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
 	zval *this_ptr = getThis();
@@ -61,8 +61,9 @@ PHP_METHOD(Stub_FunctionExists, testBuiltInFunctions)
 	ZVAL_UNDEF(&func);
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_2);
-	ZVAL_UNDEF(&_3$$3);
-	ZVAL_UNDEF(&_4$$4);
+	ZVAL_UNDEF(&_3);
+	ZVAL_UNDEF(&_4$$3);
+	ZVAL_UNDEF(&_5$$4);
 	ZVAL_UNDEF(&result);
 	ZVAL_UNDEF(&functions);
 
@@ -103,30 +104,30 @@ PHP_METHOD(Stub_FunctionExists, testBuiltInFunctions)
 		{
 			ZEPHIR_INIT_NVAR(&func);
 			ZVAL_COPY(&func, _1);
-			ZEPHIR_INIT_NVAR(&_3$$3);
-			ZVAL_BOOL(&_3$$3, (zephir_function_exists(&func) == SUCCESS));
-			zephir_array_update_zval(&result, &func, &_3$$3, PH_COPY | PH_SEPARATE);
+			ZEPHIR_INIT_NVAR(&_4$$3);
+			ZVAL_BOOL(&_4$$3, (zephir_function_exists(&func) == SUCCESS));
+			zephir_array_update_zval(&result, &func, &_4$$3, PH_COPY | PH_SEPARATE);
 		} ZEND_HASH_FOREACH_END();
 	} else {
 		if (zephir_instance_of_ev(&functions, (const zend_class_entry *)zend_ce_iterator)) {
-			ZVAL_COPY(_1, &functions);
+			ZVAL_COPY(&_3, &functions);
 		} else {
-			ZEPHIR_CALL_METHOD(_1, &functions, "getIterator", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_3, &functions, "getIterator", NULL, 0);
 		}
-		ZEPHIR_CALL_METHOD(NULL, _1, "rewind", NULL, 0);
+		ZEPHIR_CALL_METHOD(NULL, &_3, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_2, _1, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_2, &_3, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_2)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&func, _1, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&func, &_3, "current", NULL, 0);
 			zephir_check_call_status();
-				ZEPHIR_INIT_NVAR(&_4$$4);
-				ZVAL_BOOL(&_4$$4, (zephir_function_exists(&func) == SUCCESS));
-				zephir_array_update_zval(&result, &func, &_4$$4, PH_COPY | PH_SEPARATE);
-			ZEPHIR_CALL_METHOD(NULL, _1, "next", NULL, 0);
+				ZEPHIR_INIT_NVAR(&_5$$4);
+				ZVAL_BOOL(&_5$$4, (zephir_function_exists(&func) == SUCCESS));
+				zephir_array_update_zval(&result, &func, &_5$$4, PH_COPY | PH_SEPARATE);
+			ZEPHIR_CALL_METHOD(NULL, &_3, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}

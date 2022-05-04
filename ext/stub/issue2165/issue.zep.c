@@ -73,13 +73,13 @@ PHP_METHOD(Stub_Issue2165_Issue, build)
 
 PHP_METHOD(Stub_Issue2165_Issue, __construct)
 {
-	zend_string *_6$$3;
-	zend_ulong _5$$3;
+	zend_string *_7$$3;
+	zend_ulong _6$$3;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
-	zephir_fcall_cache_entry *_2 = NULL, *_10 = NULL, *_13 = NULL, *_18 = NULL;
+	zephir_fcall_cache_entry *_2 = NULL, *_11 = NULL, *_14 = NULL, *_20 = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS, m, n;
-	zend_bool validate, _16$$6, _22$$8, _35$$12, _40$$14;
-	zval *a_param = NULL, *validate_param = NULL, i, rowA, valueA, _0, _46, _1$$3, *_3$$3, _4$$3, _7$$5, _8$$5, _9$$5, _11$$5, _12$$5, *_14$$4, _15$$4, _27$$4, _17$$6, _19$$7, _20$$7, _21$$7, _23$$8, _24$$9, _25$$9, _26$$9, _28$$11, _29$$11, _30$$11, _31$$11, _32$$11, *_33$$10, _34$$10, _45$$10, _36$$12, _37$$13, _38$$13, _39$$13, _41$$14, _42$$15, _43$$15, _44$$15;
+	zend_bool validate, _18$$6, _24$$8, _38$$12, _43$$14;
+	zval *a_param = NULL, *validate_param = NULL, i, rowA, valueA, _0, _49, _1$$3, *_3$$3, _4$$3, _5$$3, _8$$5, _9$$5, _10$$5, _12$$5, _13$$5, *_15$$4, _16$$4, _17$$4, _29$$4, _19$$6, _21$$7, _22$$7, _23$$7, _25$$8, _26$$9, _27$$9, _28$$9, _30$$11, _31$$11, _32$$11, _33$$11, _34$$11, *_35$$10, _36$$10, _37$$10, _48$$10, _39$$12, _40$$13, _41$$13, _42$$13, _44$$14, _45$$15, _46$$15, _47$$15;
 	zval a;
 	zval *this_ptr = getThis();
 
@@ -88,39 +88,42 @@ PHP_METHOD(Stub_Issue2165_Issue, __construct)
 	ZVAL_UNDEF(&rowA);
 	ZVAL_UNDEF(&valueA);
 	ZVAL_UNDEF(&_0);
-	ZVAL_UNDEF(&_46);
+	ZVAL_UNDEF(&_49);
 	ZVAL_UNDEF(&_1$$3);
 	ZVAL_UNDEF(&_4$$3);
-	ZVAL_UNDEF(&_7$$5);
+	ZVAL_UNDEF(&_5$$3);
 	ZVAL_UNDEF(&_8$$5);
 	ZVAL_UNDEF(&_9$$5);
-	ZVAL_UNDEF(&_11$$5);
+	ZVAL_UNDEF(&_10$$5);
 	ZVAL_UNDEF(&_12$$5);
-	ZVAL_UNDEF(&_15$$4);
-	ZVAL_UNDEF(&_27$$4);
-	ZVAL_UNDEF(&_17$$6);
-	ZVAL_UNDEF(&_19$$7);
-	ZVAL_UNDEF(&_20$$7);
+	ZVAL_UNDEF(&_13$$5);
+	ZVAL_UNDEF(&_16$$4);
+	ZVAL_UNDEF(&_17$$4);
+	ZVAL_UNDEF(&_29$$4);
+	ZVAL_UNDEF(&_19$$6);
 	ZVAL_UNDEF(&_21$$7);
-	ZVAL_UNDEF(&_23$$8);
-	ZVAL_UNDEF(&_24$$9);
-	ZVAL_UNDEF(&_25$$9);
+	ZVAL_UNDEF(&_22$$7);
+	ZVAL_UNDEF(&_23$$7);
+	ZVAL_UNDEF(&_25$$8);
 	ZVAL_UNDEF(&_26$$9);
-	ZVAL_UNDEF(&_28$$11);
-	ZVAL_UNDEF(&_29$$11);
+	ZVAL_UNDEF(&_27$$9);
+	ZVAL_UNDEF(&_28$$9);
 	ZVAL_UNDEF(&_30$$11);
 	ZVAL_UNDEF(&_31$$11);
 	ZVAL_UNDEF(&_32$$11);
-	ZVAL_UNDEF(&_34$$10);
-	ZVAL_UNDEF(&_45$$10);
-	ZVAL_UNDEF(&_36$$12);
-	ZVAL_UNDEF(&_37$$13);
-	ZVAL_UNDEF(&_38$$13);
-	ZVAL_UNDEF(&_39$$13);
-	ZVAL_UNDEF(&_41$$14);
-	ZVAL_UNDEF(&_42$$15);
-	ZVAL_UNDEF(&_43$$15);
-	ZVAL_UNDEF(&_44$$15);
+	ZVAL_UNDEF(&_33$$11);
+	ZVAL_UNDEF(&_34$$11);
+	ZVAL_UNDEF(&_36$$10);
+	ZVAL_UNDEF(&_37$$10);
+	ZVAL_UNDEF(&_48$$10);
+	ZVAL_UNDEF(&_39$$12);
+	ZVAL_UNDEF(&_40$$13);
+	ZVAL_UNDEF(&_41$$13);
+	ZVAL_UNDEF(&_42$$13);
+	ZVAL_UNDEF(&_44$$14);
+	ZVAL_UNDEF(&_45$$15);
+	ZVAL_UNDEF(&_46$$15);
+	ZVAL_UNDEF(&_47$$15);
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(1, 2)
@@ -151,206 +154,206 @@ PHP_METHOD(Stub_Issue2165_Issue, __construct)
 		ZEPHIR_CPY_WRT(&a, &_1$$3);
 		zephir_is_iterable(&a, 0, "stub/issue2165/issue.zep", 46);
 		if (Z_TYPE_P(&a) == IS_ARRAY) {
-			ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&a), _5$$3, _6$$3, _3$$3)
+			ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&a), _6$$3, _7$$3, _3$$3)
 			{
 				ZEPHIR_INIT_NVAR(&i);
-				if (_6$$3 != NULL) { 
-					ZVAL_STR_COPY(&i, _6$$3);
+				if (_7$$3 != NULL) { 
+					ZVAL_STR_COPY(&i, _7$$3);
 				} else {
-					ZVAL_LONG(&i, _5$$3);
+					ZVAL_LONG(&i, _6$$3);
 				}
 				ZEPHIR_INIT_NVAR(&rowA);
 				ZVAL_COPY(&rowA, _3$$3);
 				if (UNEXPECTED(zephir_fast_count_int(&rowA) != n)) {
-					ZEPHIR_INIT_NVAR(&_7$$5);
-					object_init_ex(&_7$$5, spl_ce_InvalidArgumentException);
-					ZVAL_LONG(&_8$$5, n);
-					ZEPHIR_CALL_FUNCTION(&_9$$5, "strval", &_10, 50, &_8$$5);
+					ZEPHIR_INIT_NVAR(&_8$$5);
+					object_init_ex(&_8$$5, spl_ce_InvalidArgumentException);
+					ZVAL_LONG(&_9$$5, n);
+					ZEPHIR_CALL_FUNCTION(&_10$$5, "strval", &_11, 50, &_9$$5);
 					zephir_check_call_status();
-					ZEPHIR_INIT_NVAR(&_11$$5);
-					ZVAL_LONG(&_11$$5, zephir_fast_count_int(&rowA));
 					ZEPHIR_INIT_NVAR(&_12$$5);
-					ZEPHIR_CONCAT_SSVSVSSVS(&_12$$5, "The number of columns", " must be equal for all rows, ", &_9$$5, " needed but ", &_11$$5, " given", " at row offset ", &i, ".");
-					ZEPHIR_CALL_METHOD(NULL, &_7$$5, "__construct", &_13, 51, &_12$$5);
+					ZVAL_LONG(&_12$$5, zephir_fast_count_int(&rowA));
+					ZEPHIR_INIT_NVAR(&_13$$5);
+					ZEPHIR_CONCAT_SSVSVSSVS(&_13$$5, "The number of columns", " must be equal for all rows, ", &_10$$5, " needed but ", &_12$$5, " given", " at row offset ", &i, ".");
+					ZEPHIR_CALL_METHOD(NULL, &_8$$5, "__construct", &_14, 51, &_13$$5);
 					zephir_check_call_status();
-					zephir_throw_exception_debug(&_7$$5, "stub/issue2165/issue.zep", 33);
+					zephir_throw_exception_debug(&_8$$5, "stub/issue2165/issue.zep", 33);
 					ZEPHIR_MM_RESTORE();
 					return;
 				}
 				zephir_is_iterable(&rowA, 0, "stub/issue2165/issue.zep", 44);
 				if (Z_TYPE_P(&rowA) == IS_ARRAY) {
-					ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&rowA), _14$$4)
+					ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&rowA), _15$$4)
 					{
 						ZEPHIR_INIT_NVAR(&valueA);
-						ZVAL_COPY(&valueA, _14$$4);
-						_16$$6 = !(Z_TYPE_P(&valueA) == IS_LONG);
-						if (_16$$6) {
-							ZEPHIR_CALL_FUNCTION(&_17$$6, "is_float", &_18, 52, &valueA);
+						ZVAL_COPY(&valueA, _15$$4);
+						_18$$6 = !(Z_TYPE_P(&valueA) == IS_LONG);
+						if (_18$$6) {
+							ZEPHIR_CALL_FUNCTION(&_19$$6, "is_float", &_20, 52, &valueA);
 							zephir_check_call_status();
-							_16$$6 = !zephir_is_true(&_17$$6);
+							_18$$6 = !zephir_is_true(&_19$$6);
 						}
-						if (UNEXPECTED(_16$$6)) {
-							ZEPHIR_INIT_NVAR(&_19$$7);
-							object_init_ex(&_19$$7, spl_ce_InvalidArgumentException);
-							ZEPHIR_INIT_NVAR(&_20$$7);
-							zephir_gettype(&_20$$7, &valueA);
+						if (UNEXPECTED(_18$$6)) {
 							ZEPHIR_INIT_NVAR(&_21$$7);
-							ZEPHIR_CONCAT_SSVS(&_21$$7, "Matrix element must", " be an integer or floating point number, ", &_20$$7, " given.");
-							ZEPHIR_CALL_METHOD(NULL, &_19$$7, "__construct", &_13, 51, &_21$$7);
+							object_init_ex(&_21$$7, spl_ce_InvalidArgumentException);
+							ZEPHIR_INIT_NVAR(&_22$$7);
+							zephir_gettype(&_22$$7, &valueA);
+							ZEPHIR_INIT_NVAR(&_23$$7);
+							ZEPHIR_CONCAT_SSVS(&_23$$7, "Matrix element must", " be an integer or floating point number, ", &_22$$7, " given.");
+							ZEPHIR_CALL_METHOD(NULL, &_21$$7, "__construct", &_14, 51, &_23$$7);
 							zephir_check_call_status();
-							zephir_throw_exception_debug(&_19$$7, "stub/issue2165/issue.zep", 40);
+							zephir_throw_exception_debug(&_21$$7, "stub/issue2165/issue.zep", 40);
 							ZEPHIR_MM_RESTORE();
 							return;
 						}
 					} ZEND_HASH_FOREACH_END();
 				} else {
 					if (zephir_instance_of_ev(&rowA, (const zend_class_entry *)zend_ce_iterator)) {
-						ZVAL_COPY(_14$$4, &rowA);
+						ZVAL_COPY(&_17$$4, &rowA);
 					} else {
-						ZEPHIR_CALL_METHOD(_14$$4, &rowA, "getIterator", NULL, 0);
+						ZEPHIR_CALL_METHOD(&_17$$4, &rowA, "getIterator", NULL, 0);
 					}
-					ZEPHIR_CALL_METHOD(NULL, _14$$4, "rewind", NULL, 0);
+					ZEPHIR_CALL_METHOD(NULL, &_17$$4, "rewind", NULL, 0);
 					zephir_check_call_status();
 					while (1) {
-						ZEPHIR_CALL_METHOD(&_15$$4, _14$$4, "valid", NULL, 0);
+						ZEPHIR_CALL_METHOD(&_16$$4, &_17$$4, "valid", NULL, 0);
 						zephir_check_call_status();
-						if (!zend_is_true(&_15$$4)) {
+						if (!zend_is_true(&_16$$4)) {
 							break;
 						}
-						ZEPHIR_CALL_METHOD(&valueA, _14$$4, "current", NULL, 0);
+						ZEPHIR_CALL_METHOD(&valueA, &_17$$4, "current", NULL, 0);
 						zephir_check_call_status();
-							_22$$8 = !(Z_TYPE_P(&valueA) == IS_LONG);
-							if (_22$$8) {
-								ZEPHIR_CALL_FUNCTION(&_23$$8, "is_float", &_18, 52, &valueA);
+							_24$$8 = !(Z_TYPE_P(&valueA) == IS_LONG);
+							if (_24$$8) {
+								ZEPHIR_CALL_FUNCTION(&_25$$8, "is_float", &_20, 52, &valueA);
 								zephir_check_call_status();
-								_22$$8 = !zephir_is_true(&_23$$8);
+								_24$$8 = !zephir_is_true(&_25$$8);
 							}
-							if (UNEXPECTED(_22$$8)) {
-								ZEPHIR_INIT_NVAR(&_24$$9);
-								object_init_ex(&_24$$9, spl_ce_InvalidArgumentException);
-								ZEPHIR_INIT_NVAR(&_25$$9);
-								zephir_gettype(&_25$$9, &valueA);
+							if (UNEXPECTED(_24$$8)) {
 								ZEPHIR_INIT_NVAR(&_26$$9);
-								ZEPHIR_CONCAT_SSVS(&_26$$9, "Matrix element must", " be an integer or floating point number, ", &_25$$9, " given.");
-								ZEPHIR_CALL_METHOD(NULL, &_24$$9, "__construct", &_13, 51, &_26$$9);
+								object_init_ex(&_26$$9, spl_ce_InvalidArgumentException);
+								ZEPHIR_INIT_NVAR(&_27$$9);
+								zephir_gettype(&_27$$9, &valueA);
+								ZEPHIR_INIT_NVAR(&_28$$9);
+								ZEPHIR_CONCAT_SSVS(&_28$$9, "Matrix element must", " be an integer or floating point number, ", &_27$$9, " given.");
+								ZEPHIR_CALL_METHOD(NULL, &_26$$9, "__construct", &_14, 51, &_28$$9);
 								zephir_check_call_status();
-								zephir_throw_exception_debug(&_24$$9, "stub/issue2165/issue.zep", 40);
+								zephir_throw_exception_debug(&_26$$9, "stub/issue2165/issue.zep", 40);
 								ZEPHIR_MM_RESTORE();
 								return;
 							}
-						ZEPHIR_CALL_METHOD(NULL, _14$$4, "next", NULL, 0);
+						ZEPHIR_CALL_METHOD(NULL, &_17$$4, "next", NULL, 0);
 						zephir_check_call_status();
 					}
 				}
 				ZEPHIR_INIT_NVAR(&valueA);
-				ZEPHIR_CALL_FUNCTION(&_27$$4, "array_values", &_2, 49, &rowA);
+				ZEPHIR_CALL_FUNCTION(&_29$$4, "array_values", &_2, 49, &rowA);
 				zephir_check_call_status();
-				zephir_array_append(&rowA, &_27$$4, PH_SEPARATE, "stub/issue2165/issue.zep", 44);
+				zephir_array_append(&rowA, &_29$$4, PH_SEPARATE, "stub/issue2165/issue.zep", 44);
 			} ZEND_HASH_FOREACH_END();
 		} else {
 			if (zephir_instance_of_ev(&a, (const zend_class_entry *)zend_ce_iterator)) {
-				ZVAL_COPY(_3$$3, &a);
+				ZVAL_COPY(&_5$$3, &a);
 			} else {
-				ZEPHIR_CALL_METHOD(_3$$3, &a, "getIterator", NULL, 0);
+				ZEPHIR_CALL_METHOD(&_5$$3, &a, "getIterator", NULL, 0);
 			}
-			ZEPHIR_CALL_METHOD(NULL, _3$$3, "rewind", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, &_5$$3, "rewind", NULL, 0);
 			zephir_check_call_status();
 			while (1) {
-				ZEPHIR_CALL_METHOD(&_4$$3, _3$$3, "valid", NULL, 0);
+				ZEPHIR_CALL_METHOD(&_4$$3, &_5$$3, "valid", NULL, 0);
 				zephir_check_call_status();
 				if (!zend_is_true(&_4$$3)) {
 					break;
 				}
-				ZEPHIR_CALL_METHOD(&i, _3$$3, "key", NULL, 0);
+				ZEPHIR_CALL_METHOD(&i, &_5$$3, "key", NULL, 0);
 				zephir_check_call_status();
-				ZEPHIR_CALL_METHOD(&rowA, _3$$3, "current", NULL, 0);
+				ZEPHIR_CALL_METHOD(&rowA, &_5$$3, "current", NULL, 0);
 				zephir_check_call_status();
 					if (UNEXPECTED(zephir_fast_count_int(&rowA) != n)) {
-						ZEPHIR_INIT_NVAR(&_28$$11);
-						object_init_ex(&_28$$11, spl_ce_InvalidArgumentException);
-						ZVAL_LONG(&_29$$11, n);
-						ZEPHIR_CALL_FUNCTION(&_30$$11, "strval", &_10, 50, &_29$$11);
+						ZEPHIR_INIT_NVAR(&_30$$11);
+						object_init_ex(&_30$$11, spl_ce_InvalidArgumentException);
+						ZVAL_LONG(&_31$$11, n);
+						ZEPHIR_CALL_FUNCTION(&_32$$11, "strval", &_11, 50, &_31$$11);
 						zephir_check_call_status();
-						ZEPHIR_INIT_NVAR(&_31$$11);
-						ZVAL_LONG(&_31$$11, zephir_fast_count_int(&rowA));
-						ZEPHIR_INIT_NVAR(&_32$$11);
-						ZEPHIR_CONCAT_SSVSVSSVS(&_32$$11, "The number of columns", " must be equal for all rows, ", &_30$$11, " needed but ", &_31$$11, " given", " at row offset ", &i, ".");
-						ZEPHIR_CALL_METHOD(NULL, &_28$$11, "__construct", &_13, 51, &_32$$11);
+						ZEPHIR_INIT_NVAR(&_33$$11);
+						ZVAL_LONG(&_33$$11, zephir_fast_count_int(&rowA));
+						ZEPHIR_INIT_NVAR(&_34$$11);
+						ZEPHIR_CONCAT_SSVSVSSVS(&_34$$11, "The number of columns", " must be equal for all rows, ", &_32$$11, " needed but ", &_33$$11, " given", " at row offset ", &i, ".");
+						ZEPHIR_CALL_METHOD(NULL, &_30$$11, "__construct", &_14, 51, &_34$$11);
 						zephir_check_call_status();
-						zephir_throw_exception_debug(&_28$$11, "stub/issue2165/issue.zep", 33);
+						zephir_throw_exception_debug(&_30$$11, "stub/issue2165/issue.zep", 33);
 						ZEPHIR_MM_RESTORE();
 						return;
 					}
 					zephir_is_iterable(&rowA, 0, "stub/issue2165/issue.zep", 44);
 					if (Z_TYPE_P(&rowA) == IS_ARRAY) {
-						ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&rowA), _33$$10)
+						ZEND_HASH_FOREACH_VAL(Z_ARRVAL_P(&rowA), _35$$10)
 						{
 							ZEPHIR_INIT_NVAR(&valueA);
-							ZVAL_COPY(&valueA, _33$$10);
-							_35$$12 = !(Z_TYPE_P(&valueA) == IS_LONG);
-							if (_35$$12) {
-								ZEPHIR_CALL_FUNCTION(&_36$$12, "is_float", &_18, 52, &valueA);
+							ZVAL_COPY(&valueA, _35$$10);
+							_38$$12 = !(Z_TYPE_P(&valueA) == IS_LONG);
+							if (_38$$12) {
+								ZEPHIR_CALL_FUNCTION(&_39$$12, "is_float", &_20, 52, &valueA);
 								zephir_check_call_status();
-								_35$$12 = !zephir_is_true(&_36$$12);
+								_38$$12 = !zephir_is_true(&_39$$12);
 							}
-							if (UNEXPECTED(_35$$12)) {
-								ZEPHIR_INIT_NVAR(&_37$$13);
-								object_init_ex(&_37$$13, spl_ce_InvalidArgumentException);
-								ZEPHIR_INIT_NVAR(&_38$$13);
-								zephir_gettype(&_38$$13, &valueA);
-								ZEPHIR_INIT_NVAR(&_39$$13);
-								ZEPHIR_CONCAT_SSVS(&_39$$13, "Matrix element must", " be an integer or floating point number, ", &_38$$13, " given.");
-								ZEPHIR_CALL_METHOD(NULL, &_37$$13, "__construct", &_13, 51, &_39$$13);
+							if (UNEXPECTED(_38$$12)) {
+								ZEPHIR_INIT_NVAR(&_40$$13);
+								object_init_ex(&_40$$13, spl_ce_InvalidArgumentException);
+								ZEPHIR_INIT_NVAR(&_41$$13);
+								zephir_gettype(&_41$$13, &valueA);
+								ZEPHIR_INIT_NVAR(&_42$$13);
+								ZEPHIR_CONCAT_SSVS(&_42$$13, "Matrix element must", " be an integer or floating point number, ", &_41$$13, " given.");
+								ZEPHIR_CALL_METHOD(NULL, &_40$$13, "__construct", &_14, 51, &_42$$13);
 								zephir_check_call_status();
-								zephir_throw_exception_debug(&_37$$13, "stub/issue2165/issue.zep", 40);
+								zephir_throw_exception_debug(&_40$$13, "stub/issue2165/issue.zep", 40);
 								ZEPHIR_MM_RESTORE();
 								return;
 							}
 						} ZEND_HASH_FOREACH_END();
 					} else {
 						if (zephir_instance_of_ev(&rowA, (const zend_class_entry *)zend_ce_iterator)) {
-							ZVAL_COPY(_33$$10, &rowA);
+							ZVAL_COPY(&_37$$10, &rowA);
 						} else {
-							ZEPHIR_CALL_METHOD(_33$$10, &rowA, "getIterator", NULL, 0);
+							ZEPHIR_CALL_METHOD(&_37$$10, &rowA, "getIterator", NULL, 0);
 						}
-						ZEPHIR_CALL_METHOD(NULL, _33$$10, "rewind", NULL, 0);
+						ZEPHIR_CALL_METHOD(NULL, &_37$$10, "rewind", NULL, 0);
 						zephir_check_call_status();
 						while (1) {
-							ZEPHIR_CALL_METHOD(&_34$$10, _33$$10, "valid", NULL, 0);
+							ZEPHIR_CALL_METHOD(&_36$$10, &_37$$10, "valid", NULL, 0);
 							zephir_check_call_status();
-							if (!zend_is_true(&_34$$10)) {
+							if (!zend_is_true(&_36$$10)) {
 								break;
 							}
-							ZEPHIR_CALL_METHOD(&valueA, _33$$10, "current", NULL, 0);
+							ZEPHIR_CALL_METHOD(&valueA, &_37$$10, "current", NULL, 0);
 							zephir_check_call_status();
-								_40$$14 = !(Z_TYPE_P(&valueA) == IS_LONG);
-								if (_40$$14) {
-									ZEPHIR_CALL_FUNCTION(&_41$$14, "is_float", &_18, 52, &valueA);
+								_43$$14 = !(Z_TYPE_P(&valueA) == IS_LONG);
+								if (_43$$14) {
+									ZEPHIR_CALL_FUNCTION(&_44$$14, "is_float", &_20, 52, &valueA);
 									zephir_check_call_status();
-									_40$$14 = !zephir_is_true(&_41$$14);
+									_43$$14 = !zephir_is_true(&_44$$14);
 								}
-								if (UNEXPECTED(_40$$14)) {
-									ZEPHIR_INIT_NVAR(&_42$$15);
-									object_init_ex(&_42$$15, spl_ce_InvalidArgumentException);
-									ZEPHIR_INIT_NVAR(&_43$$15);
-									zephir_gettype(&_43$$15, &valueA);
-									ZEPHIR_INIT_NVAR(&_44$$15);
-									ZEPHIR_CONCAT_SSVS(&_44$$15, "Matrix element must", " be an integer or floating point number, ", &_43$$15, " given.");
-									ZEPHIR_CALL_METHOD(NULL, &_42$$15, "__construct", &_13, 51, &_44$$15);
+								if (UNEXPECTED(_43$$14)) {
+									ZEPHIR_INIT_NVAR(&_45$$15);
+									object_init_ex(&_45$$15, spl_ce_InvalidArgumentException);
+									ZEPHIR_INIT_NVAR(&_46$$15);
+									zephir_gettype(&_46$$15, &valueA);
+									ZEPHIR_INIT_NVAR(&_47$$15);
+									ZEPHIR_CONCAT_SSVS(&_47$$15, "Matrix element must", " be an integer or floating point number, ", &_46$$15, " given.");
+									ZEPHIR_CALL_METHOD(NULL, &_45$$15, "__construct", &_14, 51, &_47$$15);
 									zephir_check_call_status();
-									zephir_throw_exception_debug(&_42$$15, "stub/issue2165/issue.zep", 40);
+									zephir_throw_exception_debug(&_45$$15, "stub/issue2165/issue.zep", 40);
 									ZEPHIR_MM_RESTORE();
 									return;
 								}
-							ZEPHIR_CALL_METHOD(NULL, _33$$10, "next", NULL, 0);
+							ZEPHIR_CALL_METHOD(NULL, &_37$$10, "next", NULL, 0);
 							zephir_check_call_status();
 						}
 					}
 					ZEPHIR_INIT_NVAR(&valueA);
-					ZEPHIR_CALL_FUNCTION(&_45$$10, "array_values", &_2, 49, &rowA);
+					ZEPHIR_CALL_FUNCTION(&_48$$10, "array_values", &_2, 49, &rowA);
 					zephir_check_call_status();
-					zephir_array_append(&rowA, &_45$$10, PH_SEPARATE, "stub/issue2165/issue.zep", 44);
-				ZEPHIR_CALL_METHOD(NULL, _3$$3, "next", NULL, 0);
+					zephir_array_append(&rowA, &_48$$10, PH_SEPARATE, "stub/issue2165/issue.zep", 44);
+				ZEPHIR_CALL_METHOD(NULL, &_5$$3, "next", NULL, 0);
 				zephir_check_call_status();
 			}
 		}
@@ -358,12 +361,12 @@ PHP_METHOD(Stub_Issue2165_Issue, __construct)
 		ZEPHIR_INIT_NVAR(&i);
 	}
 	zephir_update_property_zval(this_ptr, ZEND_STRL("a"), &a);
-	ZEPHIR_INIT_ZVAL_NREF(_46);
-	ZVAL_LONG(&_46, m);
-	zephir_update_property_zval(this_ptr, ZEND_STRL("m"), &_46);
-	ZEPHIR_INIT_ZVAL_NREF(_46);
-	ZVAL_LONG(&_46, n);
-	zephir_update_property_zval(this_ptr, ZEND_STRL("n"), &_46);
+	ZEPHIR_INIT_ZVAL_NREF(_49);
+	ZVAL_LONG(&_49, m);
+	zephir_update_property_zval(this_ptr, ZEND_STRL("m"), &_49);
+	ZEPHIR_INIT_ZVAL_NREF(_49);
+	ZVAL_LONG(&_49, n);
+	zephir_update_property_zval(this_ptr, ZEND_STRL("n"), &_49);
 	ZEPHIR_MM_RESTORE();
 }
 
@@ -574,7 +577,7 @@ PHP_METHOD(Stub_Issue2165_Issue, divideMatrix)
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_OBJECT_OF_CLASS(b, stub_issue2165_issue_ce)
+		Z_PARAM_OBJECT_OF_CLASS(b, zephir_get_internal_ce(SL("stub\\issue2165\\issue")))
 	ZEND_PARSE_PARAMETERS_END();
 #endif
 

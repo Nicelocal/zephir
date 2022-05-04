@@ -38,7 +38,7 @@ PHP_METHOD(Stub_RegexDNA, process)
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
 	zephir_fcall_cache_entry *_3 = NULL;
-	zval *path, path_sub, variants, vIUB, vIUBnew, stuffToRemove, contents, initialLength, regex, codeLength, discard, _0, _1, _2, *_4, _5, _6$$3, _7$$3, _8$$4, _9$$4;
+	zval *path, path_sub, variants, vIUB, vIUBnew, stuffToRemove, contents, initialLength, regex, codeLength, discard, _0, _1, _2, *_4, _5, _6, _7$$3, _8$$3, _9$$4, _10$$4;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&path_sub);
@@ -55,10 +55,11 @@ PHP_METHOD(Stub_RegexDNA, process)
 	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&_2);
 	ZVAL_UNDEF(&_5);
-	ZVAL_UNDEF(&_6$$3);
+	ZVAL_UNDEF(&_6);
 	ZVAL_UNDEF(&_7$$3);
-	ZVAL_UNDEF(&_8$$4);
+	ZVAL_UNDEF(&_8$$3);
 	ZVAL_UNDEF(&_9$$4);
+	ZVAL_UNDEF(&_10$$4);
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(1, 1)
@@ -184,7 +185,7 @@ PHP_METHOD(Stub_RegexDNA, process)
 	ZEPHIR_CONCAT_SVS(&_1, "/", &stuffToRemove, "/mS");
 	ZEPHIR_INIT_NVAR(&_0);
 	ZVAL_STRING(&_0, "");
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 72, &_1, &_0, &contents);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 82, &_1, &_0, &contents);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&contents, &_2);
 	ZEPHIR_INIT_VAR(&codeLength);
@@ -197,38 +198,43 @@ PHP_METHOD(Stub_RegexDNA, process)
 			ZVAL_COPY(&regex, _4);
 			zend_print_zval(&regex, 0);
 			php_printf("%s", " ");
-			ZEPHIR_INIT_NVAR(&_6$$3);
-			ZEPHIR_CONCAT_SVS(&_6$$3, "/", &regex, "/iS");
 			ZEPHIR_INIT_NVAR(&_7$$3);
-			zephir_preg_match(&_7$$3, &_6$$3, &contents, &discard, 1, 0 , 0 );
-			zend_print_zval(&_7$$3, 0);
+			ZEPHIR_CONCAT_SVS(&_7$$3, "/", &regex, "/iS");
+			ZEPHIR_INIT_NVAR(&_8$$3);
+			zephir_preg_match(&_8$$3, &_7$$3, &contents, &discard, 1, 0 , 0 );
+			zend_print_zval(&_8$$3, 0);
 			php_printf("%c", '\n');
 		} ZEND_HASH_FOREACH_END();
 	} else {
-		ZEPHIR_CALL_METHOD(NULL, &variants, "rewind", NULL, 0);
+		if (zephir_instance_of_ev(&variants, (const zend_class_entry *)zend_ce_iterator)) {
+			ZVAL_COPY(&_6, &variants);
+		} else {
+			ZEPHIR_CALL_METHOD(&_6, &variants, "getIterator", NULL, 0);
+		}
+		ZEPHIR_CALL_METHOD(NULL, &_6, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_5, &variants, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_5, &_6, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_5)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&regex, &variants, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&regex, &_6, "current", NULL, 0);
 			zephir_check_call_status();
 				zend_print_zval(&regex, 0);
 				php_printf("%s", " ");
-				ZEPHIR_INIT_NVAR(&_8$$4);
-				ZEPHIR_CONCAT_SVS(&_8$$4, "/", &regex, "/iS");
 				ZEPHIR_INIT_NVAR(&_9$$4);
-				zephir_preg_match(&_9$$4, &_8$$4, &contents, &discard, 1, 0 , 0 );
-				zend_print_zval(&_9$$4, 0);
+				ZEPHIR_CONCAT_SVS(&_9$$4, "/", &regex, "/iS");
+				ZEPHIR_INIT_NVAR(&_10$$4);
+				zephir_preg_match(&_10$$4, &_9$$4, &contents, &discard, 1, 0 , 0 );
+				zend_print_zval(&_10$$4, 0);
 				php_printf("%c", '\n');
-			ZEPHIR_CALL_METHOD(NULL, &variants, "next", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, &_6, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}
 	ZEPHIR_INIT_NVAR(&regex);
-	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 72, &vIUB, &vIUBnew, &contents);
+	ZEPHIR_CALL_FUNCTION(&_2, "preg_replace", &_3, 82, &vIUB, &vIUBnew, &contents);
 	zephir_check_call_status();
 	ZEPHIR_CPY_WRT(&contents, &_2);
 	php_printf("%c", '\n');

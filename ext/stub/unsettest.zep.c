@@ -122,7 +122,8 @@ PHP_METHOD(Stub_Unsettest, testUnsetFromArray)
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &arrayParameter);
-	ZEPHIR_SEPARATE_PARAM(arrayParameter);
+	ZVAL_DEREF(arrayParameter);
+	SEPARATE_ZVAL_NOREF(arrayParameter);
 
 
 	zephir_array_unset_long(arrayParameter, 0, PH_SEPARATE);
@@ -149,7 +150,8 @@ PHP_METHOD(Stub_Unsettest, testUnsetFromArrayByIndexVar)
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 2, 0, &arrayParameter, &index);
-	ZEPHIR_SEPARATE_PARAM(arrayParameter);
+	ZVAL_DEREF(arrayParameter);
+	SEPARATE_ZVAL_NOREF(arrayParameter);
 
 
 	zephir_array_unset(arrayParameter, index, PH_SEPARATE);

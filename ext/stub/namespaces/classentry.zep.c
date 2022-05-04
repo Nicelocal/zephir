@@ -32,7 +32,7 @@ PHP_METHOD(Stub_Namespaces_ClassEntry, setParam)
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_OBJECT_OF_CLASS(param, stub_namespaces_a_b_sub_ce)
+		Z_PARAM_OBJECT_OF_CLASS(param, zephir_get_internal_ce(SL("stub\\namespaces\\a\\b\\sub")))
 	ZEND_PARSE_PARAMETERS_END();
 #endif
 
@@ -53,7 +53,7 @@ PHP_METHOD(Stub_Namespaces_ClassEntry, setParamImported)
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_OBJECT_OF_CLASS(param, stub_namespaces_a_b_sub_ce)
+		Z_PARAM_OBJECT_OF_CLASS(param, zephir_get_internal_ce(SL("stub\\namespaces\\a\\b\\sub")))
 	ZEND_PARSE_PARAMETERS_END();
 #endif
 

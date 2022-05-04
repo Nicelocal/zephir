@@ -18,6 +18,10 @@
 #include <Zend/zend_string.h>
 #include <Zend/zend.h>
 
+#ifndef INF
+#define INF INFINITY
+#endif
+
 extern zend_string* i_parent;
 extern zend_string* i_static;
 extern zend_string* i_self;

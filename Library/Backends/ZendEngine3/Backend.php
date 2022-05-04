@@ -1022,6 +1022,7 @@ class Backend extends BackendZendEngine2
         $tempVariable = $compilationContext->symbolTable->addTemp('variable', $compilationContext);
         $tempVariable->setIsDoublePointer(true);
         $tempValidVariable = $compilationContext->symbolTable->addTemp('variable', $compilationContext);
+        $tempValidVariable2 = $compilationContext->symbolTable->addTemp('variable', $compilationContext);
         $codePrinter = $compilationContext->codePrinter;
 
         $codePrinter->output('zephir_is_iterable('.$this->getVariableCode($exprVariable).', '.$duplicateHash.', "'.Compiler::getShortUserPath($statement['file']).'", '.$statement['line'].');');
@@ -1099,21 +1100,21 @@ class Backend extends BackendZendEngine2
 
         $codePrinter->output("if (zephir_instance_of_ev(".$this->getVariableCode($exprVariable).", (const zend_class_entry *)zend_ce_iterator)) {");
         $codePrinter->increaseLevel();
-        $codePrinter->output('ZVAL_COPY('.$tempVariable->getName().', '.$this->getVariableCode($exprVariable).');');
+        $codePrinter->output('ZVAL_COPY(&'.$tempValidVariable2->getName().', '.$this->getVariableCode($exprVariable).');');
         $codePrinter->decreaseLevel();
         $codePrinter->output('} else {');
         $codePrinter->increaseLevel();
-        $codePrinter->output('ZEPHIR_CALL_METHOD('.$tempVariable->getName().', '.$this->getVariableCode($exprVariable).', "getIterator", NULL, 0);');
+        $codePrinter->output('ZEPHIR_CALL_METHOD(&'.$tempValidVariable2->getName().', '.$this->getVariableCode($exprVariable).', "getIterator", NULL, 0);');
         $codePrinter->decreaseLevel();
         $codePrinter->output('}');
 
-        $codePrinter->output('ZEPHIR_CALL_METHOD(NULL, '.$tempVariable->getName().', "rewind", NULL, 0);');
+        $codePrinter->output('ZEPHIR_CALL_METHOD(NULL, &'.$tempValidVariable2->getName().', "rewind", NULL, 0);');
         $codePrinter->output('zephir_check_call_status();');
 
         $codePrinter->output('while (1) {');
         $codePrinter->increaseLevel();
 
-        $codePrinter->output('ZEPHIR_CALL_METHOD(&'.$tempValidVariable->getName().', '.$tempVariable->getName().', "valid", NULL, 0);');
+        $codePrinter->output('ZEPHIR_CALL_METHOD(&'.$tempValidVariable->getName().', &'.$tempValidVariable2->getName().', "valid", NULL, 0);');
         $codePrinter->output('zephir_check_call_status();');
         $codePrinter->output('if (!zend_is_true(&'.$tempValidVariable->getName().')) {');
         $codePrinter->increaseLevel();
@@ -1122,12 +1123,12 @@ class Backend extends BackendZendEngine2
         $codePrinter->output('}');
 
         if (isset($keyVariable)) {
-            $codePrinter->output('ZEPHIR_CALL_METHOD('.$this->getVariableCode($keyVariable).', '.$tempVariable->getName().', "key", NULL, 0);');
+            $codePrinter->output('ZEPHIR_CALL_METHOD('.$this->getVariableCode($keyVariable).', &'.$tempValidVariable2->getName().', "key", NULL, 0);');
             $codePrinter->output('zephir_check_call_status();');
         }
 
         if (isset($variable)) {
-            $codePrinter->output('ZEPHIR_CALL_METHOD('.$this->getVariableCode($variable).', '.$tempVariable->getName().', "current", NULL, 0);');
+            $codePrinter->output('ZEPHIR_CALL_METHOD('.$this->getVariableCode($variable).', &'.$tempValidVariable2->getName().', "current", NULL, 0);');
             $codePrinter->output('zephir_check_call_status();');
         }
 
@@ -1140,7 +1141,7 @@ class Backend extends BackendZendEngine2
             $statementBlock->compile($compilationContext);
         }
 
-        $codePrinter->output('ZEPHIR_CALL_METHOD(NULL, '.$tempVariable->getName().', "next", NULL, 0);');
+        $codePrinter->output('ZEPHIR_CALL_METHOD(NULL, &'.$tempValidVariable2->getName().', "next", NULL, 0);');
         $codePrinter->output('zephir_check_call_status();');
 
         $codePrinter->decreaseLevel();

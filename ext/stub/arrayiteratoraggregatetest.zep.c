@@ -27,9 +27,9 @@ ZEPHIR_INIT_CLASS(Stub_ArrayIteratorAggregateTest)
 
 PHP_METHOD(Stub_ArrayIteratorAggregateTest, test)
 {
-	zend_string *_3;
-	zend_ulong _2;
-	zval arr, k, v, *_0, _1;
+	zend_string *_4;
+	zend_ulong _3;
+	zval arr, k, v, *_0, _1, _2;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
 	zval *this_ptr = getThis();
@@ -38,6 +38,7 @@ PHP_METHOD(Stub_ArrayIteratorAggregateTest, test)
 	ZVAL_UNDEF(&k);
 	ZVAL_UNDEF(&v);
 	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
 
 
 	ZEPHIR_MM_GROW();
@@ -48,13 +49,13 @@ PHP_METHOD(Stub_ArrayIteratorAggregateTest, test)
 	zephir_check_call_status();
 	zephir_is_iterable(&arr, 0, "stub/arrayiteratoraggregatetest.zep", 12);
 	if (Z_TYPE_P(&arr) == IS_ARRAY) {
-		ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&arr), _2, _3, _0)
+		ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&arr), _3, _4, _0)
 		{
 			ZEPHIR_INIT_NVAR(&k);
-			if (_3 != NULL) { 
-				ZVAL_STR_COPY(&k, _3);
+			if (_4 != NULL) { 
+				ZVAL_STR_COPY(&k, _4);
 			} else {
-				ZVAL_LONG(&k, _2);
+				ZVAL_LONG(&k, _3);
 			}
 			ZEPHIR_INIT_NVAR(&v);
 			ZVAL_COPY(&v, _0);
@@ -63,25 +64,25 @@ PHP_METHOD(Stub_ArrayIteratorAggregateTest, test)
 		} ZEND_HASH_FOREACH_END();
 	} else {
 		if (zephir_instance_of_ev(&arr, (const zend_class_entry *)zend_ce_iterator)) {
-			ZVAL_COPY(_0, &arr);
+			ZVAL_COPY(&_2, &arr);
 		} else {
-			ZEPHIR_CALL_METHOD(_0, &arr, "getIterator", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_2, &arr, "getIterator", NULL, 0);
 		}
-		ZEPHIR_CALL_METHOD(NULL, _0, "rewind", NULL, 0);
+		ZEPHIR_CALL_METHOD(NULL, &_2, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_1, _0, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_1, &_2, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_1)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&k, _0, "key", NULL, 0);
+			ZEPHIR_CALL_METHOD(&k, &_2, "key", NULL, 0);
 			zephir_check_call_status();
-			ZEPHIR_CALL_METHOD(&v, _0, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&v, &_2, "current", NULL, 0);
 			zephir_check_call_status();
 				ZEPHIR_CONCAT_VV(return_value, &k, &v);
 				RETURN_MM();
-			ZEPHIR_CALL_METHOD(NULL, _0, "next", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, &_2, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}

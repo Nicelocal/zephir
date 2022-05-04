@@ -35,6 +35,8 @@ if test "$PHP_STUB" = "yes"; then
 	stub/arrayaccessobj.zep.c
 	stub/arrayaccesstest.zep.c
 	stub/arrayiterator.zep.c
+	stub/arrayiteratoraggregate.zep.c
+	stub/arrayiteratoraggregatetest.zep.c
 	stub/arrayiteratortest.zep.c
 	stub/arraymanipulation.zep.c
 	stub/arrayobject.zep.c

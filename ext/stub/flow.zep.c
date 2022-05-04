@@ -830,7 +830,7 @@ PHP_METHOD(Stub_Flow, testWhileDoNextTest)
 
 PHP_METHOD(Stub_Flow, testFor1)
 {
-	zval v, b, _0, *_1, _2;
+	zval v, b, _0, *_1, _2, _3;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS, c = 0;
 	zval *this_ptr = getThis();
@@ -839,6 +839,7 @@ PHP_METHOD(Stub_Flow, testFor1)
 	ZVAL_UNDEF(&b);
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_2);
+	ZVAL_UNDEF(&_3);
 
 
 	ZEPHIR_MM_GROW();
@@ -868,22 +869,22 @@ PHP_METHOD(Stub_Flow, testFor1)
 		} ZEND_HASH_FOREACH_END();
 	} else {
 		if (zephir_instance_of_ev(&b, (const zend_class_entry *)zend_ce_iterator)) {
-			ZVAL_COPY(_1, &b);
+			ZVAL_COPY(&_3, &b);
 		} else {
-			ZEPHIR_CALL_METHOD(_1, &b, "getIterator", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_3, &b, "getIterator", NULL, 0);
 		}
-		ZEPHIR_CALL_METHOD(NULL, _1, "rewind", NULL, 0);
+		ZEPHIR_CALL_METHOD(NULL, &_3, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_2, _1, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_2, &_3, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_2)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&v, _1, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&v, &_3, "current", NULL, 0);
 			zephir_check_call_status();
 				c += zephir_get_numberval(&v);
-			ZEPHIR_CALL_METHOD(NULL, _1, "next", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, &_3, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}
@@ -893,10 +894,10 @@ PHP_METHOD(Stub_Flow, testFor1)
 
 PHP_METHOD(Stub_Flow, testFor2)
 {
-	zend_string *_4;
-	zend_ulong _3;
+	zend_string *_5;
+	zend_ulong _4;
 	double c = 0;
-	zval v, k, b, _0, *_1, _2;
+	zval v, k, b, _0, *_1, _2, _3;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
 	zval *this_ptr = getThis();
@@ -906,6 +907,7 @@ PHP_METHOD(Stub_Flow, testFor2)
 	ZVAL_UNDEF(&b);
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_2);
+	ZVAL_UNDEF(&_3);
 
 
 	ZEPHIR_MM_GROW();
@@ -927,13 +929,13 @@ PHP_METHOD(Stub_Flow, testFor2)
 	zephir_array_fast_append(&b, &_0);
 	zephir_is_iterable(&b, 0, "stub/flow.zep", 453);
 	if (Z_TYPE_P(&b) == IS_ARRAY) {
-		ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&b), _3, _4, _1)
+		ZEND_HASH_FOREACH_KEY_VAL(Z_ARRVAL_P(&b), _4, _5, _1)
 		{
 			ZEPHIR_INIT_NVAR(&k);
-			if (_4 != NULL) { 
-				ZVAL_STR_COPY(&k, _4);
+			if (_5 != NULL) { 
+				ZVAL_STR_COPY(&k, _5);
 			} else {
-				ZVAL_LONG(&k, _3);
+				ZVAL_LONG(&k, _4);
 			}
 			ZEPHIR_INIT_NVAR(&v);
 			ZVAL_COPY(&v, _1);
@@ -941,24 +943,24 @@ PHP_METHOD(Stub_Flow, testFor2)
 		} ZEND_HASH_FOREACH_END();
 	} else {
 		if (zephir_instance_of_ev(&b, (const zend_class_entry *)zend_ce_iterator)) {
-			ZVAL_COPY(_1, &b);
+			ZVAL_COPY(&_3, &b);
 		} else {
-			ZEPHIR_CALL_METHOD(_1, &b, "getIterator", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_3, &b, "getIterator", NULL, 0);
 		}
-		ZEPHIR_CALL_METHOD(NULL, _1, "rewind", NULL, 0);
+		ZEPHIR_CALL_METHOD(NULL, &_3, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_2, _1, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_2, &_3, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_2)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&k, _1, "key", NULL, 0);
+			ZEPHIR_CALL_METHOD(&k, &_3, "key", NULL, 0);
 			zephir_check_call_status();
-			ZEPHIR_CALL_METHOD(&v, _1, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&v, &_3, "current", NULL, 0);
 			zephir_check_call_status();
 				c += zephir_get_numberval(&k);
-			ZEPHIR_CALL_METHOD(NULL, _1, "next", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, &_3, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}
@@ -969,7 +971,7 @@ PHP_METHOD(Stub_Flow, testFor2)
 
 PHP_METHOD(Stub_Flow, testFor3)
 {
-	zval v, b, c, _0, *_1, _2;
+	zval v, b, c, _0, *_1, _2, _3;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
 	zval *this_ptr = getThis();
@@ -979,6 +981,7 @@ PHP_METHOD(Stub_Flow, testFor3)
 	ZVAL_UNDEF(&c);
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_2);
+	ZVAL_UNDEF(&_3);
 
 
 	ZEPHIR_MM_GROW();
@@ -1009,22 +1012,22 @@ PHP_METHOD(Stub_Flow, testFor3)
 		} ZEND_HASH_FOREACH_END();
 	} else {
 		if (zephir_instance_of_ev(&b, (const zend_class_entry *)zend_ce_iterator)) {
-			ZVAL_COPY(_1, &b);
+			ZVAL_COPY(&_3, &b);
 		} else {
-			ZEPHIR_CALL_METHOD(_1, &b, "getIterator", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_3, &b, "getIterator", NULL, 0);
 		}
-		ZEPHIR_CALL_METHOD(NULL, _1, "rewind", NULL, 0);
+		ZEPHIR_CALL_METHOD(NULL, &_3, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_2, _1, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_2, &_3, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_2)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&v, _1, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&v, &_3, "current", NULL, 0);
 			zephir_check_call_status();
 				zephir_array_append(&c, &v, PH_SEPARATE, "stub/flow.zep", 462);
-			ZEPHIR_CALL_METHOD(NULL, _1, "next", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, &_3, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}
@@ -1765,7 +1768,7 @@ PHP_METHOD(Stub_Flow, testFor24)
 {
 	zval _0;
 	zval b;
-	zval a, _1, *_2, _3;
+	zval a, _1, *_2, _3, _4;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
 	zval *this_ptr = getThis();
@@ -1773,6 +1776,7 @@ PHP_METHOD(Stub_Flow, testFor24)
 	ZVAL_UNDEF(&a);
 	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&_3);
+	ZVAL_UNDEF(&_4);
 	ZVAL_UNDEF(&b);
 	ZVAL_UNDEF(&_0);
 
@@ -1804,22 +1808,22 @@ PHP_METHOD(Stub_Flow, testFor24)
 		} ZEND_HASH_FOREACH_END();
 	} else {
 		if (zephir_instance_of_ev(&_0, (const zend_class_entry *)zend_ce_iterator)) {
-			ZVAL_COPY(_2, &_0);
+			ZVAL_COPY(&_4, &_0);
 		} else {
-			ZEPHIR_CALL_METHOD(_2, &_0, "getIterator", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_4, &_0, "getIterator", NULL, 0);
 		}
-		ZEPHIR_CALL_METHOD(NULL, _2, "rewind", NULL, 0);
+		ZEPHIR_CALL_METHOD(NULL, &_4, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_3, _2, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_3, &_4, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_3)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&a, _2, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&a, &_4, "current", NULL, 0);
 			zephir_check_call_status();
 				zephir_concat_self(&b, &a);
-			ZEPHIR_CALL_METHOD(NULL, _2, "next", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, &_4, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}
@@ -1891,12 +1895,13 @@ PHP_METHOD(Stub_Flow, testFor32)
 	long sum;
 	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
 	zend_long ZEPHIR_LAST_CALL_STATUS;
-	zval *e, e_sub, v, *_0, _1;
+	zval *e, e_sub, v, *_0, _1, _2;
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&e_sub);
 	ZVAL_UNDEF(&v);
 	ZVAL_UNDEF(&_1);
+	ZVAL_UNDEF(&_2);
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(1, 1)
@@ -1920,22 +1925,22 @@ PHP_METHOD(Stub_Flow, testFor32)
 		} ZEND_HASH_FOREACH_END();
 	} else {
 		if (zephir_instance_of_ev(e, (const zend_class_entry *)zend_ce_iterator)) {
-			ZVAL_COPY(_0, e);
+			ZVAL_COPY(&_2, e);
 		} else {
-			ZEPHIR_CALL_METHOD(_0, e, "getIterator", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_2, e, "getIterator", NULL, 0);
 		}
-		ZEPHIR_CALL_METHOD(NULL, _0, "rewind", NULL, 0);
+		ZEPHIR_CALL_METHOD(NULL, &_2, "rewind", NULL, 0);
 		zephir_check_call_status();
 		while (1) {
-			ZEPHIR_CALL_METHOD(&_1, _0, "valid", NULL, 0);
+			ZEPHIR_CALL_METHOD(&_1, &_2, "valid", NULL, 0);
 			zephir_check_call_status();
 			if (!zend_is_true(&_1)) {
 				break;
 			}
-			ZEPHIR_CALL_METHOD(&v, _0, "current", NULL, 0);
+			ZEPHIR_CALL_METHOD(&v, &_2, "current", NULL, 0);
 			zephir_check_call_status();
 				sum += zephir_get_numberval(&v);
-			ZEPHIR_CALL_METHOD(NULL, _0, "next", NULL, 0);
+			ZEPHIR_CALL_METHOD(NULL, &_2, "next", NULL, 0);
 			zephir_check_call_status();
 		}
 	}

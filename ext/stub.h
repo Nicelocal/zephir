@@ -30,6 +30,8 @@
 #include "stub/arrayaccessobj.zep.h"
 #include "stub/arrayaccesstest.zep.h"
 #include "stub/arrayiterator.zep.h"
+#include "stub/arrayiteratoraggregate.zep.h"
+#include "stub/arrayiteratoraggregatetest.zep.h"
 #include "stub/arrayiteratortest.zep.h"
 #include "stub/arraymanipulation.zep.h"
 #include "stub/arrayobject.zep.h"
