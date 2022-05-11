@@ -945,7 +945,7 @@ final class Compiler
             $this->logger->info('Preparing configuration file...');
 
             exec(
-                'cd ext && export CC="gcc" && export CFLAGS="'.
+                'cd ext && export CC="clang" && export CFLAGS="'.
                 $this->getGccFlags($development).
                 '" && ./configure --enable-'.
                 $extensionName
@@ -1058,7 +1058,7 @@ final class Compiler
 
         $command = strtr(
             // TODO: Sort out with sudo
-            'cd ext && export CC="gcc" && export CFLAGS=":cflags" && '.
+            'cd ext && export CC="clang" && export CFLAGS=":cflags" && '.
             'make 2>> ":stderr" 1>> ":stdout" && '.
             'sudo make install 2>> ":stderr" 1>> ":stdout"',
             [
