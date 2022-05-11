@@ -580,7 +580,7 @@ final class Compiler
             }
 
             $command = sprintf(
-                'cd ext && gcc -c kernel/%s  -I. %s  -o kernel/%s.gch',
+                'cd ext && clang -c kernel/%s  -I. %s  -o kernel/%s.gch',
                 $file->getBaseName(),
                 $phpIncludes,
                 $file->getBaseName()
@@ -2351,7 +2351,7 @@ final class Compiler
             return $this->filesystem->read('gcc-version');
         }
 
-        $this->filesystem->system('gcc -dumpversion', 'stdout', 'gcc-version');
+        $this->filesystem->system('clang -dumpversion', 'stdout', 'gcc-version');
         $lines = $this->filesystem->file('gcc-version');
         $lines = array_filter($lines);
 
