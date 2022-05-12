@@ -45,13 +45,6 @@ PHP_METHOD(Stub_Issue2165_Issue, build)
 
 	ZVAL_UNDEF(&a);
 	ZVAL_UNDEF(&_0);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(0, 1)
-		Z_PARAM_OPTIONAL
-		Z_PARAM_ARRAY(a)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
@@ -124,14 +117,6 @@ PHP_METHOD(Stub_Issue2165_Issue, __construct)
 	ZVAL_UNDEF(&_45$$15);
 	ZVAL_UNDEF(&_46$$15);
 	ZVAL_UNDEF(&_47$$15);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 2)
-		Z_PARAM_ARRAY(a)
-		Z_PARAM_OPTIONAL
-		Z_PARAM_BOOL(validate)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
@@ -380,13 +365,6 @@ PHP_METHOD(Stub_Issue2165_Issue, quick)
 
 	ZVAL_UNDEF(&a);
 	ZVAL_UNDEF(&_0);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(0, 1)
-		Z_PARAM_OPTIONAL
-		Z_PARAM_ARRAY(a)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
@@ -416,13 +394,6 @@ PHP_METHOD(Stub_Issue2165_Issue, ones)
 	ZVAL_UNDEF(&_0);
 	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&_2);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(2, 2)
-		Z_PARAM_LONG(m)
-		Z_PARAM_LONG(n)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
@@ -465,14 +436,6 @@ PHP_METHOD(Stub_Issue2165_Issue, fill)
 	ZVAL_UNDEF(&_11$$5);
 	ZVAL_UNDEF(&_12$$5);
 	ZVAL_UNDEF(&_13$$5);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(3, 3)
-		Z_PARAM_ZVAL(value)
-		Z_PARAM_LONG(m)
-		Z_PARAM_LONG(n)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
@@ -574,12 +537,6 @@ PHP_METHOD(Stub_Issue2165_Issue, divideMatrix)
 
 	ZVAL_UNDEF(&b_sub);
 	ZVAL_UNDEF(&c);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_OBJECT_OF_CLASS(b, zephir_get_internal_ce(SL("stub\\issue2165\\issue")))
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();

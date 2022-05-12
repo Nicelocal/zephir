@@ -35,12 +35,6 @@ PHP_METHOD(Stub_FetchTest, setValues)
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&values_sub);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(values)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(1, 0, &values);
@@ -67,13 +61,6 @@ PHP_METHOD(Stub_FetchTest, testFetchArray1)
 	ZVAL_UNDEF(&a_sub);
 	ZVAL_UNDEF(&b_sub);
 	ZVAL_UNDEF(&c);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(2, 2)
-		Z_PARAM_ZVAL(a)
-		Z_PARAM_ZVAL(b)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(2, 0, &a, &b);
@@ -90,19 +77,11 @@ PHP_METHOD(Stub_FetchTest, testFetchArray2)
 
 	ZVAL_UNDEF(&a_sub);
 	ZVAL_UNDEF(&b_sub);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(2, 2)
-		Z_PARAM_ZVAL(a)
-		Z_PARAM_ZVAL(b)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 2, 0, &a, &b);
-	ZVAL_DEREF(a);
-	SEPARATE_ZVAL_NOREF(a);
+	ZEPHIR_SEPARATE_PARAM(a);
 
 
 	ZEPHIR_OBS_NVAR(a);
@@ -117,13 +96,6 @@ PHP_METHOD(Stub_FetchTest, testFetchArray3)
 
 	ZVAL_UNDEF(&a_sub);
 	ZVAL_UNDEF(&c);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(2, 2)
-		Z_PARAM_ZVAL(a)
-		Z_PARAM_LONG(b)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(2, 0, &a, &b_param);
@@ -141,19 +113,11 @@ PHP_METHOD(Stub_FetchTest, testFetchArray4)
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&a_sub);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(2, 2)
-		Z_PARAM_ZVAL(a)
-		Z_PARAM_LONG(b)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 2, 0, &a, &b_param);
-	ZVAL_DEREF(a);
-	SEPARATE_ZVAL_NOREF(a);
+	ZEPHIR_SEPARATE_PARAM(a);
 	b = zephir_get_intval(b_param);
 
 
@@ -171,13 +135,6 @@ PHP_METHOD(Stub_FetchTest, testFetchArray5)
 	ZVAL_UNDEF(&a_sub);
 	ZVAL_UNDEF(&c);
 	ZVAL_UNDEF(&b);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(2, 2)
-		Z_PARAM_ZVAL(a)
-		Z_PARAM_STR(b)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
@@ -197,19 +154,11 @@ PHP_METHOD(Stub_FetchTest, testFetchArray6)
 
 	ZVAL_UNDEF(&a_sub);
 	ZVAL_UNDEF(&b);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(2, 2)
-		Z_PARAM_ZVAL(a)
-		Z_PARAM_STR(b)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 2, 0, &a, &b_param);
-	ZVAL_DEREF(a);
-	SEPARATE_ZVAL_NOREF(a);
+	ZEPHIR_SEPARATE_PARAM(a);
 	zephir_get_strval(&b, b_param);
 
 
@@ -226,13 +175,6 @@ PHP_METHOD(Stub_FetchTest, testFetchObject1)
 	ZVAL_UNDEF(&a_sub);
 	ZVAL_UNDEF(&b_sub);
 	ZVAL_UNDEF(&c);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(2, 2)
-		Z_PARAM_ZVAL(a)
-		Z_PARAM_ZVAL(b)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
@@ -251,19 +193,11 @@ PHP_METHOD(Stub_FetchTest, testFetchObject2)
 
 	ZVAL_UNDEF(&a_sub);
 	ZVAL_UNDEF(&b_sub);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(2, 2)
-		Z_PARAM_ZVAL(a)
-		Z_PARAM_ZVAL(b)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 2, 0, &a, &b);
-	ZVAL_DEREF(a);
-	SEPARATE_ZVAL_NOREF(a);
+	ZEPHIR_SEPARATE_PARAM(a);
 
 
 	ZEPHIR_OBS_NVAR(a);
@@ -278,12 +212,6 @@ PHP_METHOD(Stub_FetchTest, testFetchPost)
 	ZVAL_UNDEF(&b_sub);
 	ZVAL_UNDEF(&_POST);
 	ZVAL_UNDEF(&c);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(b)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_get_global(&_POST, SL("_POST"));
@@ -306,12 +234,6 @@ PHP_METHOD(Stub_FetchTest, hasValue)
 	ZVAL_UNDEF(&name);
 	ZVAL_UNDEF(&_POST);
 	ZVAL_UNDEF(&_0$$4);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_STR(name)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
@@ -342,12 +264,6 @@ PHP_METHOD(Stub_FetchTest, getValue)
 	ZVAL_UNDEF(&_POST);
 	ZVAL_UNDEF(&value);
 	ZVAL_UNDEF(&_0$$3);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_STR(name)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();

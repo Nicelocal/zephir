@@ -1090,18 +1090,11 @@ PHP_METHOD(Stub_Arithmetic, addSum24)
 
 	ZVAL_UNDEF(&a_sub);
 	ZVAL_UNDEF(&_0);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(a)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &a);
-	ZVAL_DEREF(a);
-	SEPARATE_ZVAL_NOREF(a);
+	ZEPHIR_SEPARATE_PARAM(a);
 
 
 	ZEPHIR_INIT_VAR(&_0);
@@ -2136,18 +2129,11 @@ PHP_METHOD(Stub_Arithmetic, sub24)
 
 	ZVAL_UNDEF(&a_sub);
 	ZVAL_UNDEF(&_0);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(a)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &a);
-	ZVAL_DEREF(a);
-	SEPARATE_ZVAL_NOREF(a);
+	ZEPHIR_SEPARATE_PARAM(a);
 
 
 	ZEPHIR_INIT_VAR(&_0);
@@ -2178,18 +2164,11 @@ PHP_METHOD(Stub_Arithmetic, mul2)
 
 	ZVAL_UNDEF(&a_sub);
 	ZVAL_UNDEF(&_0);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(a)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &a);
-	ZVAL_DEREF(a);
-	SEPARATE_ZVAL_NOREF(a);
+	ZEPHIR_SEPARATE_PARAM(a);
 
 
 	ZEPHIR_INIT_VAR(&_0);
@@ -2244,12 +2223,6 @@ PHP_METHOD(Stub_Arithmetic, less3)
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&a_sub);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(a)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(1, 0, &a);
@@ -2264,12 +2237,6 @@ PHP_METHOD(Stub_Arithmetic, less4)
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&a_sub);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(a)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(1, 0, &a);
@@ -2310,12 +2277,6 @@ PHP_METHOD(Stub_Arithmetic, greater3)
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&a_sub);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(a)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(1, 0, &a);
@@ -2330,12 +2291,6 @@ PHP_METHOD(Stub_Arithmetic, greater4)
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&a_sub);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(a)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(1, 0, &a);
@@ -2378,12 +2333,6 @@ PHP_METHOD(Stub_Arithmetic, letStatementBoolMinus)
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&b_sub);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(b)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(1, 0, &b);
@@ -2402,12 +2351,6 @@ PHP_METHOD(Stub_Arithmetic, letStatementVarMinus)
 
 	ZVAL_UNDEF(&b_sub);
 	ZVAL_UNDEF(&a);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(b)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
@@ -2453,12 +2396,6 @@ PHP_METHOD(Stub_Arithmetic, absParam)
 	zend_ulong val;
 	zval *this_ptr = getThis();
 
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_LONG(val)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(1, 0, &val_param);
@@ -2478,12 +2415,6 @@ PHP_METHOD(Stub_Arithmetic, negativeInt)
 	zend_long val;
 	zval *this_ptr = getThis();
 
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_LONG(val)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(1, 0, &val_param);
@@ -2499,12 +2430,6 @@ PHP_METHOD(Stub_Arithmetic, negativeLong)
 	long val;
 	zval *this_ptr = getThis();
 
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_LONG(val)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(1, 0, &val_param);

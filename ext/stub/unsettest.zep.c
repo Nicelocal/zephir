@@ -45,12 +45,6 @@ PHP_METHOD(Stub_Unsettest, has)
 
 	ZVAL_UNDEF(&key_sub);
 	ZVAL_UNDEF(&_0);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(key)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(1, 0, &key);
@@ -67,13 +61,6 @@ PHP_METHOD(Stub_Unsettest, addValueToProperty)
 
 	ZVAL_UNDEF(&key_sub);
 	ZVAL_UNDEF(&value_sub);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(2, 2)
-		Z_PARAM_ZVAL(key)
-		Z_PARAM_ZVAL(value)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(2, 0, &key, &value);
@@ -89,12 +76,6 @@ PHP_METHOD(Stub_Unsettest, testUnsetValueFromProperty)
 
 	ZVAL_UNDEF(&key_sub);
 	ZVAL_UNDEF(&_0);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(key)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(1, 0, &key);
@@ -112,18 +93,11 @@ PHP_METHOD(Stub_Unsettest, testUnsetFromArray)
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&arrayParameter_sub);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(arrayParameter)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &arrayParameter);
-	ZVAL_DEREF(arrayParameter);
-	SEPARATE_ZVAL_NOREF(arrayParameter);
+	ZEPHIR_SEPARATE_PARAM(arrayParameter);
 
 
 	zephir_array_unset_long(arrayParameter, 0, PH_SEPARATE);
@@ -139,19 +113,11 @@ PHP_METHOD(Stub_Unsettest, testUnsetFromArrayByIndexVar)
 
 	ZVAL_UNDEF(&arrayParameter_sub);
 	ZVAL_UNDEF(&index_sub);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(2, 2)
-		Z_PARAM_ZVAL(arrayParameter)
-		Z_PARAM_ZVAL(index)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 2, 0, &arrayParameter, &index);
-	ZVAL_DEREF(arrayParameter);
-	SEPARATE_ZVAL_NOREF(arrayParameter);
+	ZEPHIR_SEPARATE_PARAM(arrayParameter);
 
 
 	zephir_array_unset(arrayParameter, index, PH_SEPARATE);
@@ -208,13 +174,6 @@ PHP_METHOD(Stub_Unsettest, testUnsetTypedArray)
 
 	ZVAL_UNDEF(&arr);
 	ZVAL_UNDEF(&key);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(2, 2)
-		Z_PARAM_ARRAY(arr)
-		Z_PARAM_STR(key)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();

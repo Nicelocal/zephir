@@ -59,12 +59,6 @@ PHP_METHOD(Stub_Properties_StaticProtectedProperties, setSomeVar)
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&someVar_sub);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(someVar)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(1, 0, &someVar);
@@ -102,12 +96,6 @@ PHP_METHOD(Stub_Properties_StaticProtectedProperties, setSomeNull)
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&param_sub);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(param)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(1, 0, &param);

@@ -1492,31 +1492,37 @@ class ClassMethod
         $inputParamVar = $compilationContext->symbolTable->getVariableForWrite($parameter['name'], $compilationContext);
         $inputParamCode = $compilationContext->backend->getVariableCode($inputParamVar);
 
+
+        $initCode = '';
+        if (isset($parameter['reference']) && $parameter['reference']) {
+            $initCode = "\t".'ZVAL_DEREF('.$parameterCode.');'.PHP_EOL;
+        }
+
         switch ($dataType) {
             case 'int':
             case 'uint':
             case 'long':
             case 'ulong':
-                return "\t".$parameter['name'].' = zephir_get_intval('.$parameterCode.');'.PHP_EOL;
+                return $initCode."\t".$parameter['name'].' = zephir_get_intval('.$parameterCode.');'.PHP_EOL;
 
             case 'char':
-                return "\t".$parameter['name'].' = zephir_get_charval('.$parameterCode.');'.PHP_EOL;
+                return $initCode."\t".$parameter['name'].' = zephir_get_charval('.$parameterCode.');'.PHP_EOL;
 
             case 'bool':
-                return "\t".$parameter['name'].' = zephir_get_boolval('.$parameterCode.');'.PHP_EOL;
+                return $initCode."\t".$parameter['name'].' = zephir_get_boolval('.$parameterCode.');'.PHP_EOL;
 
             case 'double':
-                return "\t".$parameter['name'].' = zephir_get_doubleval('.$parameterCode.');'.PHP_EOL;
+                return $initCode."\t".$parameter['name'].' = zephir_get_doubleval('.$parameterCode.');'.PHP_EOL;
 
             case 'string':
                 $compilationContext->symbolTable->mustGrownStack(true);
 
-                return "\t".'zephir_get_strval('.$inputParamCode.', '.$parameterCode.');'.PHP_EOL;
+                return $initCode."\t".'zephir_get_strval('.$inputParamCode.', '.$parameterCode.');'.PHP_EOL;
 
             case 'array':
                 $compilationContext->symbolTable->mustGrownStack(true);
 
-                return "\t".'zephir_get_arrval('.$inputParamCode.', '.$parameterCode.');'.PHP_EOL;
+                return $initCode."\t".'zephir_get_arrval('.$inputParamCode.', '.$parameterCode.');'.PHP_EOL;
 
             default:
                 throw new CompilerException('Parameter type: '.$dataType, $parameter);
@@ -1900,12 +1906,7 @@ class ClassMethod
                     case 'callable':
                         if (isset($parametersToSeparate[$parameter['name']])) {
                             $symbolTable->mustGrownStack(true);
-                            if (isset($parameter['reference'])) {
-                                $initCode .= "\t".'ZVAL_DEREF('.$parameter['name'].');'.PHP_EOL;
-                                $initCode .= "\t".'SEPARATE_ZVAL_NOREF('.$parameter['name'].');'.PHP_EOL;
-                            } else {
-                                $initCode .= "\t".'ZEPHIR_SEPARATE_PARAM('.$parameter['name'].');'.PHP_EOL;
-                            }
+                            $initCode .= "\t".'ZEPHIR_SEPARATE_PARAM('.$parameter['name'].');'.PHP_EOL;
                         }
                         break;
                 }
@@ -1950,12 +1951,7 @@ class ClassMethod
                     $initCode .= "\t".'} else {'.PHP_EOL;
 
                     if (isset($parametersToSeparate[$name])) {
-                        if (isset($parameter['reference'])) {
-                            $initCode .= "\t\t".'ZVAL_DEREF('.$parameter['name'].');'.PHP_EOL;
-                            $initCode .= "\t\t".'SEPARATE_ZVAL_NOREF('.$parameter['name'].');'.PHP_EOL;
-                        } else {
-                            $initCode .= "\t\t".'ZEPHIR_SEPARATE_PARAM('.$name.');'.PHP_EOL;
-                        }
+                        $initCode .= "\t\t".'ZEPHIR_SEPARATE_PARAM('.$name.');'.PHP_EOL;
                     } else {
                         if ($mandatory) {
                             $initCode .= $this->checkStrictType($parameter, $compilationContext, $mandatory);
@@ -2113,7 +2109,7 @@ class ClassMethod
          */
         $tempCodePrinter = new CodePrinter();
         if ($this->parameters instanceof ClassMethodParameters && $this->parameters->count() > 0) {
-            $tempCodePrinter->output('#if PHP_VERSION_ID >= 80000');
+            /*$tempCodePrinter->output('#if PHP_VERSION_ID >= 80000');
             $tempCodePrinter->output("\t".'bool is_null_true = 1;');
 
             $tempCodePrinter->output(sprintf(
@@ -2135,7 +2131,7 @@ class ClassMethod
             }
 
             $tempCodePrinter->output("\t".'ZEND_PARSE_PARAMETERS_END();');
-            $tempCodePrinter->output('#endif');
+            $tempCodePrinter->output('#endif');*/
         }
 
         $codePrinter->preOutput($tempCodePrinter->getOutput());

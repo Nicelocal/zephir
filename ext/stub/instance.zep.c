@@ -45,22 +45,6 @@ PHP_METHOD(Stub_Instance, __construct)
 	ZVAL_UNDEF(&a9_sub);
 	ZVAL_UNDEF(&a10_sub);
 	ZVAL_UNDEF(&a11_sub);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(11, 11)
-		Z_PARAM_OBJECT_OF_CLASS(a1, zephir_get_internal_ce(SL("stub\\arithmetic")))
-		Z_PARAM_OBJECT_OF_CLASS(a2, zephir_get_internal_ce(SL("stub\\arrayobject")))
-		Z_PARAM_OBJECT_OF_CLASS(a3, zephir_get_internal_ce(SL("stub\\assign")))
-		Z_PARAM_OBJECT_OF_CLASS(a4, zephir_get_internal_ce(SL("stub\\bitwise")))
-		Z_PARAM_OBJECT_OF_CLASS(a5, zephir_get_internal_ce(SL("stub\\branchprediction")))
-		Z_PARAM_OBJECT_OF_CLASS(a6, zephir_get_internal_ce(SL("stub\\cast")))
-		Z_PARAM_OBJECT_OF_CLASS(a7, zephir_get_internal_ce(SL("stub\\cblock")))
-		Z_PARAM_OBJECT_OF_CLASS(a8, zephir_get_internal_ce(SL("stub\\chars")))
-		Z_PARAM_OBJECT_OF_CLASS(a9, zephir_get_internal_ce(SL("stub\\closures")))
-		Z_PARAM_OBJECT_OF_CLASS(a10, zephir_get_internal_ce(SL("stub\\compare")))
-		Z_PARAM_OBJECT_OF_CLASS(a11, zephir_get_internal_ce(SL("stub\\concat")))
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(11, 0, &a1, &a2, &a3, &a4, &a5, &a6, &a7, &a8, &a9, &a10, &a11);
@@ -184,12 +168,6 @@ PHP_METHOD(Stub_Instance, testInstanceCreate)
 	zval *this_ptr = getThis();
 
 	ZVAL_UNDEF(&className);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_STR(className)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();

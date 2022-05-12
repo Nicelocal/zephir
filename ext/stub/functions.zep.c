@@ -16,6 +16,7 @@
 #include "kernel/fcall.h"
 #include "kernel/operators.h"
 #include "kernel/object.h"
+#include "kernel/array.h"
 
 
 ZEPHIR_INIT_CLASS(Stub_Functions)
@@ -87,18 +88,11 @@ PHP_METHOD(Stub_Functions, passByVariableReference)
 
 	ZVAL_UNDEF(&i_sub);
 	ZVAL_UNDEF(&_0);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL_EX(i, 0, 1)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &i);
-	ZVAL_DEREF(i);
-	SEPARATE_ZVAL_NOREF(i);
+	ZEPHIR_SEPARATE_PARAM(i);
 
 
 	ZEPHIR_INIT_VAR(&_0);
@@ -113,18 +107,36 @@ PHP_METHOD(Stub_Functions, passByTypedReference)
 	zend_long i;
 	zval *this_ptr = getThis();
 
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_LONG_EX(i, _dummy, 0, 1)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	zephir_fetch_params_without_memory_grow(1, 0, &i_param);
+	ZVAL_DEREF(i_param);
 	i = zephir_get_intval(i_param);
 
 
 	i += 10;
+}
+
+PHP_METHOD(Stub_Functions, passByTypedArrayReference)
+{
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zval *i_param = NULL, _0;
+	zval i;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&i);
+	ZVAL_UNDEF(&_0);
+
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 0, &i_param);
+	ZVAL_DEREF(i_param);
+	zephir_get_arrval(&i, i_param);
+
+
+	ZEPHIR_INIT_VAR(&_0);
+	ZVAL_LONG(&_0, 10);
+	zephir_array_update_long(&i, 0, &_0, PH_COPY | PH_SEPARATE ZEPHIR_DEBUG_PARAMS_DUMMY);
+	ZEPHIR_MM_RESTORE();
 }
 

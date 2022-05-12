@@ -42,16 +42,6 @@ PHP_METHOD(Stub_Oo_ExtendPdoClass, __construct)
 	ZVAL_UNDEF(&attrs_sub);
 	ZVAL_UNDEF(&_1);
 	ZVAL_UNDEF(&_0);
-#if PHP_VERSION_ID >= 80000
-	bool is_null_true = 1;
-	ZEND_PARSE_PARAMETERS_START(1, 4)
-		Z_PARAM_STR(dsn)
-		Z_PARAM_OPTIONAL
-		Z_PARAM_STR_OR_NULL(username)
-		Z_PARAM_STR_OR_NULL(password)
-		Z_PARAM_ZVAL(attrs)
-	ZEND_PARSE_PARAMETERS_END();
-#endif
 
 
 	ZEPHIR_MM_GROW();
@@ -72,8 +62,7 @@ PHP_METHOD(Stub_Oo_ExtendPdoClass, __construct)
 		ZEPHIR_INIT_VAR(attrs);
 		array_init(attrs);
 	} else {
-		ZVAL_DEREF(attrs);
-		SEPARATE_ZVAL_NOREF(attrs);
+		ZEPHIR_SEPARATE_PARAM(attrs);
 	}
 
 
