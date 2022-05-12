@@ -34,4 +34,9 @@ class Functions
     {
         let i += 10;
     }
+
+    public function passByTypedArrayReference(array& i) -> void
+    {
+        let i[0] += 10;
+    }
 }

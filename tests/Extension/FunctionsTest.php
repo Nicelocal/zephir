@@ -43,4 +43,13 @@ class FunctionsTest extends TestCase
         $class->passByTypedReference($i);
         $this->assertEquals(20, $i);
     }
+
+    public function testPassByTypedArrayReference(): void
+    {
+        $class = new Functions();
+
+        $i = [10];
+        $class->passByTypedArrayReference($i);
+        $this->assertEquals(20, $i[0]);
+    }
 }
