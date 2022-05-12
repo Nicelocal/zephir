@@ -110,7 +110,6 @@ PHP_METHOD(Stub_Functions, passByTypedReference)
 
 
 	zephir_fetch_params_without_memory_grow(1, 0, &i_param);
-	ZVAL_DEREF(i_param);
 	i = zephir_get_intval(i_param);
 
 
@@ -130,7 +129,6 @@ PHP_METHOD(Stub_Functions, passByTypedArrayReference)
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &i_param);
-	ZVAL_DEREF(i_param);
 	zephir_get_arrval(&i, i_param);
 
 

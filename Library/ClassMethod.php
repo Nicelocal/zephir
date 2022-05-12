@@ -1492,37 +1492,31 @@ class ClassMethod
         $inputParamVar = $compilationContext->symbolTable->getVariableForWrite($parameter['name'], $compilationContext);
         $inputParamCode = $compilationContext->backend->getVariableCode($inputParamVar);
 
-
-        $initCode = '';
-        if (isset($parameter['reference']) && $parameter['reference']) {
-            $initCode = "\t".'ZVAL_DEREF('.$parameterCode.');'.PHP_EOL;
-        }
-
         switch ($dataType) {
             case 'int':
             case 'uint':
             case 'long':
             case 'ulong':
-                return $initCode."\t".$parameter['name'].' = zephir_get_intval('.$parameterCode.');'.PHP_EOL;
+                return "\t".$parameter['name'].' = zephir_get_intval('.$parameterCode.');'.PHP_EOL;
 
             case 'char':
-                return $initCode."\t".$parameter['name'].' = zephir_get_charval('.$parameterCode.');'.PHP_EOL;
+                return "\t".$parameter['name'].' = zephir_get_charval('.$parameterCode.');'.PHP_EOL;
 
             case 'bool':
-                return $initCode."\t".$parameter['name'].' = zephir_get_boolval('.$parameterCode.');'.PHP_EOL;
+                return "\t".$parameter['name'].' = zephir_get_boolval('.$parameterCode.');'.PHP_EOL;
 
             case 'double':
-                return $initCode."\t".$parameter['name'].' = zephir_get_doubleval('.$parameterCode.');'.PHP_EOL;
+                return "\t".$parameter['name'].' = zephir_get_doubleval('.$parameterCode.');'.PHP_EOL;
 
             case 'string':
                 $compilationContext->symbolTable->mustGrownStack(true);
 
-                return $initCode."\t".'zephir_get_strval('.$inputParamCode.', '.$parameterCode.');'.PHP_EOL;
+                return "\t".'zephir_get_strval('.$inputParamCode.', '.$parameterCode.');'.PHP_EOL;
 
             case 'array':
                 $compilationContext->symbolTable->mustGrownStack(true);
 
-                return $initCode."\t".'zephir_get_arrval('.$inputParamCode.', '.$parameterCode.');'.PHP_EOL;
+                return "\t".'zephir_get_arrval('.$inputParamCode.', '.$parameterCode.');'.PHP_EOL;
 
             default:
                 throw new CompilerException('Parameter type: '.$dataType, $parameter);
@@ -1887,7 +1881,7 @@ class ClassMethod
             foreach ($requiredParams as $parameter) {
                 $mandatory = $parameter['mandatory'] ?? 0;
                 $dataType = $this->getParamDataType($parameter);
-
+        
                 if ('variable' !== $dataType) {
                     /**
                      * Assign value from zval to low level type
