@@ -90,7 +90,7 @@ PHP_METHOD(Stub_Functions, passByVariableReference)
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_ZVAL(i)
+		Z_PARAM_ZVAL_EX(i, 0, 1)
 	ZEND_PARSE_PARAMETERS_END();
 #endif
 
@@ -116,7 +116,7 @@ PHP_METHOD(Stub_Functions, passByTypedReference)
 #if PHP_VERSION_ID >= 80000
 	bool is_null_true = 1;
 	ZEND_PARSE_PARAMETERS_START(1, 1)
-		Z_PARAM_LONG(i)
+		Z_PARAM_LONG_EX(i, _dummy, 0, 1)
 	ZEND_PARSE_PARAMETERS_END();
 #endif
 

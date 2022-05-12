@@ -2404,7 +2404,7 @@ class ClassMethod
             return sprintf('Z_PARAM_ZVAL(%s)', $name);
         }
         
-        $hasReference = isset($parameter['reference']);
+        $hasReference = isset($parameter['reference']) && $parameter['reference'];
 
         /**
          * In case of unknown type, just return generic param type.
@@ -2506,7 +2506,7 @@ class ClassMethod
                     if ($hasDefaultNull) {
                         $param = sprintf('Z_PARAM_OBJECT_OF_CLASS_OR_NULL(%s, %s)', $name, $classEntry);
                     } else if ($hasReference) {
-                        $param = sprintf('Z_PARAM_OBJECT_OF_CLASS_EX(%s, %s, 0, 1)', $name);
+                        $param = sprintf('Z_PARAM_OBJECT_OF_CLASS_EX(%s, %s, 0, 1)', $name, $classEntry);
                     } else {
                         $param = sprintf('Z_PARAM_OBJECT_OF_CLASS(%s, %s)', $name, $classEntry);
                     }
