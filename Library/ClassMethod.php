@@ -2403,6 +2403,8 @@ class ClassMethod
         if (!isset($parameter['data-type'])) {
             return sprintf('Z_PARAM_ZVAL(%s)', $name);
         }
+        
+        $hasReference = isset($parameter['reference']);
 
         /**
          * In case of unknown type, just return generic param type.
@@ -2410,6 +2412,8 @@ class ClassMethod
         $hasDefaultNull = isset($parameter['default']['type']) && $parameter['default']['type'] === 'null';
         if ($hasDefaultNull) {
             $param = sprintf('Z_PARAM_ZVAL_OR_NULL(%s)', $name);
+        } else if ($hasReference) {
+            $param = sprintf('Z_PARAM_ZVAL_EX(%s, 0, 1)', $name);
         } else {
             $param = sprintf('Z_PARAM_ZVAL(%s)', $name);
         }
@@ -2418,6 +2422,8 @@ class ClassMethod
             case 'array':
                 if ($hasDefaultNull) {
                     $param = sprintf('Z_PARAM_ARRAY_OR_NULL(%s)', $name);
+                } else if ($hasReference) {
+                    $param = sprintf('Z_PARAM_ARRAY_EX(%s, 0, 1)', $name);
                 } else {
                     $param = sprintf('Z_PARAM_ARRAY(%s)', $name);
                 }
@@ -2427,6 +2433,8 @@ class ClassMethod
             case 'bool':
                 if ($hasDefaultNull) {
                     $param = sprintf('Z_PARAM_BOOL_OR_NULL(%s, is_null_true)', $name);
+                } else if ($hasReference) {
+                    $param = sprintf('Z_PARAM_BOOL_EX(%s, _dummy, 0, 1)', $name);
                 } else {
                     $param = sprintf('Z_PARAM_BOOL(%s)', $name);
                 }
@@ -2436,6 +2444,8 @@ class ClassMethod
             case 'float':
                 if ($hasDefaultNull) {
                     $param = sprintf('Z_PARAM_DOUBLE_OR_NULL(%s, is_null_true)', $name);
+                } else if ($hasReference) {
+                    $param = sprintf('Z_PARAM_DOUBLE_EX(%s, _dummy, 0, 1)', $name);
                 } else {
                     $param = sprintf('Z_PARAM_DOUBLE(%s)', $name);
                 }
@@ -2447,6 +2457,8 @@ class ClassMethod
             case 'long':
                 if ($hasDefaultNull) {
                     $param = sprintf('Z_PARAM_LONG_OR_NULL(%s, is_null_true)', $name);
+                } else if ($hasReference) {
+                    $param = sprintf('Z_PARAM_LONG_EX(%s, _dummy, 0, 1)', $name);
                 } else {
                     $param = sprintf('Z_PARAM_LONG(%s)', $name);
                 }
@@ -2456,6 +2468,8 @@ class ClassMethod
             case 'object':
                 if ($hasDefaultNull) {
                     $param = sprintf('Z_PARAM_OBJECT_OF_CLASS_OR_NULL(%s)', $name);
+                } else if ($hasReference) {
+                    $param = sprintf('Z_PARAM_OBJECT_EX(%s, 0, 1)', $name);
                 } else {
                     $param = sprintf('Z_PARAM_OBJECT(%s)', $name);
                 }
@@ -2474,6 +2488,8 @@ class ClassMethod
             case 'string':
                 if ($hasDefaultNull) {
                     $param = sprintf('Z_PARAM_STR_OR_NULL(%s)', $name);
+                } else if ($hasReference) {
+                    $param = sprintf('Z_PARAM_STR_EX(%s, 0, 1)', $name);
                 } else {
                     $param = sprintf('Z_PARAM_STR(%s)', $name);
                 }
@@ -2489,6 +2505,8 @@ class ClassMethod
                     $classEntry = (new ClassEntry($parameter['cast']['value'], $compilationContext))->get();
                     if ($hasDefaultNull) {
                         $param = sprintf('Z_PARAM_OBJECT_OF_CLASS_OR_NULL(%s, %s)', $name, $classEntry);
+                    } else if ($hasReference) {
+                        $param = sprintf('Z_PARAM_OBJECT_OF_CLASS_EX(%s, %s, 0, 1)', $name);
                     } else {
                         $param = sprintf('Z_PARAM_OBJECT_OF_CLASS(%s, %s)', $name, $classEntry);
                     }
