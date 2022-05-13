@@ -30,6 +30,11 @@ class Functions
         let i += 10;
     }
 
+    public function passByVariableArrayReference(var& i) -> void
+    {
+        let i[0] += 10;
+    }
+
     public function passByTypedReference(int& i) -> void
     {
         let i += 10;

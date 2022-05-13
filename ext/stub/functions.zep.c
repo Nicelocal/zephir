@@ -101,6 +101,27 @@ PHP_METHOD(Stub_Functions, passByVariableReference)
 	ZEPHIR_MM_RESTORE();
 }
 
+PHP_METHOD(Stub_Functions, passByVariableArrayReference)
+{
+	zephir_method_globals *ZEPHIR_METHOD_GLOBALS_PTR = NULL;
+	zval *i, i_sub, _0;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&i_sub);
+	ZVAL_UNDEF(&_0);
+
+
+	ZEPHIR_MM_GROW();
+	zephir_fetch_params(1, 1, 0, &i);
+	ZEPHIR_SEPARATE_PARAM(i);
+
+
+	ZEPHIR_INIT_VAR(&_0);
+	ZVAL_LONG(&_0, 10);
+	zephir_array_update_long(i, 0, &_0, PH_COPY | PH_SEPARATE ZEPHIR_DEBUG_PARAMS_DUMMY);
+	ZEPHIR_MM_RESTORE();
+}
+
 PHP_METHOD(Stub_Functions, passByTypedReference)
 {
 	zval *i_param = NULL;

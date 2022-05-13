@@ -35,6 +35,15 @@ class FunctionsTest extends TestCase
         $this->assertEquals(20, $i);
     }
 
+    public function testPassByVariableArrayReference(): void
+    {
+        $class = new Functions();
+
+        $i = [10];
+        $class->passByVariableArrayReference($i);
+        $this->assertEquals(20, $i[0]);
+    }
+
     public function testPassByTypedReference(): void
     {
         $class = new Functions();
