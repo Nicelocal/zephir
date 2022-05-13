@@ -1862,11 +1862,11 @@ class ClassMethod
                         case 'callable':
                             $name = $parameter['name'];
                             if (!$this->localContext instanceof LocalContextPass) {
-                                if ($writeDetector->detect($name, $this->statements->getStatements()) && !($parameter['reference'] ?? false)) {
+                                if ($writeDetector->detect($name, $this->statements->getStatements())) {
                                     $parametersToSeparate[$name] = true;
                                 }
                             } else {
-                                if ($this->localContext->getNumberOfMutations($name) > 1 && !($parameter['reference'] ?? false)) {
+                                if ($this->localContext->getNumberOfMutations($name) > 1) {
                                     $parametersToSeparate[$name] = true;
                                 }
                             }
