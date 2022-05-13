@@ -44,4 +44,12 @@ class Functions
     {
         let i[0] += 10;
     }
+
+    public static function postInc(var &number)
+    {
+        var old;
+        let old = number;
+        let number = number + 1;
+        return old;
+    }
 }

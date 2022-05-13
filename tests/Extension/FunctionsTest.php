@@ -61,4 +61,13 @@ class FunctionsTest extends TestCase
         $class->passByTypedArrayReference($i);
         $this->assertEquals(20, $i[0]);
     }
+
+    public function testPostIncrement(): void
+    {
+        $class = new Functions();
+
+        $i = 2;
+        $this->assertEquals(2, $class->postInc($i));
+        $this->assertEquals(3, $i);
+    }
 }
