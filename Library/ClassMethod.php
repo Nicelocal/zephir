@@ -1862,11 +1862,11 @@ class ClassMethod
                         case 'callable':
                             $name = $parameter['name'];
                             if (!$this->localContext instanceof LocalContextPass) {
-                                if ($writeDetector->detect($name, $this->statements->getStatements())) {
+                                if ($writeDetector->detect($name, $this->statements->getStatements()) && !($parameter['reference'] ?? false)) {
                                     $parametersToSeparate[$name] = true;
                                 }
                             } else {
-                                if ($this->localContext->getNumberOfMutations($name) > 1) {
+                                if ($this->localContext->getNumberOfMutations($name) > 1 && !($parameter['reference'] ?? false)) {
                                     $parametersToSeparate[$name] = true;
                                 }
                             }
@@ -1900,9 +1900,7 @@ class ClassMethod
                     case 'callable':
                         if (isset($parametersToSeparate[$parameter['name']])) {
                             $symbolTable->mustGrownStack(true);
-                            if (!isset($parameter['reference']) || !$parameter['reference']) {
-                                $initCode .= "\t".'ZEPHIR_SEPARATE_PARAM('.$parameter['name'].');'.PHP_EOL;
-                            }
+                            $initCode .= "\t".'ZEPHIR_SEPARATE_PARAM('.$parameter['name'].');'.PHP_EOL;
                         }
                         break;
                 }
@@ -1947,9 +1945,7 @@ class ClassMethod
                     $initCode .= "\t".'} else {'.PHP_EOL;
 
                     if (isset($parametersToSeparate[$name])) {
-                        if (!isset($parameter['reference']) || !$parameter['reference']) {
-                            $initCode .= "\t\t".'ZEPHIR_SEPARATE_PARAM('.$name.');'.PHP_EOL;
-                        }
+                        $initCode .= "\t\t".'ZEPHIR_SEPARATE_PARAM('.$name.');'.PHP_EOL;
                     } else {
                         if ($mandatory) {
                             $initCode .= $this->checkStrictType($parameter, $compilationContext, $mandatory);
