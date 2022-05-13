@@ -32,7 +32,7 @@ class Functions
 
     public function passByVariableArrayReference(var& i) -> void
     {
-        let i[0] += 10;
+        let i[0] = 20;
     }
 
     public function passByTypedReference(int& i) -> void

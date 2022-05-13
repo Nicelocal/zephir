@@ -117,7 +117,7 @@ PHP_METHOD(Stub_Functions, passByVariableArrayReference)
 
 
 	ZEPHIR_INIT_VAR(&_0);
-	ZVAL_LONG(&_0, 10);
+	ZVAL_LONG(&_0, 20);
 	zephir_array_update_long(i, 0, &_0, PH_COPY | PH_SEPARATE ZEPHIR_DEBUG_PARAMS_DUMMY);
 	ZEPHIR_MM_RESTORE();
 }
