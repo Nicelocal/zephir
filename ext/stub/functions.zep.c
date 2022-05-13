@@ -92,7 +92,6 @@ PHP_METHOD(Stub_Functions, passByVariableReference)
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &i);
-	ZEPHIR_SEPARATE_PARAM(i);
 
 
 	ZEPHIR_INIT_VAR(&_0);
@@ -113,7 +112,6 @@ PHP_METHOD(Stub_Functions, passByVariableArrayReference)
 
 	ZEPHIR_MM_GROW();
 	zephir_fetch_params(1, 1, 0, &i);
-	ZEPHIR_SEPARATE_PARAM(i);
 
 
 	ZEPHIR_INIT_VAR(&_0);
