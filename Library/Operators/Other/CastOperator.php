@@ -395,6 +395,9 @@ class CastOperator extends AbstractOperator
                                     $expression
                                 );
 
+                            case Types::T_BOOL:
+                                return new CompiledExpression('bool', $resolved->getCode(), $expression);
+                                
                             default:
                                 throw new CompilerException(
                                     sprintf(
