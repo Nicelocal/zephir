@@ -35,6 +35,15 @@ class FunctionsTest extends TestCase
         $this->assertEquals(20, $i);
     }
 
+    public function testPassByVariableReferenceNested(): void
+    {
+        $class = new Functions();
+
+        $i = 10;
+        $class->passByVariableReferenceNested($i);
+        $this->assertEquals(20, $i);
+    }
+
     public function testPassByVariableDefaultReference(): void
     {
         $class = new Functions();
