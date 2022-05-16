@@ -426,18 +426,38 @@ int zephir_call_user_function(
 	zval p[fci.param_count];
 #endif
 
-	uint32_t i;
-	for (i = 0; i < fci.param_count; ++i) {
-		ZVAL_COPY_VALUE(&p[i], params[i]);
-	}
-
-	fci.params = p;
-
 #if PHP_VERSION_ID >= 80000
 	if (!fcic.function_handler) {
 		ZVAL_COPY_VALUE(&fci.function_name, &callable);
 	}
 #endif
+
+	if (!fcic.function_handler) {
+		char *error = NULL;
+
+		if (!zend_is_callable_ex(&fci.function_name, fci.object, 0, NULL, &fcic, &error)) {
+			ZEND_ASSERT(error && "Should have error if not callable");
+			zend_string *callable_name
+				= zend_get_callable_name_ex(&fci.function_name, fci.object);
+			zend_throw_error(NULL, "Invalid callback %s, %s", ZSTR_VAL(callable_name), error);
+			efree(error);
+			zend_string_release_ex(callable_name, 0);
+			return SUCCESS;
+		}
+
+		ZEND_ASSERT(!error);
+	}
+
+	zend_function *func = fcic.function_handler;
+	uint32_t i;
+	for (i = 0; i < fci.param_count; ++i) {
+		if (ARG_SHOULD_BE_SENT_BY_REF(func, i + 1)) {
+			ZVAL_MAKE_REF(params[i]);
+		}
+		ZVAL_COPY_VALUE(&p[i], params[i]);
+	}
+
+	fci.params = p;
 
 	status = zend_call_function(&fci, &fcic);
 
