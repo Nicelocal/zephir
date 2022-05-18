@@ -16,8 +16,8 @@
 #include "kernel/operators.h"
 #include "kernel/memory.h"
 #include "kernel/object.h"
-#include "kernel/fcall.h"
 #include "kernel/array.h"
+#include "kernel/fcall.h"
 #include "kernel/concat.h"
 #include "ext/spl/spl_exceptions.h"
 #include "kernel/exception.h"
@@ -273,6 +273,24 @@ PHP_METHOD(Stub_Strings, testExplodeLimit)
 	ZVAL_LONG(&_0, limit);
 	zephir_fast_explode_str(return_value, SL(","), str, zephir_get_intval(&_0) );
 	return;
+}
+
+PHP_METHOD(Stub_Strings, testOffset)
+{
+	zend_long offset;
+	zval *str, str_sub, *offset_param = NULL, _0;
+	zval *this_ptr = getThis();
+
+	ZVAL_UNDEF(&str_sub);
+	ZVAL_UNDEF(&_0);
+
+
+	zephir_fetch_params_without_memory_grow(2, 0, &str, &offset_param);
+	offset = zephir_get_intval(offset_param);
+
+
+	zephir_array_fetch_long(&_0, str, offset, PH_NOISY | PH_READONLY, "stub/strings.zep", 78);
+	RETURN_CTORW(&_0);
 }
 
 PHP_METHOD(Stub_Strings, testSubstr)

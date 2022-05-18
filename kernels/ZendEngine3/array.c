@@ -510,15 +510,15 @@ int zephir_array_fetch(zval *return_value, zval *arr, zval *index, int flags ZEP
 			}
 		}
 	} else if (Z_TYPE_P(arr) == IS_STRING) {
-		if (UNLIKELY(Z_TYPE_P(index) != IS_LONG)) {
+		if (UNEXPECTED(Z_TYPE_P(index) != IS_LONG)) {
 			if ((flags & PH_NOISY) == PH_NOISY) {
 				zend_error(E_WARNING, "Illegal offset type for string: got type %d in %s on line %d", Z_TYPE_P(index), file, line);
 			}
 		} else {
 			uidx = Z_LVAL_P(index);
-			if (UNLIKELY(uidx > Z_STRLEN_P(arr))) {
+			if (UNEXPECTED(uidx > Z_STRLEN_P(arr))) {
 				if ((flags & PH_NOISY) == PH_NOISY) {
-					zend_error(E_WARNING, "Uninitialized string offset %d in %s on line %d", uidx, file, line);
+					zend_error(E_WARNING, "Uninitialized string offset %ld in %s on line %d", uidx, file, line);
 				}
 			} else {
 				ZVAL_CHAR(return_value, Z_STRVAL_P(arr)[uidx]);

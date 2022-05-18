@@ -17,6 +17,7 @@ PHP_METHOD(Stub_Strings, testStrposOffset);
 PHP_METHOD(Stub_Strings, testExplode);
 PHP_METHOD(Stub_Strings, testExplodeStr);
 PHP_METHOD(Stub_Strings, testExplodeLimit);
+PHP_METHOD(Stub_Strings, testOffset);
 PHP_METHOD(Stub_Strings, testSubstr);
 PHP_METHOD(Stub_Strings, testSubstr2);
 PHP_METHOD(Stub_Strings, testSubstr3);
@@ -109,6 +110,11 @@ ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_INFO_EX(arginfo_stub_strings_testexplodelimit, 0, 0, 2)
 	ZEND_ARG_INFO(0, str)
 	ZEND_ARG_TYPE_INFO(0, limit, IS_LONG, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_INFO_EX(arginfo_stub_strings_testoffset, 0, 0, 2)
+	ZEND_ARG_INFO(0, str)
+	ZEND_ARG_TYPE_INFO(0, offset, IS_LONG, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_stub_strings_testsubstr, 0, 0, 3)
@@ -228,6 +234,7 @@ ZEPHIR_INIT_FUNCS(stub_strings_method_entry) {
 	PHP_ME(Stub_Strings, testExplode, arginfo_stub_strings_testexplode, ZEND_ACC_PUBLIC)
 	PHP_ME(Stub_Strings, testExplodeStr, arginfo_stub_strings_testexplodestr, ZEND_ACC_PUBLIC)
 	PHP_ME(Stub_Strings, testExplodeLimit, arginfo_stub_strings_testexplodelimit, ZEND_ACC_PUBLIC)
+	PHP_ME(Stub_Strings, testOffset, arginfo_stub_strings_testoffset, ZEND_ACC_PUBLIC)
 	PHP_ME(Stub_Strings, testSubstr, arginfo_stub_strings_testsubstr, ZEND_ACC_PUBLIC)
 	PHP_ME(Stub_Strings, testSubstr2, arginfo_stub_strings_testsubstr2, ZEND_ACC_PUBLIC)
 	PHP_ME(Stub_Strings, testSubstr3, arginfo_stub_strings_testsubstr3, ZEND_ACC_PUBLIC)

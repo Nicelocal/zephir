@@ -177,19 +177,19 @@ PHP_METHOD(Stub_Exceptions, testExceptionLiteral)
 
 	do {
 		if (ZEPHIR_IS_STRING(&type, "string")) {
-			ZEPHIR_THROW_EXCEPTION_DEBUG_STR(stub_exception_ce, "Test", "stub/exceptions.zep", 56);
+			ZEPHIR_THROW_EXCEPTION_DEBUG_STR(zephir_get_internal_ce(SL("stub\\exception")), "Test", "stub/exceptions.zep", 56);
 			return;
 		}
 		if (ZEPHIR_IS_STRING(&type, "char")) {
-			ZEPHIR_THROW_EXCEPTION_DEBUG_STR(stub_exception_ce, "t", "stub/exceptions.zep", 58);
+			ZEPHIR_THROW_EXCEPTION_DEBUG_STR(zephir_get_internal_ce(SL("stub\\exception")), "t", "stub/exceptions.zep", 58);
 			return;
 		}
 		if (ZEPHIR_IS_STRING(&type, "int")) {
-			ZEPHIR_THROW_EXCEPTION_DEBUG_STR(stub_exception_ce, "123", "stub/exceptions.zep", 60);
+			ZEPHIR_THROW_EXCEPTION_DEBUG_STR(zephir_get_internal_ce(SL("stub\\exception")), "123", "stub/exceptions.zep", 60);
 			return;
 		}
 		if (ZEPHIR_IS_STRING(&type, "double")) {
-			ZEPHIR_THROW_EXCEPTION_DEBUG_STR(stub_exception_ce, "123.123", "stub/exceptions.zep", 62);
+			ZEPHIR_THROW_EXCEPTION_DEBUG_STR(zephir_get_internal_ce(SL("stub\\exception")), "123.123", "stub/exceptions.zep", 62);
 			return;
 		}
 	} while(0);
