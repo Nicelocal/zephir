@@ -1,5 +1,0 @@
-
-extern zend_class_entry *stub_integration_psr_extendexternal_ce;
-
-ZEPHIR_INIT_CLASS(Stub_Integration_Psr_ExtendExternal);
-
