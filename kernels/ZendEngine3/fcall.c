@@ -460,6 +460,11 @@ int zephir_call_user_function(
 	fci.params = p;
 
 	status = zend_call_function(&fci, &fcic);
+	for (i = 0; i < fci.param_count; ++i) {
+		if (ARG_SHOULD_BE_SENT_BY_REF(func, i + 1)) {
+			ZVAL_UNREF(params[i]);
+		}
+	}
 
 #ifdef _MSC_VER
 	efree(p);
