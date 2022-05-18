@@ -607,6 +607,15 @@ int zephir_array_fetch_long(zval *return_value, zval *arr, unsigned long index, 
 		if ((flags & PH_NOISY) == PH_NOISY) {
 			zend_error(E_NOTICE, "Undefined index: %lu", index);
 		}
+	} else if (Z_TYPE_P(arr) == IS_STRING) {
+		if (UNEXPECTED(index > Z_STRLEN_P(arr))) {
+			if ((flags & PH_NOISY) == PH_NOISY) {
+				zend_error(E_WARNING, "Uninitialized string offset %ld in %s on line %d", index, file, line);
+			}
+		} else {
+			ZVAL_CHAR(return_value, Z_STRVAL_P(arr)[index]);
+			return SUCCESS;
+		}
 	} else {
 		if ((flags & PH_NOISY) == PH_NOISY) {
 			zend_error(E_NOTICE, "Cannot use a scalar value as an array in %s on line %d", file, line);

@@ -1,6 +1,9 @@
 {
     "files.associations": {
         "typeindex": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "chrono": "c",
+        "variant": "c",
+        "util": "c"
     }
 }
