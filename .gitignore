@@ -54,3 +54,4 @@ LATER
 php-zephir-parser/
 
 composer.lock
+/ext/
