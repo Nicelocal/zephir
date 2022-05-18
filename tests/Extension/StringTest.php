@@ -216,6 +216,11 @@ final class StringTest extends TestCase
         $this->assertSame($this->test->testSubstr4($input), 'abcde');
     }
 
+    public function testOffset(): void
+    {
+        $this->assertSame($this->test->testSubstr('test', 2), 's');
+    }
+
     public function providerAddStripSlashes(): array
     {
         return [

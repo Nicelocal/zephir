@@ -73,6 +73,11 @@ class Strings
 		return explode(",", str, limit);
 	}
 
+	public function testOffset(var str, int offset)
+	{
+		return str[offset];
+	}
+
 	public function testSubstr(var str, int from, int len)
 	{
 		return substr(str, from, len);
