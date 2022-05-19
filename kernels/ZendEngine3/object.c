@@ -31,7 +31,6 @@ int zephir_instance_of_ev(zval *object, const zend_class_entry *ce)
 {
 	zval *z = Z_ISREF_P(object) ? Z_REFVAL_P(object) : object;
 	if (Z_TYPE_P(z) != IS_OBJECT) {
-		php_error_docref(NULL, E_WARNING, "instanceof expects an object instance");
 		return 0;
 	}
 
