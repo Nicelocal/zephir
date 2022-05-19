@@ -451,18 +451,20 @@ int zephir_call_user_function(
 	zend_function *func = fcic.function_handler;
 	uint32_t i;
 	for (i = 0; i < fci.param_count; ++i) {
-		if (ARG_SHOULD_BE_SENT_BY_REF(func, i + 1)) {
-			ZVAL_MAKE_REF(params[i]);
+		if (ARG_SHOULD_BE_SENT_BY_REF(func, i + 1) && !Z_ISREF_P(params[i])) {
+			ZVAL_NEW_REF(&p[i], params[i]);
+		} else {
+			ZVAL_COPY_VALUE(&p[i], params[i]);
 		}
-		ZVAL_COPY_VALUE(&p[i], params[i]);
 	}
 
 	fci.params = p;
 
 	status = zend_call_function(&fci, &fcic);
 	for (i = 0; i < fci.param_count; ++i) {
-		if (ARG_SHOULD_BE_SENT_BY_REF(func, i + 1)) {
-			ZVAL_UNREF(params[i]);
+		if (ARG_SHOULD_BE_SENT_BY_REF(func, i + 1) && !Z_ISREF_P(params[i])) {
+			ZVAL_COPY(params[i], Z_REFVAL_P(&p[i]));
+			ZVAL_UNREF(&p[i]);
 		}
 	}
 
