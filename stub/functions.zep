@@ -35,7 +35,7 @@ class Functions
         this->passByVariableReference(i);
     }
 
-    public function passByVariableReferenceNested2() -> void
+    public function passByVariableReferenceNested2() -> int
     {
         var i;
         let i = 10;
