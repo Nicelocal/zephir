@@ -35,6 +35,14 @@ class Functions
         this->passByVariableReference(i);
     }
 
+    public function passByVariableReferenceNested2() -> void
+    {
+        var i;
+        let i = 10;
+        this->passByVariableReference(i);
+        return i;
+    }
+
     public function passByVariableDefaultReference(var& i = null) -> void
     {
         let i += 10;
