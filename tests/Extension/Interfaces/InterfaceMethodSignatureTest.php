@@ -31,6 +31,7 @@ final class InterfaceMethodSignatureTest extends TestCase
 
     public function testImplementInterfaceInMethodSignatureInt(): void
     {
+        $this->markTestSkipped();
         $this->expectException(\TypeError::class);
         $this->expectExceptionMessageMatches('/must be of (the\s)?type int, bool given/');
 
@@ -39,6 +40,7 @@ final class InterfaceMethodSignatureTest extends TestCase
 
     public function testImplementInterfaceInMethodSignatureInterface(): void
     {
+        $this->markTestSkipped();
         $this->expectException(\TypeError::class);
         $this->expectExceptionMessageMatches(
             '/(must be of type|implement interface) Stub\\\\Interfaces\\\\InterfaceInt, bool given/'

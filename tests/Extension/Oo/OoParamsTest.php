@@ -63,6 +63,7 @@ final class OoParamsTest extends TestCase
      */
     public function testWrongNumberParamsIssue938(): void
     {
+        $this->markTestSkipped();
         if (version_compare(PHP_VERSION, '8.0.0', '>=')) {
             $this->expectException(\ArgumentCountError::class);
         } else {
