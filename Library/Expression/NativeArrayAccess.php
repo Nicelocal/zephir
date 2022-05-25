@@ -195,7 +195,7 @@ class NativeArrayAccess
 
         if ('variable' == $variableVariable->getType()) {
             if ($variableVariable->hasAnyDynamicType('unknown')) {
-                throw new CompilerException('Cannot use non-initialized variable as an array', $arrayAccess['left']);
+                //throw new CompilerException('Cannot use non-initialized variable as an array', $arrayAccess['left']);
             }
 
             /*

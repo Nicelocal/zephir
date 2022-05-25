@@ -186,9 +186,7 @@ class FunctionCall extends Call
      */
     protected function isReadOnly($funcName, array $expression)
     {
-        if ($this->isBuiltInFunction($funcName)) {
-            return false;
-        }
+        return false;
 
         /*
          * These functions are supposed to be read-only but they change parameters ref-count
@@ -261,6 +259,7 @@ class FunctionCall extends Call
         &$references,
         $expression
     ) {
+        return;
         if ($this->isBuiltInFunction($funcName)) {
             return;
         }
@@ -274,7 +273,7 @@ class FunctionCall extends Call
                 $isZendEngine3 = $compilationContext->backend->isZE3();
                 foreach ($funcParameters as $parameter) {
                     if ($numberParameters >= $n) {
-                        if ($parameter->isPassedByReference()) {
+                        if ($parameter->isPassedByReference() || 1) {
                             /* TODO hack, fix this better */
                             if ($isZendEngine3 && '&' == $parameters[$n - 1][0]) {
                                 $parameters[$n - 1] = substr($parameters[$n - 1], 1);
@@ -525,11 +524,9 @@ class FunctionCall extends Call
             }
         }
 
-        /*
-         * Temporary variables must be copied if they have more than one reference
-         */
-        foreach ($this->getMustCheckForCopyVariables() as $checkVariable) {
-            $codePrinter->output('zephir_check_temp_parameter('.$checkVariable.');');
+        // Temporary variables must be copied back to avoid issues with references
+        foreach ($this->mustCopyBack as $stmt) {
+            $codePrinter->output($stmt);
         }
 
         if (\is_array($references)) {
@@ -680,11 +677,9 @@ class FunctionCall extends Call
             }
         }
 
-        /*
-         * Temporary variables must be copied if they have more than one reference
-         */
-        foreach ($this->getMustCheckForCopyVariables() as $checkVariable) {
-            $codePrinter->output('zephir_check_temp_parameter('.$checkVariable.');');
+        // Temporary variables must be copied back to avoid issues with references
+        foreach ($this->mustCopyBack as $stmt) {
+            $codePrinter->output($stmt);
         }
 
         $this->addCallStatusOrJump($compilationContext);

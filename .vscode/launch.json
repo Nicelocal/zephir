@@ -11,7 +11,7 @@
             "program": "/usr/bin/php",
             "args": ["vendor/bin/phpunit", "-c", "phpunit.ext.xml"],
             "stopAtEntry": false,
-            "cwd": "/home/daniil/repos/zephir",
+            "cwd": "/home/daniil/repos/zephir/",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",

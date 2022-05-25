@@ -73,7 +73,7 @@ class Call
     /**
      * @var array
      */
-    protected array $mustCheckForCopy = [];
+    protected array $mustCopyBack = [];
 
     /**
      * Processes the symbol variable that will be used to return
@@ -333,7 +333,7 @@ class Call
         $params = [];
         $types = [];
         $dynamicTypes = [];
-        $mustCheck = [];
+        $mustCopyBack = [];
         foreach ($exprParams as $compiledExpression) {
             $expression = $compiledExpression->getOriginal();
             switch ($compiledExpression->getType()) {
@@ -411,6 +411,7 @@ class Call
                         case 'int':
                         case 'uint':
                         case 'long':
+                        case 'uchar':
                         /* ulong must be stored in string */
                         case 'ulong':
                             $parameterTempVariable = $compilationContext->backend->getScalarTempVariable('variable', $compilationContext);
@@ -419,6 +420,7 @@ class Call
                             $this->temporalVariables[] = $parameterTempVariable;
                             $types[] = $parameterVariable->getType();
                             $dynamicTypes[] = $parameterVariable->getType();
+                            $mustCopyBack[] = $parameterVariable->getName().' = Z_LVAL_P(&'.$parameterTempVariable->getName().');';
                             break;
 
                         case 'double':
@@ -428,6 +430,7 @@ class Call
                             $this->temporalVariables[] = $parameterTempVariable;
                             $types[] = $parameterVariable->getType();
                             $dynamicTypes[] = $parameterVariable->getType();
+                            $mustCopyBack[] = $parameterVariable->getName().' = Z_DVAL_P(&'.$parameterTempVariable->getName().');';
                             break;
 
                         case 'bool':
@@ -444,6 +447,7 @@ class Call
                             $params[] = $compilationContext->backend->getVariableCode($tempVariable);
                             $types[] = $parameterVariable->getType();
                             $dynamicTypes[] = $parameterVariable->getType();
+                            $mustCopyBack[] = $parameterVariable->getName().' = '.$compilationContext->backend->getBoolCode($tempVariable, $compilationContext, false).';';
                             break;
 
                         case 'string':
@@ -481,7 +485,7 @@ class Call
 
         $this->resolvedTypes = $types;
         $this->resolvedDynamicTypes = $dynamicTypes;
-        $this->mustCheckForCopy = $mustCheck;
+        $this->mustCopyBack = $mustCopyBack;
 
         return $params;
     }
@@ -709,9 +713,6 @@ class Call
     public function checkTempParameters(CompilationContext $compilationContext): void
     {
         $compilationContext->headersManager->add('kernel/fcall');
-        foreach ($this->getMustCheckForCopyVariables() as $checkVariable) {
-            $compilationContext->codePrinter->output('zephir_check_temp_parameter('.$checkVariable.');');
-        }
     }
 
     /**
@@ -742,15 +743,5 @@ class Call
     public function getTemporalVariables(): array
     {
         return $this->temporalVariables;
-    }
-
-    /**
-     * Parameters to check if they must be copied.
-     *
-     * @return array
-     */
-    public function getMustCheckForCopyVariables(): array
-    {
-        return $this->mustCheckForCopy;
     }
 }

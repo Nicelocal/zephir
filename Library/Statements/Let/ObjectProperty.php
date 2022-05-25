@@ -79,7 +79,7 @@ class ObjectProperty
         }
 
         if ($symbolVariable->hasAnyDynamicType('unknown')) {
-            throw new Exception('Cannot use non-initialized variable as an object', $statement);
+            //throw new Exception('Cannot use non-initialized variable as an object', $statement);
         }
 
         /*

@@ -1102,7 +1102,6 @@ void zephir_preg_match(zval *return_value, zval *regex, zval *subject, zval *mat
 	ZVAL_LONG(&tmp_offset, offset);
 
 	ZVAL_NULL(&tmp_matches);
-	ZVAL_MAKE_REF(&tmp_matches);
 
 	{
 		zval *tmp_params[5] = { regex, subject, &tmp_matches, &tmp_flags, &tmp_offset };
@@ -1115,11 +1114,7 @@ void zephir_preg_match(zval *return_value, zval *regex, zval *subject, zval *mat
 	}
 
 	if (matches) {
-		if (Z_TYPE(tmp_matches) == IS_REFERENCE) {
-			ZVAL_COPY(matches, Z_REFVAL(tmp_matches));
-		} else {
-			ZVAL_NULL(matches);
-		}
+		ZVAL_COPY(matches, &tmp_matches);
 	}
 
 	zval_dtor(&tmp_matches);

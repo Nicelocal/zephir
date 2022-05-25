@@ -332,11 +332,9 @@ class StaticCall extends Call
             }
         }
 
-        /**
-         * Temporary variables must be copied if they have more than one reference
-         */
-        foreach ($this->getMustCheckForCopyVariables() as $checkVariable) {
-            $codePrinter->output('zephir_check_temp_parameter('.$checkVariable.');');
+        // Temporary variables must be copied back to avoid issues with references
+        foreach ($this->mustCopyBack as $stmt) {
+            $codePrinter->output($stmt);
         }
 
         $this->addCallStatusOrJump($compilationContext);
@@ -402,11 +400,9 @@ class StaticCall extends Call
             }
         }
 
-        /**
-         * Temporary variables must be copied if they have more than one reference
-         */
-        foreach ($this->getMustCheckForCopyVariables() as $checkVariable) {
-            $codePrinter->output('zephir_check_temp_parameter('.$checkVariable.');');
+        // Temporary variables must be copied back to avoid issues with references
+        foreach ($this->mustCopyBack as $stmt) {
+            $codePrinter->output($stmt);
         }
 
         $this->addCallStatusOrJump($compilationContext);
@@ -494,11 +490,9 @@ class StaticCall extends Call
             }
         }
 
-        /**
-         * Temporary variables must be copied if they have more than one reference
-         */
-        foreach ($this->getMustCheckForCopyVariables() as $checkVariable) {
-            $codePrinter->output('zephir_check_temp_parameter('.$checkVariable.');');
+        // Temporary variables must be copied back to avoid issues with references
+        foreach ($this->mustCopyBack as $stmt) {
+            $codePrinter->output($stmt);
         }
 
         $this->addCallStatusOrJump($compilationContext);
@@ -581,11 +575,9 @@ class StaticCall extends Call
             }
         }
 
-        /**
-         * Temporary variables must be copied if they have more than one reference
-         */
-        foreach ($this->getMustCheckForCopyVariables() as $checkVariable) {
-            $codePrinter->output('zephir_check_temp_parameter('.$checkVariable.');');
+        // Temporary variables must be copied back to avoid issues with references
+        foreach ($this->mustCopyBack as $stmt) {
+            $codePrinter->output($stmt);
         }
 
         $this->addCallStatusOrJump($compilationContext);
@@ -677,11 +669,9 @@ class StaticCall extends Call
             }
         }
 
-        /**
-         * Temporary variables must be copied if they have more than one reference
-         */
-        foreach ($this->getMustCheckForCopyVariables() as $checkVariable) {
-            $codePrinter->output('zephir_check_temp_parameter('.$checkVariable.');');
+        // Temporary variables must be copied back to avoid issues with references
+        foreach ($this->mustCopyBack as $stmt) {
+            $codePrinter->output($stmt);
         }
 
         $this->addCallStatusOrJump($compilationContext);
