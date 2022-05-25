@@ -411,7 +411,6 @@ class Call
                         case 'int':
                         case 'uint':
                         case 'long':
-                        case 'uchar':
                         /* ulong must be stored in string */
                         case 'ulong':
                             $parameterTempVariable = $compilationContext->backend->getScalarTempVariable('variable', $compilationContext);
@@ -420,7 +419,17 @@ class Call
                             $this->temporalVariables[] = $parameterTempVariable;
                             $types[] = $parameterVariable->getType();
                             $dynamicTypes[] = $parameterVariable->getType();
-                            $mustCopyBack[] = $parameterVariable->getName().' = Z_LVAL_P(&'.$parameterTempVariable->getName().');';
+                            $mustCopyBack[] = $parameterVariable->getName()." = Z_LVAL_P(&".$parameterTempVariable->getName().');';
+                            break;
+
+                        case 'uchar':
+                            $parameterTempVariable = $compilationContext->backend->getScalarTempVariable('variable', $compilationContext);
+                            $params[] = $compilationContext->backend->getVariableCode($parameterTempVariable);
+                            $compilationContext->backend->assignChar($parameterTempVariable, $parameterVariable, $compilationContext);
+                            $this->temporalVariables[] = $parameterTempVariable;
+                            $types[] = $parameterVariable->getType();
+                            $dynamicTypes[] = $parameterVariable->getType();
+                            $mustCopyBack[] = "ZEND_ASSERT(Z_STRLEN_P(&".$parameterTempVariable->getName().") == 1);".$parameterVariable->getName()." = Z_STRVAL_P(&".$parameterTempVariable->getName().')[0];';
                             break;
 
                         case 'double':

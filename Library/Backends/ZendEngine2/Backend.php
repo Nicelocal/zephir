@@ -236,6 +236,11 @@ class Backend extends BaseBackend
         return $this->returnHelper('RETURN_MM_STRING', $value, $context, $useCodePrinter, $doCopy);
     }
 
+    public function assignChar(Variable $variable, $value, CompilationContext $context, $useCodePrinter = true)
+    {
+        return $this->assignHelper('ZVAL_CHAR', $this->getVariableCode($variable), $value, $context, $useCodePrinter);
+    }
+
     public function assignLong(Variable $variable, $value, CompilationContext $context, $useCodePrinter = true)
     {
         return $this->assignHelper('ZVAL_LONG', $this->getVariableCode($variable), $value, $context, $useCodePrinter);

@@ -184,6 +184,8 @@ abstract class BaseBackend implements FcallAwareInterface
 
     abstract public function assignLong(Variable $variable, $value, CompilationContext $context, $useCodePrinter = true);
 
+    abstract public function assignChar(Variable $variable, $value, CompilationContext $context, $useCodePrinter = true);
+
     abstract public function assignDouble(Variable $variable, $value, CompilationContext $context, $useCodePrinter = true);
 
     abstract public function assignBool(Variable $variable, $value, CompilationContext $context, $useCodePrinter = true);
