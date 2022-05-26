@@ -59,7 +59,7 @@ void zephir_array_keys(zval *return_value, zval *arr);
 int zephir_array_key_exists(zval *arr, zval *key);
 
 /* Update array using multiple keys */
-void zephir_array_update_multi_ex(zval *arr, zval *value, const char *types, int types_length, int types_count, va_list ap);
+void zephir_array_update_multi_ex(zval *arr, zval *value, const char *types, int types_length, va_list ap);
 int zephir_array_update_multi(zval *arr, zval *value, const char *types, int types_length, int types_count, ...);
 
 /** Fast Array Merge */

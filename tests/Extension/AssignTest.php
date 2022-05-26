@@ -137,6 +137,7 @@ final class AssignTest extends TestCase
             [['test_index' => 'value'],   'testArrayVarAssign1', ['test_index', 'value']],
             [['test_index' => 'value'],   'testArrayVarAssign2', ['test_index', 'value']],
             [$arry,                       'testPropertyArray14'],
+            [$arry,                       'testOtherPropertyArray14'],
             [$arry,                       'testStaticPropertyArrayMulti4'],
             [['test', 1, 1.5, false, []], 'testStaticPropertyArrayAppend'],
             [['a' => true, 'b' => false], 'testArrayBoolExpressionAssign'],

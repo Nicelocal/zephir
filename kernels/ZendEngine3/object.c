@@ -914,7 +914,7 @@ int zephir_update_property_array_multi(zval *object, const char *property, uint3
 		}
 
 		va_start(ap, types_count);
-		zephir_array_update_multi_ex(&tmp_arr, value, types, types_length, types_count, ap);
+		zephir_array_update_multi_ex(&tmp_arr, value, types, types_length, ap);
 		va_end(ap);
 
 		if (separated) {
@@ -1154,7 +1154,7 @@ int zephir_update_static_property_array_multi_ce(
 
 	va_start(ap, types_count);
 	SEPARATE_ZVAL_NOREF(&tmp_arr);
-	zephir_array_update_multi_ex(&tmp_arr, value, types, types_length, types_count, ap);
+	zephir_array_update_multi_ex(&tmp_arr, value, types, types_length, ap);
 	va_end(ap);
 
 	if (separated) {

@@ -698,6 +698,27 @@ class Assign
 		return this->myArray;
 	}
 
+	public function testOtherPropertyArray14(var placeholder)
+	{
+		var thiz;
+		let thiz = this;
+
+		var v = "abc";
+		let thiz->myArray = [
+			"a": ["b_key": "b_val"]
+		];
+		let thiz->myArray["a"]["b"]["d_key"] = "d_val";
+		let thiz->myArray[1] = [
+			2: [3: 4]
+		];
+
+		let thiz->myArray["s"] = 1;
+		let thiz->myArray["a"]["b"]["c"]["d"]["e"] = "f";
+		let thiz->myArray[1][2][5] = 6;
+		let thiz->myArray[1][2][v] = v;
+		return thiz->myArray;
+    }
+
 	public function testStaticPropertyAssign1()
 	{
 		let self::testVarStatic = 1;

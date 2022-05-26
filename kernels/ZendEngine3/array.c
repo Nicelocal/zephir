@@ -844,7 +844,7 @@ int zephir_array_key_exists(zval *arr, zval *key)
 /**
  * Implementation of Multiple array-offset update
  */
-void zephir_array_update_multi_ex(zval *arr, zval *value, const char *types, int types_length, int types_count, va_list ap)
+void zephir_array_update_multi_ex(zval *arr, zval *value, const char *types, int types_length, va_list ap)
 {
 	char *s;
 	zval *item;
@@ -1016,7 +1016,7 @@ int zephir_array_update_multi(zval *arr, zval *value, const char *types, int typ
 	va_start(ap, types_count);
 	SEPARATE_ZVAL(arr);
 
-	zephir_array_update_multi_ex(arr, value, types, types_length, types_count, ap);
+	zephir_array_update_multi_ex(arr, value, types, types_length, ap);
 	va_end(ap);
 
 	return 0;

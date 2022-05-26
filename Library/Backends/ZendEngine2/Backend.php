@@ -1155,7 +1155,7 @@ class Backend extends BaseBackend
         foreach ($offsetExprs as $offsetExpr) {
             if ('a' == $offsetExpr) {
                 $keys .= 'a';
-                ++$numberParams;
+                //++$numberParams;
                 continue;
             }
             switch ($offsetExpr->getType()) {
