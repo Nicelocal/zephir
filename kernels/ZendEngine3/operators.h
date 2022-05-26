@@ -140,7 +140,7 @@ long zephir_safe_mod_zval_double(zval *op1, double op2);
 long zephir_safe_mod_long_zval(long op1, zval *op2);
 long zephir_safe_mod_double_zval(double op1, zval *op2);
 
-#define zephir_get_numberval(z) (Z_TYPE_P(z) == IS_LONG ? Z_LVAL_P(z) : zephir_get_doubleval(z))
+#define zephir_get_numberval(z) (zephir_get_intval(z))
 #define zephir_get_intval(z) (Z_TYPE_P(z) == IS_LONG ? Z_LVAL_P(z) : zephir_get_intval_ex(z))
 #define zephir_get_doubleval(z) (Z_TYPE_P(z) == IS_DOUBLE ? Z_DVAL_P(z) : zephir_get_doubleval_ex(z))
 #define zephir_get_boolval(z) (Z_TYPE_P(z) == IS_TRUE ? 1 : (Z_TYPE_P(z) == IS_FALSE ? 0 : zephir_get_boolval_ex(z)))
